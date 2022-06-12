@@ -27,7 +27,7 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="active"> <a href="#">Home</a> </li>
+                                        <li :active> <a href="/home-usuario"> Home </a> </li>
                                         <li> <a href="#about">Mis Tiquetes</a> </li>
                                         <li><a href="#blog">Configuracion</a></li>
                                         <li><a href="#contact">Cerrar sesión</a></li>
@@ -94,7 +94,7 @@
     </section>
     <!-- end BARRA -->
     <!--tiquetes -->
-    <div id="tiquetes" class="tiquete">
+    <div   id="tiquetes"   class="tiquete">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ">
@@ -131,7 +131,7 @@
 
                                 </div>
                                 <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                    <label>Date</label><br>
+                                    <label>Fecha llegada</label><br>
                                     <h3>Bogota</h3>
 
                                 </div>
@@ -207,28 +207,7 @@
     <!-- end footer -->
     <!-- Javascript files-->
 
-    <!-- javascript -->
-    <script>
-        $(document).ready(function () {
-            var owl = $('.owl-carousel');
-            owl.owlCarousel({
-                margin: 10,
-                nav: true,
-                loop: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 2
-                    },
-                    1000: {
-                        items: 3
-                    }
-                }
-            })
-        })
-    </script>
+   
 
 </body>
 
