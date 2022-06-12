@@ -108,6 +108,7 @@ create table ruta (
     destino int not null,
     fecha_salida date,
     fecha_llegada date,
+    precio int not null,
     primary key(idruta),
     foreign key(idconductor) references conductor(idconductor),
     foreign key(idempresa) references empresa(idempresa),
