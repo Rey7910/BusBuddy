@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { HomeUsuarioComponent } from './home-usuario/home-usuario.component';
 import { RegisterComponent } from './register/register.component';
+import { HomePageComponent } from './home-page/home-page.component';
 
 
 const routes: Routes = [
@@ -11,8 +12,12 @@ const routes: Routes = [
     component: LoginComponent,
 },
 {
+  path: 'home-page',
+  component: HomePageComponent,
+},
+{
   path: '',
-  redirectTo: 'login',
+  redirectTo: 'home-page',
   pathMatch: 'full',
 },
 {
