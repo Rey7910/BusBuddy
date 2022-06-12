@@ -7,7 +7,7 @@ drop table if exists empresa;
 drop table if exists personal;
 
 create table usuario(
-    idusuario int not null,
+    idusuario int auto_increment not null,
     usuario varchar(45),
     nombre varchar(45),
     apellido varchar(45),
