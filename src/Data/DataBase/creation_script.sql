@@ -7,8 +7,8 @@ drop table if exists empresa;
 drop table if exists personal;
 
 create table usuario(
-	idusuario int not null,
-	usuario varchar(45),
+    idusuario int not null,
+    usuario varchar(45),
     nombre varchar(45),
     apellido varchar(45),
     correo varchar(45),
@@ -19,18 +19,18 @@ create table usuario(
 );
 
 create table empresa(
-	idempresa int not null,
-	nombre varchar(45),
+    idempresa int not null,
+    nombre varchar(45),
     nit varchar(45),
     email varchar(45),
     primary key (idempresa)
 );
 
 create table personal(
-	idpersonal int not null,
+    idpersonal int not null,
     idusuario int not null,
-	nombre varchar(45),
-	apellido varchar(45),
+    nombre varchar(45),
+    apellido varchar(45),
     telefono varchar (45),
     cargo varchar(45),
     eps varchar (45),
@@ -42,7 +42,7 @@ create table personal(
 );
 
 create table conductor(
-	idconductor int not null,
+    idconductor int not null,
     idusuario int not null,
     idempresa int not null,
     id varchar (45),
@@ -54,7 +54,7 @@ create table conductor(
 );
 
 create table administrador_empresa(
-	idadministrador_empresa int not null,
+    idadministrador_empresa int not null,
     idusuario int not null,
     idempresa int not null,
     id varchar (45),
@@ -66,7 +66,7 @@ create table administrador_empresa(
 );
 
 create table terminal(
-	idterminal int not null,
+    idterminal int not null,
     idalterno int,
     Nombre varchar (45),
     ciudad varchar (45),
@@ -76,7 +76,7 @@ create table terminal(
 );
 
 create table administrador_terminal (
-	idadministrador_terminal int not null,
+    idadministrador_terminal int not null,
     idusuario int not null,
     idterminal int not null,
     id varchar (45),
@@ -88,7 +88,7 @@ create table administrador_terminal (
 ); 
 
 create table bus (
-	idbus int not null,
+    idbus int not null,
     idempresa int not null,
     placa varchar(45),
     marca varchar(45),
@@ -99,7 +99,7 @@ create table bus (
 );
 
 create table ruta (
-	idruta int not null,
+    idruta int not null,
     idconductor int,
     idempresa int not null,
     idbus int,
@@ -117,7 +117,7 @@ create table ruta (
 );
 
 create table reserva(
-	idreserva int not null,
+    idreserva int not null,
     idruta int not null,
     idusuario int not null,
     nombre varchar(45),
