@@ -1,0 +1,150 @@
+<section class="vh-100 bg-image" style="background-image: url('front-BusBuddy/src/app/Images/Fondo.png');">
+    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <form>    
+                    <div *ngIf="box_registo" class="card" style="border-radius: 15px;">
+                        <div class="card-body p-9">
+                            <div style="text-align: center;">
+                                <img width="175" height="175"
+                                    src="https://i.pinimg.com/originals/61/4f/41/614f41bfff5dff361543597e7414b5f4.jpg">
+                            </div>
+                            <h2 class="text-uppercase text-center mb-5">Crea tu cuenta</h2>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Nombres</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Apellidos</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3cg">Correo electronico</label>
+                                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3cg">Fecha de nacimiento</label>
+                                    <input type="date" id="form3Example3cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example3cg">Telefono</label>
+                                    <input type="number" id="form3Example3cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4 btn-group" role="group" aria-label="Basic example">
+                                    <label style="margin-top: 5px" class="form-label" for="form3Example3cg">¿Por qué
+                                        creas la cuenta?</label>
+                                    <div style="margin-left: 10px">
+                                        <button (click)="cambio3()" type="button"
+                                            class="btn btn-success gradient-custom-4 text-body">Cliente</button>
+                                    </div>
+                                    <div>
+                                        <button (click)="cambio()" style="margin-left: 15px" type="button"
+                                            class="btn btn-success gradient-custom-4 text-body">Vinculación
+                                            laboral</button>
+                                    </div>
+                                </div>
+
+
+                        </div>
+                    </div>
+
+                    <div *ngIf="box_vincu_lab" class="card" style="border-radius: 15px;">
+                        <div class="card-body p-9">
+                            <div style="text-align: center;">
+                                <img width="175" height="175"
+                                    src="https://i.pinimg.com/originals/61/4f/41/614f41bfff5dff361543597e7414b5f4.jpg">
+                            </div>
+                            <h2 class="text-uppercase text-center mb-5">Vinculación Laboral</h2>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Empresa</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Token de verificación</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+                            <div class="form-outline mb-4" style="text-align: center;">
+                                <button  type="button" (click)="cambio2()" class="btn btn-success gradient-custom-4 text-body">Validar datos</button>
+                            </div>
+                                
+                        </div>
+                    </div>
+
+                    <div *ngIf="box_vincu_lab_2" class="card" style="border-radius: 15px;">
+                        <div class="card-body p-9">
+                            <div style="text-align: center;">
+                                <img width="175" height="175"
+                                    src="https://i.pinimg.com/originals/61/4f/41/614f41bfff5dff361543597e7414b5f4.jpg">
+                            </div>
+                            <h2 class="text-uppercase text-center mb-5">Vinculación Laboral</h2>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">NIT Empresa</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Empresa</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Cargo</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Cedula</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                            <div class="form-outline mb-4" style="text-align: center;">
+                                <button (click)="cambio3()" type="button" class="btn btn-success gradient-custom-4 text-body">Validar datos</button>
+                            </div>
+                                
+                        </div>
+                    </div>
+
+                    <div *ngIf="box_usuario"  class="card" style="border-radius: 15px;">
+                        <div class="card-body p-9">
+                            <div style="text-align: center;">
+                                <img width="175" height="175"
+                                    src="https://i.pinimg.com/originals/61/4f/41/614f41bfff5dff361543597e7414b5f4.jpg">
+                            </div>
+                            <h2 class="text-uppercase text-center mb-5">Crea tu usuario</h2>
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Usuario</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Contraseña</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="form3Example1cg">Repetir contraseña</label>
+                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline mb-4" style="text-align: center;">
+                                    <button  type="button" (click)="crearusuario()" class="btn btn-success gradient-custom-4 text-body">Crea tu usuario</button>
+                                </div>
+                                
+                        </div>
+                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
