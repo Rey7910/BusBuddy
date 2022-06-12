@@ -11,7 +11,9 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
- .footer {
+ 
+
+.footer {
   background-color: #022739;
   margin-top: 90px;
 }
@@ -70,6 +72,7 @@ ul.link li a:hover {
   color: #fff;
   background-color: #15cfe5;
 }
+
 .pdn-top-30 {
   padding-top: 35px;
 }
