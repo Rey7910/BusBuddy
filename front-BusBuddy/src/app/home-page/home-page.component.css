@@ -10,6 +10,135 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+ .footer {
+  background-color: #022739;
+  margin-top: 90px;
+}
+
+.footer .Follow {
+  margin-bottom: 27px;
+}
+
+.footer .Follow h3 {
+  color: #fff;
+  font-size: 25px;
+  line-height: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-width: 1px;
+  display: inline-block;
+  padding-bottom: 2px;
+  padding-bottom: 27px;
+}
+
+.footer span {
+  font-size: 17px;
+  display: block;
+  color: #fff;
+}
+
+ul.link li a {
+  color: #fff;
+  font-size: 17px;
+}
+
+ul.link li a:hover {
+  color: #878686;
+}
+
+.footer .Newsletter {
+  padding: 13px 26px;
+  padding-top: 10px;
+  padding-right: 26px;
+  padding-bottom: 10px;
+  padding-left: 15px;
+  border: #fff solid 1px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.footer .Subscribe {
+  padding: 10px 30px;
+  border: #0e0c0c solid 1px;
+  background: #0e0c0c;
+  color: #fff;
+  float: right;
+}
+
+.footer .Subscribe:hover {
+  color: #fff;
+  background-color: #15cfe5;
+}
+.pdn-top-30 {
+  padding-top: 35px;
+}
+
+ul.location_icon {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  float: left;
+}
+
+ul.location_icon li {
+  float: left;
+  height: 70px;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-right: 20px;
+}
+
+ul.location_icon li:last-child {
+  padding-right: 0px;
+}
+
+ul.location_icon li a {
+  margin-bottom: 23px;
+}
+
+ul.location_icon span {
+  font-size: 17px;
+  font-weight: 400;
+}
+
+
+.owl-dot.active {
+  background: #15cfe5 !important;
+}
+
+.tiquete_page .tiquete {
+  margin-bottom: 90px;
+}
+
+.tiquete-bg {
+  background-color: #b32137;
+  margin-top: 90px;
+}
+
+
+
+.tiquete-bg .tiquetetitle h2 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 40px;
+  line-height: 45px;
+  padding: 40px 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.contact-page .Contact {
+  margin-top: 0px;
+}
+
+.contact-page .form-control {
+  margin-bottom: 20px;
+}
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
