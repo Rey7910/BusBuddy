@@ -6,14 +6,7 @@
 @import url('https://fonts.googleapis.com/css?family=Rajdhani:300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
 
-/*****---------------------------------------- 1) font-family: 'Rajdhani', sans-serif;
- 2) font-family: 'Poppins', sans-serif;
- ----------------------------------------*****/
 
-/*--------------------------------------------------------------------- import Files ---------------------------------------------------------------------*/
-
-
-/*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
 * {
     box-sizing: border-box !important;
@@ -197,7 +190,6 @@ a.readmore_bt {
 
 
 
-/*---------------------------- scroll to top area ----------------------------*/
 
 
 
@@ -320,37 +312,7 @@ nav.main-menu {
     background: #111111;
 }
 
-.cart-box {
-    float: right;
-    margin-left: 10px;
-    position: relative;
-}
 
-.cart-content-box {
-    position: absolute;
-    z-index: 1009;
-    top: 40px;
-    left: auto;
-    right: 0;
-    min-width: 250px;
-    max-width: 250px;
-    padding: 15px;
-    background: #ffffff;
-    list-style: none;
-    border: 2px solid #38c8a8;
-    opacity: 0;
-    visibility: hidden;
-    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    -webkit-transform: scaleY(0);
-    transform: scaleY(0);
-    -webkit-transform-origin: 0 0 0;
-    transform-origin: 0 0 0;
-    -webkit-transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-    transition: all 0.3s ease 0s;
-}
 
 .cart-box:hover .cart-content-box {
     opacity: 1;
@@ -1026,7 +988,7 @@ input[type="radio"] .styled:checked+label::after {
     color: #000;
 }
 
-.main-form a {
+.main-form button{
     background: #ee580f;
     color: #fff;
     float: left;

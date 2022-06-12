@@ -7,11 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeUsuarioComponent implements OnInit {
 
-  
+  tiquetever = false;
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  AparecerTiquetes(){
+    this.tiquetever = true;
   }
 
 }
