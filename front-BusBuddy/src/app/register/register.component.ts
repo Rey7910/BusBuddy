@@ -23,6 +23,26 @@ export class RegisterComponent implements OnInit {
 
   }
 
+  regresar(){
+    if (this.box_vincu_lab==true) {
+      this.box_registo = true;
+      this.box_vincu_lab = false; 
+      this. box_vincu_lab_2 = false;
+      this.box_usuario = false;
+    }else if (this.box_vincu_lab_2==true){
+      this.box_registo = false;
+      this.box_vincu_lab = true;
+      this.box_vincu_lab_2 = false;
+      this.box_usuario = false;
+    }else if (this.box_usuario == true){
+      this.box_registo = false;
+      this.box_vincu_lab = false;
+      this.box_vincu_lab_2 = true;
+      this.box_usuario = false;    
+    }
+
+  }
+
   cambio(){
     this.box_registo = false;
     this.box_vincu_lab = true;
