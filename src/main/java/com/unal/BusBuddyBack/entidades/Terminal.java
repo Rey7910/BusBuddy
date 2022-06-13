@@ -1,11 +1,26 @@
 package com.unal.BusBuddyBack.entidades;
 
-public class Terminal {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name="terminal")
+public class Terminal implements Serializable {
+    private static final long serialVersionUID = -7776397522474366809L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idterminal")
     private int id;
+    @Column(name="idalterno")
     private int idAlterno;
+    @Column(name="Nombre")
     private String nombre;
+    @Column(name="ciudad")
     private String ciudad;
+    @Column(name="capacidad")
     private int capacidad;
+    @Column(name="estado")
     private String estado;
 
     public Terminal() {
