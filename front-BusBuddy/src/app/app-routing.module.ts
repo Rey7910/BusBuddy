@@ -6,6 +6,7 @@ import { RegisterComponent } from './register/register.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AsignarRutasEmpresaComponent } from './asignar-rutas-empresa/asignar-rutas-empresa.component';
 import {MisRutasComponent} from './mis-rutas/mis-rutas.component';
+import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.component';
 
 const routes: Routes = [
   {

@@ -12,6 +12,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AsignarRutasEmpresaComponent } from './asignar-rutas-empresa/asignar-rutas-empresa.component';
 import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
+import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.component';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,9 @@ import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
     RegisterComponent,
     HomePageComponent,
     AsignarRutasEmpresaComponent,
-<<<<<<< HEAD
-    MisRutasComponent
-=======
-    CompraTiqueteComponent
->>>>>>> 70e7779c857a67c9990d7bf1af616c48c3824cab
+    CompraTiqueteComponent,
+    MisRutasComponent,
+    
   ],
   imports: [
     BrowserModule,
