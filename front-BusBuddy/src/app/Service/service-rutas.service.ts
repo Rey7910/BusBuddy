@@ -11,4 +11,7 @@ export class ServiceRutasService {
   getRutas(){
     return this.http.get<Ruta[]>(this.Url);
   }
+  crearRuta(ruta:Ruta){
+    return this.http.post<Ruta>(this.Url,ruta);
+  }
 }

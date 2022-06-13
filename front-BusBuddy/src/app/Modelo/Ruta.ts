@@ -9,4 +9,7 @@ export class Ruta{
     fechaSalida:Date;  
     fechaLlegada:Date;
     precio:number;
+    constructor(){
+        
+    }
 }

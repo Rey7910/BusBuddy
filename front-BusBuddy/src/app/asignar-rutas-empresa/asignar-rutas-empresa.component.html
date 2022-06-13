@@ -58,32 +58,32 @@
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Origen </label>
 
-                                            <input class="form-control" placeholder="" type="text" name="">
+                                            <input id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.origen" class="form-control" placeholder="" type="text" name="">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Fecha salida</label>
-                                            <input class="form-control" placeholder="Any" type="date" name="Any">
+                                            <input id="fechaSalida" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.fechaSalida"class="form-control" placeholder="Any" type="date" name="Any">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Conductor</label>
-                                            <input class="form-control" placeholder="Nombre" type="text" name="">
+                                            <input id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor" class="form-control" placeholder="Nombre" type="text" name="">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Destino</label>
-                                            <input class="form-control" placeholder="" type="text" name="Any">
+                                            <input id="destino" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino" class="form-control" placeholder="" type="text" name="Any">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Fecha llegada</label>
-                                            <input class="form-control" placeholder="Any" type="date" name="Any">
+                                            <input id="fechaLlegada"[ngModelOptions]="{standalone: true}"  [(ngModel)]="newRuta.fechaLlegada" class="form-control" placeholder="Any" type="date" name="Any">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Precio</label>
-                                            <input class="form-control" placeholder="00.0" type="text" name="00.0">
+                                            <input id="precio" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.precio" class="form-control" placeholder="00.0" type="text" name="00.0">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                                    <button type="button"  class="button">Crear</button>
+                                    <button  (click)="Crear(newRuta)" type="button"  class="button">Crear</button>
                                 </div>
                             </div>
                         </form>
@@ -107,44 +107,44 @@
         </div>
         <div class="bg">
             <div class="container">
-                <form class="rutas-form">
+                <form *ngFor="let ruta of rutas" class="rutas-form">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <label>Origen</label><br>
-                                    <h3>Bogota</h3>
+                                    <h3>{{ruta.origen}}</h3>
 
                                 </div>
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <label>Fecha Salida</label><br>
-                                    <h3>Bogota</h3>
+                                    <h3>{{ruta.fechaSalida | date :'short'}}</h3>
                                 </div>
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <img src="../../assets/flecha.png" alt="#">
                                 </div>
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <label>Destino</label><br>
-                                    <h3>Bogota</h3>
+                                    <h3>{{ruta.destino}}</h3>
                                 </div>
 
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <label>Fecha llegada</label><br>
-                                    <h3>Bogota</h3>
+                                    <h3>{{ruta.fechaLlegada | date :'short'}}</h3>
                                 </div>
 
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <label>Precio</label><br>
-                                    <h3>Bogota</h3>
+                                    <h3>{{ruta.precio}}</h3>
 
                                 </div>
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <label>Estado</label><br>
-                                    <h3>En ruta</h3>
+                                    <h3>{{ruta.estado}}</h3>
                                 </div>
                                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-10">
                                     <label>Conductor</label><br>
-                                    <h4>Jose mauricio Rodriguez Alarcon</h4>
+                                    <h4>{{ruta.idConductor}}</h4>
                                 </div>
 
 
