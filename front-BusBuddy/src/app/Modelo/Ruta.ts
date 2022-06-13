@@ -1,12 +1,12 @@
 export class Ruta{
-    idruta:number;
-    idconductor:number;
-    idempresa:number;
-    idbus:number;
+    idRuta:number;
+    idConductor:number;
+    idEmpresa:number;
+    idBus:number;
     estado:String;
     origen:number;
     destino:number;
-    fecha_salida:Date;
-    fecha_llegada:Date;
-    precio:number
+    fechaSalida:Date;  
+    fechaLlegada:Date;
+    precio:number;
 }
