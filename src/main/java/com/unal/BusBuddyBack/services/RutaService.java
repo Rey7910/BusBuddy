@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class RutaService  implements IRutaService {
     @Autowired
-    private RutaRepository data; //c
+    private RutaRepository data; //
     @Override
     public List<Ruta> listar() {
         return (List<Ruta>)data.findAll();

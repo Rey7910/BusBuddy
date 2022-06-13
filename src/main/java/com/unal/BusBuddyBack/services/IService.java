@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface IService<T> {
     public List<T> listar();
-    public Optional<T> listarId(int id); //c
+    public Optional<T> listarId(int id); //
     public boolean save(T element);
     public void delete(int id);
 }

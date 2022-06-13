@@ -17,7 +17,7 @@ import java.util.List;
 @RequestMapping({"/rutas"})
 public class ClienteRestController {
     @Autowired
-    private IRutaService service; //c
+    private IRutaService service; //
     @GetMapping
     public List<Ruta> consultar(){
         System.out.println("AAOOAA");
