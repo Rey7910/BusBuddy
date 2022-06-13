@@ -19,7 +19,6 @@ public class ClienteRestController {
     private RutaService service;
     @GetMapping()
     public List<Ruta> consultar(){
-
-
+        return service.listar();
     };
 }
