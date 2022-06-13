@@ -670,7 +670,7 @@ nav.main-menu {
 /*--------------------------------------------------------------------- top banner area ---------------------------------------------------------------------*/
 
 
-. input[type="checkbox"].styled:checked+label:after,
+.input[type="checkbox"].styled:checked+label:after,
 input[type="radio"].styled:checked+label:after {
     font-family: 'FontAwesome';
     content: "\f00c";
