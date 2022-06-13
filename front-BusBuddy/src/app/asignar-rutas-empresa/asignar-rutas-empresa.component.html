@@ -8,7 +8,7 @@
 <!-- body -->
 
 <body class="main-layout">
-    
+
     <!-- header -->
     <header>
         <!-- header inner -->
@@ -27,8 +27,8 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="activa"> <a href="/home-usuario"> Home </a> </li>
-                                        <li> <a href="#about">Mis Tiquetes</a> </li>
+                                        <li class="activa"> <a href="/asignar-rutas-empresa">Crear Ruta </a> </li>
+                                        <li> <a href="#about">Personal</a> </li>
                                         <li><a href="#blog">Configuracion</a></li>
                                         <li><a href="#contact">Cerrar sesión</a></li>
                                     </ul>
@@ -48,10 +48,10 @@
             <img src="../../assets/Fondo.png" alt="#" />
             <div class="container">
                 <div class="text-bg">
-                    <h1>COMODIDAD<br><strong class="white">CON BUSBUDDY</strong></h1>
+                    <h1>CREA TODAS<br><strong class="white"> TUS RUTAS</strong></h1>
                     <div class="container">
                         <form class="main-form">
-                            <h3>BUS</h3>
+                            <h3>RUTAS</h3>
                             <div class="row">
                                 <div class="col-md-9">
                                     <div class="row">
@@ -65,8 +65,8 @@
                                             <input class="form-control" placeholder="Any" type="date" name="Any">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                            <label>Min Precio</label>
-                                            <input class="form-control" placeholder="00.0" type="text" name="00.0">
+                                            <label>Conductor</label>
+                                            <input class="form-control" placeholder="Nombre" type="text" name="">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Destino</label>
@@ -77,14 +77,13 @@
                                             <input class="form-control" placeholder="Any" type="date" name="Any">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                            <label>Max Precio</label>
+                                            <label>Precio</label>
                                             <input class="form-control" placeholder="00.0" type="text" name="00.0">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                                    <!-- <a href="#" >Buscar</a> -->
-                                    <button type="button" (click)="AparecerTiquetes()" class="button">Buscar</button>
+                                    <button type="button"  class="button">Crear</button>
                                 </div>
                             </div>
                         </form>
@@ -94,23 +93,23 @@
         </div>
     </section>
     <!-- end BARRA -->
-    <!--tiquetes -->
-    <div *ngIf="tiquetever"   id="tiquetes"   class="tiquete">
+    <!-- rutas -->
+    <div id="rutas" class="rutas">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 ">
                     <div class="titlepage">
-                        <h2>Tiquetes</h2>
-                        <span> Vemos todos los tiquetes disponibles </span>
+                        <h2>Rutas</h2>
+                        <span> Vemos todas las rutas de la empresa </span>
                     </div>
                 </div>
             </div>
         </div>
         <div class="bg">
             <div class="container">
-                <form class="tiquete-form">
+                <form class="rutas-form">
                     <div class="row">
-                        <div class="col-md-9">
+                        <div class="col-md-12">
                             <div class="row">
                                 <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                                     <label>Origen</label><br>
@@ -139,13 +138,19 @@
                                     <h3>Bogota</h3>
 
                                 </div>
-                                
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <label>Estado</label><br>
+                                    <h3>En ruta</h3>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-10">
+                                    <label>Conductor</label><br>
+                                    <h4>Jose mauricio Rodriguez Alarcon</h4>
+                                </div>
+
 
                             </div>
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                            <a href="#">Compra</a>
-                        </div>
+                        
                     </div>
                 </form>
             </div>
@@ -212,7 +217,7 @@
     <!-- end footer -->
     <!-- Javascript files-->
 
-   
+
 
 </body>
 
