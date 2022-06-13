@@ -13,7 +13,9 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AsignarRutasEmpresaComponent } from './asignar-rutas-empresa/asignar-rutas-empresa.component';
 import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
 import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.component';
-
+import { FormsModule } from '@angular/forms';
+import{ServiceRutasService} from '../app/Service/service-rutas.service'
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,10 +32,12 @@ import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.componen
     BrowserModule,
     AppRoutingModule,
     CommonModule,
+    FormsModule,
+    HttpClientModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],
-  providers: [],
+  providers: [ServiceRutasService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
