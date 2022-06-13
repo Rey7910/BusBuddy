@@ -14,9 +14,6 @@ export class HomeUsuarioComponent implements OnInit {
   constructor(private service:ServiceRutasService, private router:Router) { }
   rutas:Ruta[];
   ngOnInit(): void {
-    this.service.getRutas().subscribe(data=>{
-      this.rutas=data;
-    }) 
   }
 
   AparecerTiquetes(){

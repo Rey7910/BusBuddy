@@ -6,7 +6,7 @@ import { Ruta } from '../Modelo/Ruta'
 })
 export class ServiceRutasService {
   constructor(private http:HttpClient) { }
-  Url='http://localhost:8090/BusBuddyBack/rutas'
+  Url='http://localhost:8090/BusBuddyBack/rutas';
 
   getRutas(){
     return this.http.get<Ruta[]>(this.Url);
