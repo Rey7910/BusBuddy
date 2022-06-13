@@ -37,7 +37,10 @@ const routes: Routes = [
     path: 'asignar-rutas-empresa',
     component: AsignarRutasEmpresaComponent,
   },
-
+  {
+    path: 'compra-tiquete',
+    component: CompraTiqueteComponent,
+  },
 
 ];
 

@@ -21,7 +21,11 @@ import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
     RegisterComponent,
     HomePageComponent,
     AsignarRutasEmpresaComponent,
+<<<<<<< HEAD
     MisRutasComponent
+=======
+    CompraTiqueteComponent
+>>>>>>> 70e7779c857a67c9990d7bf1af616c48c3824cab
   ],
   imports: [
     BrowserModule,
