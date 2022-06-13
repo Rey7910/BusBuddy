@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HomePageComponent } from './home-page/home-page.component';
 import { AsignarRutasEmpresaComponent } from './asignar-rutas-empresa/asignar-rutas-empresa.component';
+import { MisRutasComponent } from './mis-rutas/mis-rutas.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { AsignarRutasEmpresaComponent } from './asignar-rutas-empresa/asignar-ru
     LoginComponent,
     RegisterComponent,
     HomePageComponent,
-    AsignarRutasEmpresaComponent
+    AsignarRutasEmpresaComponent,
+    MisRutasComponent
   ],
   imports: [
     BrowserModule,
