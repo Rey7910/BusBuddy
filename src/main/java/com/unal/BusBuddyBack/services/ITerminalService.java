@@ -1,4 +1,6 @@
 package com.unal.BusBuddyBack.services;
 
-public interface ITerminalService extends IService{
+import com.unal.BusBuddyBack.entidades.Terminal;
+
+public interface ITerminalService extends IService<Terminal>{
 }

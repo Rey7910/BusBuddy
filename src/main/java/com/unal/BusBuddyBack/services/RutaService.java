@@ -24,13 +24,8 @@ public class RutaService  implements IRutaService {
 
 
     @Override
-    public boolean save(Ruta element) {
-        boolean re=false;
-        Ruta ruta=data.save(element);
-        if(!ruta.equals(null)){
-            re=true;
-        }
-        return re;
+    public Ruta save(Ruta ruta) {
+        return data.save(ruta);
     }
 
     @Override

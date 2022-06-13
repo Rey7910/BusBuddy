@@ -10,23 +10,25 @@ import java.util.Optional;
 public class TerminalService implements ITerminalService{
     @Autowired
     TerminalRepository data;
+
     @Override
     public List<Terminal> listar() {
-        return (List<Terminal>) data.findAll();
+        return null;
     }
 
     @Override
-    public Optional listarId(int id) {
+    public Optional<Terminal> listarId(int id) {
         return Optional.empty();
     }
 
     @Override
-    public boolean save(Object element) {
-        return false;
+    public Terminal save(Terminal element) {
+        return null;
     }
 
     @Override
     public void delete(int id) {
 
     }
+}
 }
