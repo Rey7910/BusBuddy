@@ -29,7 +29,7 @@ public class TerminalService implements ITerminalService{
     }
 
     @Override
-    public Terminal save(Object element) {
+    public Terminal save(Terminal element) {
         // TODO Auto-generated method stub
         return null;
     }
