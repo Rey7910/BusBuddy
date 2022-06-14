@@ -18,7 +18,7 @@ public class TerminalService implements ITerminalService{
     }
 
     @Override
-    public Terminal listarId(int id) {
+    public Terminal listarId(int id) { //a
         Optional<Terminal> a=data.findById(id);
         if(a.isPresent()){
             System.out.println("Si hay un terminal con el id xd");
