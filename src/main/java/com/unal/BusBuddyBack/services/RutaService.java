@@ -13,12 +13,12 @@ public class RutaService  implements IRutaService {
     private RutaRepository data; //
     @Override
     public List<Ruta> listar() {
-        return (List<Ruta>)data.listAll();
+        return (List<Ruta>)data.findAll();
     }
 
     @Override
-    public Optional<Ruta> listarId(int id) {
-        return Optional.empty();
+    public Ruta listarId(int id) {
+        return null;
     }
 
 
@@ -29,6 +29,8 @@ public class RutaService  implements IRutaService {
 
     @Override
     public void delete(int id) {
-        data.deleteById(id);
+
     }
+
+
 }

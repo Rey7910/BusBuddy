@@ -19,8 +19,9 @@ public class TerminalService implements ITerminalService{
 
     @Override
     public Terminal listarId(int id) {
-        return data.findOne(id);
+        return null;
     }
+
 
     @Override
     public Terminal save(Terminal element) {

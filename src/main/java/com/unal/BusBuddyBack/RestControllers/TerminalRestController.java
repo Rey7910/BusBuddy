@@ -18,13 +18,9 @@ public class TerminalRestController {
 
     @GetMapping
     public List<Terminal> consultar(){
-        System.out.println("AAOOAA");
         return service.listar();
     }
-    @GetMapping
-    public Terminal getById(int id){
-        return null;
-    }
+
     @PostMapping
     public Terminal agregar(@RequestBody Terminal terminal){
         return service.save(terminal);
