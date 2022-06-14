@@ -4,7 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.*;
 import com.sun.istack.NotNull;
-
+@Entity
+@Table(name="administrador_empresa")
 public class AdministradorEmpresa implements Serializable{
     private static final long serialVersionUID = 8L;
 
