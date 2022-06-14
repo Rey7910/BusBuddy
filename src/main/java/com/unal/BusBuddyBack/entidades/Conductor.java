@@ -1,6 +1,8 @@
 package com.unal.BusBuddyBack.entidades;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 
 import javax.persistence.*;
 import com.sun.istack.NotNull;
@@ -9,6 +11,7 @@ import com.sun.istack.NotNull;
 @Table(name="conductor")
 public class Conductor implements Serializable {
     private static final long serialVersionUID = 6L;
+    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -85,6 +88,12 @@ public class Conductor implements Serializable {
 
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+
+    public Usuario toUsuario() throws ParseException{
+        Usuario usuario = new Usuario(this.getIdusuario(),"","","","","",3 ,formato.parse("01/01/2000"));
+        
+        return usuario;
     }
 
 }

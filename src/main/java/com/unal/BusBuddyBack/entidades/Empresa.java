@@ -71,5 +71,7 @@ public class Empresa implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    
     
 }
