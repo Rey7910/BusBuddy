@@ -16,27 +16,27 @@ public class Conductor implements Serializable {
     private int idconductor;
     @NotNull
     @Column(name = "idusuario")
-    private String idusuario;
+    private int idusuario;
     @NotNull
     @Column(name = "idempresa")
-    private String idempresa;
+    private int idempresa;
     @Column(name = "id")
-    private String id;
+    private int id;
     @Column(name = "eps")
     private String eps;
     @Column(name = "ciudad")
     private String ciudad;
     
-    public Conductor() {
-    }
-
-    public Conductor(int idconductor, String idusuario, String idempresa, String id, String eps, String ciudad) {
+    public Conductor(int idconductor, int idusuario, int idempresa, int id, String eps, String ciudad) {
         this.idconductor = idconductor;
         this.idusuario = idusuario;
         this.idempresa = idempresa;
         this.id = id;
         this.eps = eps;
         this.ciudad = ciudad;
+    }
+
+    public Conductor() {
     }
 
     public int getIdconductor() {
@@ -47,27 +47,27 @@ public class Conductor implements Serializable {
         this.idconductor = idconductor;
     }
 
-    public String getIdusuario() {
+    public int getIdusuario() {
         return idusuario;
     }
 
-    public void setIdusuario(String idusuario) {
+    public void setIdusuario(int idusuario) {
         this.idusuario = idusuario;
     }
 
-    public String getIdempresa() {
+    public int getIdempresa() {
         return idempresa;
     }
 
-    public void setIdempresa(String idempresa) {
+    public void setIdempresa(int idempresa) {
         this.idempresa = idempresa;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -86,4 +86,5 @@ public class Conductor implements Serializable {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
 }
