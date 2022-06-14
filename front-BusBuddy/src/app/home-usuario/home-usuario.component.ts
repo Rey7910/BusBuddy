@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 import { Ruta } from '../Modelo/Ruta';
+import { Terminal } from '../Modelo/Terminal';
 import {ServiceRutasService} from '../Service/service-rutas.service'
+import { ServiceTerminalService } from '../Service/service-terminal.service';
 @Component({
   selector: 'app-home-usuario',
   templateUrl: './home-usuario.component.html',
@@ -10,20 +12,36 @@ import {ServiceRutasService} from '../Service/service-rutas.service'
 export class HomeUsuarioComponent implements OnInit {
 
   tiquetever = false;
-
-  constructor(private service:ServiceRutasService, private router:Router) { }
+  terminalAux= new Terminal();
+  constructor(private serviceRutas:ServiceRutasService,private serviceTerminales:ServiceTerminalService, private router:Router) { }
   rutas:Ruta[];
   ngOnInit(): void {
   }
 
   AparecerTiquetes(){
-    console.log('aaa');
-    this.service.getRutas().
+    this.serviceRutas.getRutas().
     subscribe(data=>{
       this.rutas=data;
     }) ;
     this.tiquetever = true;
   }
+  /*getTerminalString(index:number):String{
+    
+    this.serviceTerminales.getTerminalIdx(+index).
+    subscribe(data=>{
+      this.terminalAux=data;
+    }
+    );
+    return this.terminalAux.nombre;
+  }*/
+  getNombreTerminal(index:number){
+    r:String;
+    this.serviceTerminales.getTerminalName(index)
+    .subscribe(date=>{
+      return date;
+    });
 
+  }
+ 
 
 }
