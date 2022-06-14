@@ -1,7 +1,6 @@
 package com.unal.BusBuddyBack.services;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,14 +17,10 @@ public class ConductorService {
     @Autowired
     private ConductorRepository data; //
     private UsuarioRepository dataUsuario;
-    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+    
 
 
-    public Usuario toUsuario(Conductor conductor) throws ParseException{
-        Usuario usuario = new Usuario(conductor.getIdusuario(),"","","","","",3 ,formato.parse("01/01/2000"));
-        
-        return usuario;
-    }
+    
 
     public List<Conductor> listar() {
         return (List<Conductor>)data.findAll();
@@ -39,7 +34,7 @@ public class ConductorService {
     public boolean save(Conductor element) throws ParseException {
         boolean re=false;
         Conductor conductor=data.save(element);
-        Usuario usuario=dataUsuario.save(toUsuario(element));
+        Usuario usuario=dataUsuario.save(element.toUsuario());
         if(!conductor.equals(null) & !usuario.equals(null)){
             re=true;
         }

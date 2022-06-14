@@ -28,9 +28,9 @@ public class TerminalService implements ITerminalService{
 
     }
 
-
     @Override
     public Terminal save(Terminal element) {
+        // TODO Auto-generated method stub
         return null;
     }
 
@@ -38,5 +38,7 @@ public class TerminalService implements ITerminalService{
     public void delete(int id) {
 
     }
+
+    
 }
 
