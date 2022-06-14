@@ -20,7 +20,21 @@ public class TerminalRestController {
     public List<Terminal> consultar(){
         return service.listar();
     }
+    @GetMapping(path={"/name/{id}"})
+    public String getNombre(@PathVariable("id") int id){
+        Terminal t=service.listarId(id);
 
+        return t.getCiudad();
+    }
+    @GetMapping(path={"/{id}"}) //Referencia a consulta
+    public Terminal getById(@PathVariable("id") int id){
+        return service.listarId(id );
+    }
+   /* @PutMapping(path={"/{id}"}) //Referencia a actualizacion
+    public Terminal editar(@RequestBody Terminal t,@PathVariable("id") int id){
+        t.setId(id);
+        return service.save(t);
+    }*/
     @PostMapping
     public Terminal agregar(@RequestBody Terminal terminal){
         return service.save(terminal);

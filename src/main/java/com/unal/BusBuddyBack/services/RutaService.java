@@ -1,6 +1,7 @@
 package com.unal.BusBuddyBack.services;
 
 import com.unal.BusBuddyBack.entidades.Ruta;
+import com.unal.BusBuddyBack.entidades.Terminal;
 import com.unal.BusBuddyBack.repository.RutaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +19,11 @@ public class RutaService  implements IRutaService {
 
     @Override
     public Ruta listarId(int id) {
+        Optional<Ruta> a=data.findById(id);
+        if(a.isPresent()){
+            System.out.println("Si hay una ruta con el id xd");
+            return a.get();
+        }System.out.println("NO hay una ruta con el id :c");
         return null;
     }
 

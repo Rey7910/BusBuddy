@@ -15,7 +15,6 @@ public class RutaRestController {
     private IRutaService service; //
     @GetMapping
     public List<Ruta> consultar(){
-        System.out.println("AAOOAA");
         return service.listar();
     }
     @PostMapping
