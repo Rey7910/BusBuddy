@@ -8,7 +8,7 @@ import javax.persistence.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
-@Table(name="usuario")
+@Table(name="usuario", uniqueConstraints = @UniqueConstraint(columnNames = "correo"))
 
 public class Usuario implements Serializable {
     private static final long serialVersionUID = 3L;
