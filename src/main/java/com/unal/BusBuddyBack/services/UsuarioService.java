@@ -3,10 +3,12 @@ package com.unal.BusBuddyBack.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.unal.BusBuddyBack.entidades.Usuario;
 import com.unal.BusBuddyBack.repository.UsuarioRepository;
 
+@Service
 public class UsuarioService implements IUsuarioService {
 
     @Autowired
