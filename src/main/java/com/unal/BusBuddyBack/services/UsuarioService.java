@@ -1,6 +1,7 @@
 package com.unal.BusBuddyBack.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public Usuario listarId(int id) {
+    public Optional<Usuario> listarId(int id) {
         // TODO Auto-generated method stub
         return null;
     }

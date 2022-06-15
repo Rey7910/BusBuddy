@@ -18,13 +18,8 @@ public class RutaService  implements IRutaService {
     }
 
     @Override
-    public Ruta listarId(int id) {
-        Optional<Ruta> a=data.findById(id);
-        if(a.isPresent()){
-            System.out.println("Si hay una ruta con el id xd");
-            return a.get();
-        }System.out.println("NO hay una ruta con el id :c");
-        return null;
+    public Optional<Ruta> listarId(int id) {
+        return data.findById(id);
     }
 
 

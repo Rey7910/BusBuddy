@@ -17,8 +17,8 @@ import com.unal.BusBuddyBack.repository.UsuarioRepository;
 public class ConductorService {
     @Autowired
     private ConductorRepository data; //
-    @Autowired
-    private UsuarioRepository dataUsuario;
+    /*@Autowired
+    private UsuarioRepository dataUsuario;*/
     
 
 
@@ -33,7 +33,7 @@ public class ConductorService {
         return data.findById(id);
     }
 
-    public boolean save(Conductor element) throws ParseException {
+   /* public boolean save(Conductor element) throws ParseException {
         boolean re=false;
         Conductor conductor=data.save(element);
         Usuario usuario=dataUsuario.save(element.toUsuario());
@@ -41,7 +41,7 @@ public class ConductorService {
             re=true;
         }
         return re;
-    }
+    }*/
 
     public void delete(int id) {
         data.deleteById(id);

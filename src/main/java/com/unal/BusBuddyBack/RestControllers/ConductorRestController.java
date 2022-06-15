@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 import com.unal.BusBuddyBack.entidades.Conductor;
 import com.unal.BusBuddyBack.services.IConductorService;
 
-@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
+/*@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping({"/conductor"})
+@RequestMapping({"/conductor"})*/
 public class ConductorRestController {
 
     @Autowired

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
@@ -20,15 +21,18 @@ public class TerminalRestController {
     public List<Terminal> consultar(){
         return service.listar();
     }
-    @GetMapping(path={"/name/{id}"})
-    public String getNombre(@PathVariable("id") int id){
-        Terminal t=service.listarId(id);
-
-        return t.getCiudad();
-    }
+    /*@GetMapping(path={"/name/{id}"})
+    public Optional<Terminal> getNombre(@PathVariable("id") int id){
+        return service.listarId(id);
+    }*/
     @GetMapping(path={"/{id}"}) //Referencia a consulta
     public Terminal getById(@PathVariable("id") int id){
-        return service.listarId(id );
+        Optional<Terminal> a=service.listarId(id );
+        if(a.isPresent()){
+            System.out.println("SI Hay un Terminal xdd");
+            return a.get();
+        }
+        return new Terminal();
     }
    /* @PutMapping(path={"/{id}"}) //Referencia a actualizacion
     public Terminal editar(@RequestBody Terminal t,@PathVariable("id") int id){

@@ -22,12 +22,7 @@ public class PersonalService implements IPersonalService{
     }
 
     @Override
-    public Personal listarId(int id) {
-        Optional<Personal> personal=data.findById(id);
-        if(personal.isPresent()){
-            System.out.println("Si hay una ruta con el id ");
-            return personal.get();
-        }System.out.println("NO hay una ruta con el id :c");
+    public Optional<Personal> listarId(int id) {
         return null;
     }
 
