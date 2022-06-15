@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import com.unal.BusBuddyBack.entidades.Conductor;
@@ -16,6 +17,7 @@ import com.unal.BusBuddyBack.repository.UsuarioRepository;
 public class ConductorService {
     @Autowired
     private ConductorRepository data; //
+    @Autowired
     private UsuarioRepository dataUsuario;
     
 
