@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.unal.BusBuddyBack.entidades.Usuario;
 import com.unal.BusBuddyBack.repository.UsuarioRepository;
+import org.springframework.stereotype.Service;
+
+@Service
 
 public class UsuarioService implements IUsuarioService {
 
