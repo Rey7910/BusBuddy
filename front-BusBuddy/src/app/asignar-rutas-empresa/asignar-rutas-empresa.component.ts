@@ -17,9 +17,15 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     subscribe(data=>{
       this.rutas=data;
     }) ;
+    sessionStorage.setItem("idEmpresa",'1');
   }
   Crear(ruta:Ruta):void{
-    this.service.crearRuta(ruta)
+    
+    
+    var idE=sessionStorage.getItem("idEmpresa");
+    if(idE!=null){
+      ruta.idEmpresa=+idE;
+      this.service.crearRuta(ruta)
     .subscribe(data=>{
       window.alert("Ruta Creada con exito");
       window.location.reload();
@@ -28,6 +34,10 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     subscribe(data=>{
       this.rutas=data;
     }) ;
+    }else{
+      window.alert("Ruta No creada, error con la identificación de la empresa");
+    }
+    
   }
   
 }

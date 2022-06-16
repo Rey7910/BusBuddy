@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
+import { take } from 'rxjs';
 import { Ruta } from '../Modelo/Ruta';
 import { Terminal } from '../Modelo/Terminal';
 import {ServiceRutasService} from '../Service/service-rutas.service'
@@ -12,9 +13,11 @@ import { ServiceTerminalService } from '../Service/service-terminal.service';
 export class HomeUsuarioComponent implements OnInit {
 
   tiquetever = false;
-  terminalAux= new Terminal();
-  constructor(private serviceRutas:ServiceRutasService,private serviceTerminales:ServiceTerminalService, private router:Router) { }
+  constructor(private serviceRutas:ServiceRutasService,private serviceTerminales:ServiceTerminalService, private router:Router) {
+    this.rutas=[];
+   }
   rutas:Ruta[];
+  a:String;
   ngOnInit(): void {
   }
 
@@ -23,7 +26,9 @@ export class HomeUsuarioComponent implements OnInit {
     subscribe(data=>{
       this.rutas=data;
     }) ;
+    
     this.tiquetever = true;
+    console.log("Nombre Terminal 1: "+this.getNombreTerminal(1));
   }
   /*getTerminalString(index:number):String{
     
@@ -34,14 +39,19 @@ export class HomeUsuarioComponent implements OnInit {
     );
     return this.terminalAux.nombre;
   }*/
-  getNombreTerminal(index:number){
-    r:String;
-    this.serviceTerminales.getTerminalName(index)
-    .subscribe(date=>{
-      return date;
-    });
-
+  getNombreTerminal(index:number):String{
+  console.log("Ejecutandose xd"+index);
+    var nombre=new String("");
+  this.serviceTerminales.getTerminalIdx(+index).pipe(take(1)).subscribe(data=>{
+    this.a=data.nombre;
   }
- 
+   
+  
+    );
+    nombre=String(this.a+"");
+    console.log(nombre+"AAAAA");
+    return String(nombre);
+    //return "AA"
+  }
 
 }

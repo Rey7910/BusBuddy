@@ -12,7 +12,9 @@ export class ServiceTerminalService {
     return this.http.get<Terminal[]>(this.Url);
   }
   getTerminalIdx(idx:number){
-    return this.http.get<Terminal>(this.Url+"/"+idx);
+    console.log("Dentro de getTerminalIdx (Terminal-Service): "+idx);
+    return this.http.get<Terminal>(this.Url+"/"+idx);      
+    
   }
   getTerminalName(idx:number){
     return this.http.get<String>(this.Url+"/name/"+idx);
