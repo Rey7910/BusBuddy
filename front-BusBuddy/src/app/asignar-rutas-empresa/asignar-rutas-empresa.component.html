@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+</head>
+<!-- body -->
+
+<body class="main-layout">
+
+    <!-- header -->
+    <header>
+        <!-- header inner -->
+        <div class="header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo"><img src="../../assets/logolargo.png" alt="#"> </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <div class="menu-area">
+                            <div class="limit-box">
+                                <nav class="main-menu">
+                                    <ul class="menu-area-main">
+                                        <li class="activa"> <a href="/asignar-rutas-empresa">Rutas </a> </li>
+                                        <li> <a href="#about">Personal</a> </li>
+                                        <li><a href="#blog">Configuracion</a></li>
+                                        <li><a href="#contact">Cerrar sesión</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header inner -->
+    </header>
+    <!-- end header -->
+    <!-- BARRA -->
+    <section>
+        <div class="banner-main">
+            <img src="../../assets/Fondo.png" alt="#" />
+            <div class="container">
+                <div class="text-bg">
+                    <h1>CREA TODAS<br><strong class="white"> TUS RUTAS</strong></h1>
+                    <div class="container">
+                        <form class="main-form">
+                            <h3>RUTAS</h3>
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div class="row">
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <label>Origen </label>
+
+                                            <input id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.origen" class="form-control" placeholder="" type="text" name="">
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <label>Fecha salida</label>
+                                            <input id="fechaSalida" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.fechaSalida"class="form-control" placeholder="Any" type="date" name="Any">
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <label>Conductor</label>
+                                            <input id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor" class="form-control" placeholder="Nombre" type="text" name="">
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <label>Destino</label>
+                                            <input id="destino" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino" class="form-control" placeholder="" type="text" name="Any">
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <label>Fecha llegada</label>
+                                            <input id="fechaLlegada"[ngModelOptions]="{standalone: true}"  [(ngModel)]="newRuta.fechaLlegada" class="form-control" placeholder="Any" type="date" name="Any">
+                                        </div>
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <label>Precio</label>
+                                            <input id="precio" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.precio" class="form-control" placeholder="00.0" type="text" name="00.0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                                    <button  (click)="Crear(newRuta)" type="button"  class="button">Crear</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end BARRA -->
+    <!-- rutas -->
+    <div id="rutas" class="rutas">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 ">
+                    <div class="titlepage">
+                        <h2>Rutas</h2>
+                        <span> Vemos todas las rutas de la empresa </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg">
+            <div class="container">
+                <form *ngFor="let ruta of rutas" class="rutas-form">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <label>Origen</label><br>
+                                    <h3>{{ruta.origen}}</h3>
+
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <label>Fecha Salida</label><br>
+                                    <h3>{{ruta.fechaSalida | date :'short'}}</h3>
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <img src="../../assets/flecha.png" alt="#">
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <label>Destino</label><br>
+                                    <h3>{{ruta.destino}}</h3>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <label>Fecha llegada</label><br>
+                                    <h3>{{ruta.fechaLlegada | date :'short'}}</h3>
+                                </div>
+
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <label>Precio</label><br>
+                                    <h3>{{ruta.precio}}</h3>
+
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                                    <label>Estado</label><br>
+                                    <h3>{{ruta.estado}}</h3>
+                                </div>
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-10">
+                                    <label>Conductor</label><br>
+                                    <h4>{{ruta.idConductor}}</h4>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- end tiquetes -->
+
+
+
+    <!-- footer -->
+    <footer>
+        <div id="contact" class="footer">
+            <div class="container">
+                <div class="row pdn-top-30">
+                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                        <ul class="location_icon">
+                            <li> <a href="#"><img src="../../assets/facebook.png"></a></li>
+                            <li> <a href="#"><img src="../../assets/Twitter.png"></a></li>
+                            <li> <a href="#"><img src="../../assets/linkedin.png"></a></li>
+                            <li> <a href="#"><img src="../../assets/instagram.png"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="Follow">
+                            <h3>CONTACT US</h3>
+                            <span>Colombia,Bogota D.C<br>
+                                +56 345 6815278</span>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                        <div class="Follow">
+                            <h3>ADDITIONAL LINKS</h3>
+                            <ul class="link">
+                                <li> <a href="#">About us</a></li>
+                                <li> <a href="#">Terms and conditions</a></li>
+                                <li> <a href="#"> Privacy policy</a></li>
+                                <li> <a href="#">News</a></li>
+                                <li> <a href="#"> Contact us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                        <div class="Follow">
+                            <h3> Contact</h3>
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                    <input class="Newsletter" placeholder="Name" type="text">
+                                </div>
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                                    <input class="Newsletter" placeholder="Email" type="text">
+                                </div>
+                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                    <textarea class="textarea" placeholder="comment" type="text">Comment</textarea>
+                                </div>
+                            </div>
+                            <button class="Subscribe">Submit</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+
+
+
+</body>
+
+</html>
