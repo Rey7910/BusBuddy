@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.unal.BusBuddyBack.entidades.Usuario;
 import com.unal.BusBuddyBack.repository.UsuarioRepository;
-import org.springframework.stereotype.Service;
 
 @Service
 
