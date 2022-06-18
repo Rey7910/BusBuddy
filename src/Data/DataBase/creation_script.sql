@@ -12,7 +12,8 @@ create table usuario(
     nombre varchar(45),
     apellido varchar(45),
     correo varchar(45),
-    telefono varchar(45),
+    contrasena varchar(45),
+    telefono long,
     rol int,
     fecha_nacimiento date,
     primary key(idusuario)
