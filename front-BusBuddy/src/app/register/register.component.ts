@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
-
+import { Usuario } from '../Modelo/Usuario';
+import { ServiceUsuarioService } from '../Service/service-usuario.service';
 
 @Component({
   selector: 'app-register',
@@ -9,17 +10,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./register.component.css']
 })
 
-
-
 export class RegisterComponent implements OnInit {
   box_registo = true;
   box_vincu_lab = false; 
   box_vincu_lab_2 = false;
   box_usuario = false;
 
-  constructor(private toastr: ToastrService, private router: Router) { }
+  constructor(private service:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
+  usuarios:Usuario[]
+  newUser=new Usuario();
 
   ngOnInit(): void {
+    this.service.getUsuarios().
+    subscribe(data=>{
+      this.usuarios=data;
+    }) ;
 
   }
 
@@ -62,10 +67,15 @@ export class RegisterComponent implements OnInit {
     this.box_vincu_lab = false;
     this.box_vincu_lab_2 = false;
     this.box_usuario = true;
+    this.newUser.rol=0; 
+
   }
 
   crearusuario(){
-
+    this.service.crearUsuario(this.newUser)
+    .subscribe(data=>{
+      window.alert("Usuario Creado con exito");
+    }); 
     this.toastr.success('Usuario creado con exito');
     this.router.navigate(['/login'])
 

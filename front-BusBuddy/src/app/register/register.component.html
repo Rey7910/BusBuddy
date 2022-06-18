@@ -12,28 +12,28 @@
                             </div>
                             <h2 class="text-uppercase text-center mb-5">Crea tu cuenta</h2>
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Nombres</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="nombres">Nombres</label>
+                                    <input type="text" id="nombres" [ngModelOptions]="{standalone: true}" [(ngModel)]="newUser.nombre" class="form-control form-control-lg" >
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Apellidos</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="apellidos">Apellidos</label>
+                                    <input type="text" id="apellidos" [ngModelOptions]="{standalone: true}" [(ngModel)]="newUser.apellido" class="form-control form-control-lg" >
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Correo electronico</label>
-                                    <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="correo">Correo electronico</label>
+                                    <input type="email" id="correo" [ngModelOptions]="{standalone: true}" [(ngModel)]="newUser.correo" class="form-control form-control-lg" >
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Fecha de nacimiento</label>
-                                    <input type="date" id="form3Example3cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="fecha">Fecha de nacimiento</label>
+                                    <input type="date" id="fecha" [ngModelOptions]="{standalone: true}" [(ngModel)]="newUser.fechaNacimiento" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example3cg">Telefono</label>
-                                    <input type="number" id="form3Example3cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="telefono">Telefono</label>
+                                    <input type="number" id="telefono" [ngModelOptions]="{standalone: true}" [(ngModel)]="newUser.telefono" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="form-outline mb-4 btn-group" role="group" aria-label="Basic example">
@@ -137,13 +137,13 @@
                             </div>
                             <h2 class="text-uppercase text-center mb-5">Crea tu usuario</h2>
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Usuario</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="usuario">Usuario</label>
+                                    <input type="text" id="usuario" [ngModelOptions]="{standalone: true}" [(ngModel)]="newUser.usuario" class="form-control form-control-lg" >
                                 </div>
 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Contraseña</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <input type="text" id="contrasena" [ngModelOptions]="{standalone: true}" [(ngModel)]="newUser.contrasena" class="form-control form-control-lg" >
                                 </div>
 
                                 
