@@ -26,6 +26,8 @@ public class Usuario implements Serializable {
     private String apellido;
     @Column(name = "correo")
     private String correo;
+    @Column(name = "contrasena")
+    private String contrasena;
     @Column(name = "telefono")
     private String telefono;
     @Column(name = "rol")
@@ -38,13 +40,14 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
     
-    public Usuario(int idusuario, String usuario, String nombre, String apellido, String correo, String telefono,
+    public Usuario(int idusuario, String usuario, String nombre, String apellido, String correo, String contrasena, String telefono,
             int rol, Date fecha_nacimiento) {
         this.idusuario = idusuario;
         this.usuario = usuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
+        this.contrasena = contrasena;
         this.telefono = telefono;
         this.rol = rol;
         this.fechaNacimiento = fecha_nacimiento;
@@ -91,11 +94,20 @@ public class Usuario implements Serializable {
     public void setRol(int rol) {
         this.rol = rol;
     }
-    public Date getFecha_nacimiento() {
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
-    public void setFecha_nacimiento(Date fecha_nacimiento) {
-        this.fechaNacimiento = fecha_nacimiento;
+
+    public void setFechaNacimiento(Date fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     

@@ -90,10 +90,4 @@ public class Conductor implements Serializable {
         this.ciudad = ciudad;
     }
 
-    public Usuario toUsuario() throws ParseException{
-        Usuario usuario = new Usuario(this.getIdusuario(),"","","","","",3 ,formato.parse("01/01/2000"));
-        
-        return usuario;
-    }
-
 }
