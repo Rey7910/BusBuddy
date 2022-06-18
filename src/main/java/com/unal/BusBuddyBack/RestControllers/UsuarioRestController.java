@@ -15,13 +15,14 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping({"/cliente"})
-public class ClienteRestController {
+@RequestMapping({"/usuario"})
+public class UsuarioRestController {
     @Autowired
     private IUsuarioService servUsuario; //
 
     @PostMapping
     public Usuario agregar(@RequestBody Usuario usuario){
+
         return servUsuario.save(usuario);
     }
 

@@ -10,11 +10,10 @@ import com.unal.BusBuddyBack.entidades.Usuario;
 import com.unal.BusBuddyBack.repository.UsuarioRepository;
 
 @Service
-
 public class UsuarioService implements IUsuarioService {
 
     @Autowired
-    private UsuarioRepository data; //
+    private UsuarioRepository dataURepository; //
     @Override
     public List<Usuario> listar() {
         // TODO Auto-generated method stub
@@ -30,12 +29,12 @@ public class UsuarioService implements IUsuarioService {
     @Override
     public Usuario save(Usuario element) {
         element.setRol(0); //hacerlo cliente
-        return data.save(element);
+        return dataURepository.save(element);
     }
 
     @Override
     public void delete(int id) {
-        // TODO Auto-generated method stub
+        dataURepository.deleteById(id);
         
     }
     

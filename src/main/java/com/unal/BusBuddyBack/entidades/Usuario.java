@@ -29,7 +29,7 @@ public class Usuario implements Serializable {
     @Column(name = "contrasena")
     private String contrasena;
     @Column(name = "telefono")
-    private String telefono;
+    private long telefono;
     @Column(name = "rol")
     private int rol;
     @Column(name = "fecha_nacimiento")
@@ -40,7 +40,7 @@ public class Usuario implements Serializable {
     public Usuario() {
     }
     
-    public Usuario(int idusuario, String usuario, String nombre, String apellido, String correo, String contrasena, String telefono,
+    public Usuario(int idusuario, String usuario, String nombre, String apellido, String correo, String contrasena, long telefono,
             int rol, Date fecha_nacimiento) {
         this.idusuario = idusuario;
         this.usuario = usuario;
@@ -82,10 +82,10 @@ public class Usuario implements Serializable {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
-    public String getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
-    public void setTelefono(String telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
     public int getRol() {
