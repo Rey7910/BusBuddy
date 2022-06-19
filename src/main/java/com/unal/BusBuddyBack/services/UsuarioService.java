@@ -16,14 +16,12 @@ public class UsuarioService implements IUsuarioService {
     private UsuarioRepository dataURepository; //
     @Override
     public List<Usuario> listar() {
-        // TODO Auto-generated method stub
-        return null;
+        return (List<Usuario>)dataURepository.findAll();
     }
 
     @Override
     public Optional<Usuario> listarId(int id) {
-        // TODO Auto-generated method stub
-        return null;
+        return dataURepository.findById(id);
     }
 
     @Override
@@ -36,6 +34,6 @@ public class UsuarioService implements IUsuarioService {
     public void delete(int id) {
         dataURepository.deleteById(id);
         
-    }
+    }    
     
 }

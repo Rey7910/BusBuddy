@@ -19,10 +19,6 @@ public class ConductorService {
     private ConductorRepository data; //
     /*@Autowired
     private UsuarioRepository dataUsuario;*/
-    
-
-
-    
 
     public List<Conductor> listar() {
         return (List<Conductor>)data.findAll();
