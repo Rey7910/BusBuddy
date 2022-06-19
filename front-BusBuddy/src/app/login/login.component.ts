@@ -34,11 +34,12 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home-usuario'])
       }
       else{
-        this.toastr.error('Contraseña incorrecta, vuelva a intentarlo');
+        window.alert('Contraseña incorrecta, vuelva a intentarlo');
+        window.location.reload();
       }
     }
     else{
-      this.toastr.error('El correo no se encuentra registrado');
+      window.alert('El correo no se encuentra registrado');
     }
   }
 

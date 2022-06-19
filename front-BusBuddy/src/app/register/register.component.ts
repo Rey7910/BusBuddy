@@ -19,6 +19,7 @@ export class RegisterComponent implements OnInit {
   constructor(private service:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
   usuarios:Usuario[]
   newUser=new Usuario();
+  map=new Map<String,Usuario>;
 
   ngOnInit(): void {
     this.service.getUsuarios().
@@ -63,21 +64,30 @@ export class RegisterComponent implements OnInit {
   }
 
   cambio3(){
-    this.box_registo = false;
-    this.box_vincu_lab = false;
-    this.box_vincu_lab_2 = false;
-    this.box_usuario = true;
-    this.newUser.rol=0; 
+    this.usuarios.forEach(element => {
+      this.map.set(element.correo,element)
+    });
+    var currentUser = this.map.get(this.newUser.correo)
+    if(currentUser == undefined){
+        this.box_registo = false;
+        this.box_vincu_lab = false;
+        this.box_vincu_lab_2 = false;
+        this.box_usuario = true;
+        this.newUser.rol=0; 
+    }
+    else{
+      window.alert('El correo ya se encuentra registrado');
+      window.location.reload();
+    }
 
   }
 
   crearusuario(user:Usuario){
     this.service.crearUsuario(user)
     .subscribe(data=>{
-      window.alert("Ruta Creada con exito");
+      window.alert("Usuario Creado con exito");
+      window.location.replace("http://localhost:4200/login")
     }); 
-    this.toastr.success('Usuario creado con exito');
-    this.router.navigate(['/login'])
 
   }
 
