@@ -71,8 +71,11 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  crearusuario(){
-    this.service.crearUsuario(this.newUser) 
+  crearusuario(user:Usuario){
+    this.service.crearUsuario(user)
+    .subscribe(data=>{
+      window.alert("Ruta Creada con exito");
+    }); 
     this.toastr.success('Usuario creado con exito');
     this.router.navigate(['/login'])
 

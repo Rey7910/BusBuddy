@@ -12,20 +12,18 @@
                 <h2 class="text-uppercase text-center mb-5">Inicio sesión</h2>
               <form>
                 <div class="form-outline mb-4">
-                  <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Usuario</label>
+                  <label class="form-label" for="usuario">Correo electronico</label>
+                  <input type="email" id="usuario" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchUser.correo" class="form-control form-control-lg" >
                 </div>
 
                 <div class="form-outline mb-4">
-                  <input type="email" id="form3Example3cg" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Contraseña</label>
+                  <label class="form-label" for="contraseña">Contraseña</label>
+                  <input type="text" id="contraseña" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchUser.contrasena" class="form-control form-control-lg" >
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button" href="/home-usuario"
-                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">
-                    <a href="/home-usuario">Iniciar sesion</a>
-                  </button>
+                  <button type="button" (click)="login(searchUser.correo)"
+                    class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Iniciar sesion</button>
                 </div>
 
                 <p class="text-center text-muted mt-5 mb-0">¿No tienes cuenta? <a href="/register"
