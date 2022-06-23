@@ -90,7 +90,7 @@
                             <h2 class="text-uppercase text-center mb-5">Vinculación Laboral</h2>
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">NIT Empresa</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <input type="text" id="nombres" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchEmpresa.nit" class="form-control form-control-lg" >
                                 </div>
 
                                 <div class="form-outline mb-4">

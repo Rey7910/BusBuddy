@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Usuario } from '../Modelo/Usuario';
 import { ServiceUsuarioService } from '../Service/service-usuario.service';
+import { Personal } from '../Modelo/Personal';
+import { Empresa } from '../Modelo/Empresa';
 
 @Component({
   selector: 'app-register',
@@ -16,13 +18,24 @@ export class RegisterComponent implements OnInit {
   box_vincu_lab_2 = false;
   box_usuario = false;
 
-  constructor(private service:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
+  constructor(private serviceU:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
   usuarios:Usuario[]
   newUser=new Usuario();
-  map=new Map<String,Usuario>;
+  mapU=new Map<String,Usuario>;
+
+  personal: Personal[]
+  searchPersonal = new Personal();
+  mapP=new Map<String,Personal>;
+
+  empresas: Empresa[]
+  searchEmpresa = new Empresa();
+  mapE=new Map<String,Empresa>;
+
+  flagVL = false;
+  
 
   ngOnInit(): void {
-    this.service.getUsuarios().
+    this.serviceU.getUsuarios().
     subscribe(data=>{
       this.usuarios=data;
     }) ;
@@ -54,6 +67,7 @@ export class RegisterComponent implements OnInit {
     this.box_vincu_lab = true;
     this.box_vincu_lab_2 = false;
     this.box_usuario = false;
+
   }
 
   cambio2(){
@@ -65,9 +79,9 @@ export class RegisterComponent implements OnInit {
 
   cambio3(){
     this.usuarios.forEach(element => {
-      this.map.set(element.correo,element)
+      this.mapU.set(element.correo,element)
     });
-    var currentUser = this.map.get(this.newUser.correo)
+    var currentUser = this.mapU.get(this.newUser.correo)
     if(currentUser == undefined){
         this.box_registo = false;
         this.box_vincu_lab = false;
@@ -83,11 +97,14 @@ export class RegisterComponent implements OnInit {
   }
 
   crearusuario(user:Usuario){
-    this.service.crearUsuario(user)
+    this.serviceU.crearUsuario(user)
     .subscribe(data=>{
       this.toastr.success("Usuario Creado con exito");
       this.router.navigate(['/login'])
     }); 
+    if(this.flagVL){
+      
+    }
 
   }
 
