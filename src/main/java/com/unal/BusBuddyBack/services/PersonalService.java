@@ -13,29 +13,26 @@ import com.unal.BusBuddyBack.repository.PersonalRepository;
 public class PersonalService implements IPersonalService{
 
     @Autowired
-    private PersonalRepository data;
+    private PersonalRepository dataPersonal;
 
     @Override
     public List<Personal> listar() {
-        // TODO Auto-generated method stub
-        return null;
+        return (List<Personal>) dataPersonal.findAll();
     }
 
     @Override
     public Optional<Personal> listarId(int id) {
-        return null;
+        return dataPersonal.findById(id);
     }
 
     @Override
     public Personal save(Personal element) {
-        // TODO Auto-generated method stub
-        return null;
+        return dataPersonal.save(element);
     }
 
     @Override
     public void delete(int id) {
-        // TODO Auto-generated method stub
-        
+        dataPersonal.deleteById(id);
     }
     
 }
