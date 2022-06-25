@@ -22,6 +22,7 @@ export class RegisterComponent implements OnInit {
   usuarios:Usuario[]
   newUser=new Usuario();
   mapU=new Map<String,Usuario>;
+  contrasena:String;
 
   personal: Personal[]
   searchPersonal = new Personal();
@@ -97,15 +98,19 @@ export class RegisterComponent implements OnInit {
   }
 
   crearusuario(user:Usuario){
-    this.serviceU.crearUsuario(user)
-    .subscribe(data=>{
-      this.toastr.success("Usuario Creado con exito");
-      this.router.navigate(['/login'])
-    }); 
-    if(this.flagVL){
-      
-    }
 
+    if(this.contrasena==user.contrasena){
+      this.serviceU.crearUsuario(user)
+      .subscribe(data=>{
+        this.toastr.success("Usuario Creado con exito");
+        this.router.navigate(['/login'])
+      }); 
+      if(this.flagVL){
+        
+      }
+    }else{
+      this.toastr.warning("Las contraseñas no coinciden");
+    }
   }
 
 
