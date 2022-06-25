@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router'
 import { take } from 'rxjs';
 import { Ruta } from '../Modelo/Ruta';
+import { RutaView } from '../Modelo/RutaView';
 import { Terminal } from '../Modelo/Terminal';
-import {ServiceRutasService} from '../Service/service-rutas.service'
+import { ServiceRutasViewService } from '../Service/service-rutas-view.service';
 import { ServiceTerminalService } from '../Service/service-terminal.service';
 @Component({
   selector: 'app-home-usuario',
@@ -13,11 +14,10 @@ import { ServiceTerminalService } from '../Service/service-terminal.service';
 export class HomeUsuarioComponent implements OnInit {
 
   tiquetever = false;
-  constructor(private serviceRutas:ServiceRutasService,private serviceTerminales:ServiceTerminalService, private router:Router) {
+  constructor(private serviceRutas:ServiceRutasViewService,private serviceTerminales:ServiceTerminalService, private router:Router) {
     this.rutas=[];
    }
-  rutas:Ruta[];
-  a:String;
+  rutas:RutaView[];
   ngOnInit(): void {
   }
 
@@ -28,30 +28,8 @@ export class HomeUsuarioComponent implements OnInit {
     }) ;
     
     this.tiquetever = true;
-    console.log("Nombre Terminal 1: "+this.getNombreTerminal(1));
   }
-  /*getTerminalString(index:number):String{
-    
-    this.serviceTerminales.getTerminalIdx(+index).
-    subscribe(data=>{
-      this.terminalAux=data;
-    }
-    );
-    return this.terminalAux.nombre;
-  }*/
-  getNombreTerminal(index:number):String{
-  console.log("Ejecutandose xd"+index);
-    var nombre=new String("");
-  this.serviceTerminales.getTerminalIdx(+index).pipe(take(1)).subscribe(data=>{
-    this.a=data.nombre;
-  }
-   
   
-    );
-    nombre=String(this.a+"");
-    console.log(nombre+"AAAAA");
-    return String(nombre);
-    //return "AA"
-  }
+  
 
 }
