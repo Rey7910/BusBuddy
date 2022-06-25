@@ -12,7 +12,4 @@ export class Ruta{
     constructor(){
         
     }
-    /*
-    origenNombre:String;
-    destinoNombre:String;*/
 }
