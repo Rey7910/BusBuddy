@@ -97,6 +97,7 @@ export class RegisterComponent implements OnInit {
   }
 
   crearusuario(user:Usuario){
+
     this.serviceU.crearUsuario(user)
     .subscribe(data=>{
       this.toastr.success("Usuario Creado con exito");
