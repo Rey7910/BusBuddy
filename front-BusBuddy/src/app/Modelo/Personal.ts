@@ -5,7 +5,6 @@ export class Personal{
     apellido:String;
     telefono:number;
     cargo:String;
-    destino:number;
     eps:String;
     ciudad:String;
     id:String;

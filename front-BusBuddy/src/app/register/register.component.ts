@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
         this.newUser.rol=0; 
     }
     else{
-      window.alert('El correo ya se encuentra registrado');
+      this.toastr.warning('El correo ya se encuentra registrado');
       window.location.reload();
     }
 
