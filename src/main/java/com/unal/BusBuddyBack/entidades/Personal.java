@@ -31,12 +31,12 @@ public class Personal implements Serializable{
     @Column(name = "ciudad")
     private String ciudad;
     @Column(name = "id")
-    private String id;
+    private long id;
     @Column(name = "pin")
     private String pin;
 
     public Personal(int idpersonal, int idusuario, int nombre, String apellido, String telefono, String cargo,
-            String eps, String ciudad, String id, String pin) {
+            String eps, String ciudad, long id, String pin) {
         this.idpersonal = idpersonal;
         this.idusuario = idusuario;
         this.nombre = nombre;
@@ -116,11 +116,11 @@ public class Personal implements Serializable{
         this.ciudad = ciudad;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 

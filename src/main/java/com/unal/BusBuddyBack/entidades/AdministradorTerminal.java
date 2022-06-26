@@ -21,7 +21,7 @@ public class AdministradorTerminal implements Serializable{
     @Column(name = "idterminal")
     private int idterminal;
     @Column(name = "id")
-    private int id;
+    private long id;
     @Column(name = "eps")
     private int eps;
     @Column(name = "ciudad")
@@ -30,7 +30,7 @@ public class AdministradorTerminal implements Serializable{
     public AdministradorTerminal() {
     }
 
-    public AdministradorTerminal(int idadministrador_terminal, int idusuario, int idterminal, int id, int eps,
+    public AdministradorTerminal(int idadministrador_terminal, int idusuario, int idterminal, long id, int eps,
             int ciudad) {
         this.idadministrador_terminal = idadministrador_terminal;
         this.idusuario = idusuario;
@@ -57,10 +57,10 @@ public class AdministradorTerminal implements Serializable{
     public void setIdempresa(int idempresa) {
         this.idterminal = idempresa;
     }
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     public int getEps() {

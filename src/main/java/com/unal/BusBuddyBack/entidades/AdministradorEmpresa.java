@@ -7,7 +7,7 @@ import com.sun.istack.NotNull;
 @Entity
 @Table(name="administrador_empresa")
 public class AdministradorEmpresa implements Serializable{
-    private static final long serialVersionUID = 8L;
+    private static final long serialVersionUID = 9L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,7 +20,7 @@ public class AdministradorEmpresa implements Serializable{
     @Column(name = "idempresa")
     private int idempresa;
     @Column(name = "id")
-    private int id;
+    private long id;
     @Column(name = "eps")
     private int eps;
     @Column(name = "ciudad")
@@ -29,7 +29,7 @@ public class AdministradorEmpresa implements Serializable{
     public AdministradorEmpresa() {
     }
 
-    public AdministradorEmpresa(int idadministrador_empresa, int idusuario, int idempresa, int id, int eps,
+    public AdministradorEmpresa(int idadministrador_empresa, int idusuario, int idempresa, long id, int eps,
             int ciudad) {
         this.idadministrador_empresa = idadministrador_empresa;
         this.idusuario = idusuario;
@@ -56,10 +56,10 @@ public class AdministradorEmpresa implements Serializable{
     public void setIdempresa(int idempresa) {
         this.idempresa = idempresa;
     }
-    public int getId() {
+    public long getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
     public int getEps() {
