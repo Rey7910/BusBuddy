@@ -885,7 +885,7 @@ input[type="radio"] .styled:checked+label::after {
 .tiquete-form h3 {
     float: left;
     background: rgba(255, 255, 255, 0.171);
-    padding: 10px 28px;
+    padding: 10px 5px;
     margin-left: -35px;
     color: #0a4668;
     font-size: 18px;
@@ -893,9 +893,10 @@ input[type="radio"] .styled:checked+label::after {
     border-radius: 10px;
     
     width: 150px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
+
+    overflow: auto;
+    white-space: pre-line ;
+    text-overflow: clip;
         
 }
 

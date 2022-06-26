@@ -891,11 +891,10 @@ input[type="radio"] .styled:checked+label::after {
     font-size: 18px;
     font-weight: 600;
     border-radius: 10px;
-    
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
     width: 150px;
+    overflow: auto;
+    white-space: pre-line;
+    text-overflow: clip;
 }
 .tiquete-form img{
 
