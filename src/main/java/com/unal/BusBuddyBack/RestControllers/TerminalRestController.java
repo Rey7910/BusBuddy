@@ -21,10 +21,6 @@ public class TerminalRestController {
     public List<Terminal> consultar(){
         return service.listar();
     }
-    /*@GetMapping(path={"/name/{id}"})
-    public Optional<Terminal> getNombre(@PathVariable("id") int id){
-        return service.listarId(id);
-    }*/
     @GetMapping(path={"/{id}"}) //Referencia a consulta
     public Terminal getById(@PathVariable("id") int id){
         Optional<Terminal> a=service.listarId(id );

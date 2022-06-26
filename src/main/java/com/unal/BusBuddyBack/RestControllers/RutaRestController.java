@@ -21,4 +21,8 @@ public class RutaRestController {
     public Ruta agregar(@RequestBody Ruta ruta){
         return service.save(ruta);
     }
+    @PutMapping
+    public Ruta editar(@RequestBody Ruta r){
+        return service.save(r);
+    }
 }

@@ -13,7 +13,7 @@ public class Terminal implements Serializable {
     @Column(name="idterminal")
     private int id;
     @Column(name="idalterno")
-    private int idAlterno;
+    private Integer idAlterno;
     @Column(name="Nombre")
     private String nombre;
     @Column(name="ciudad")
@@ -43,11 +43,11 @@ public class Terminal implements Serializable {
         this.id = id;
     }
 
-    public int getIdAlterno() {
+    public Integer getIdAlterno() {
         return idAlterno;
     }
 
-    public void setIdAlterno(int idAlterno) {
+    public void setIdAlterno(Integer idAlterno) {
         this.idAlterno = idAlterno;
     }
 
