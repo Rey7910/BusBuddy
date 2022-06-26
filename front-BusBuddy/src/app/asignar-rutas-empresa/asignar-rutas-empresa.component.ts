@@ -72,5 +72,20 @@ export class AsignarRutasEmpresaComponent implements OnInit {
   Cancelar(){
     this.caja_editar = false; 
   }
+  Eliminar(idRuta:number){
+    var idE=sessionStorage.getItem("idEmpresa");
+    if(idE!=null){
+      this.service.deleteRutaId(idRuta).subscribe(data=>{
+        this.toastr.success("Ruta Eliminada con exito");
+        window.location.reload();
+      },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
+    this.serviceView.getRutas().
+    subscribe(data=>{
+      this.rutas=data;
+    }) ;
+    }else{
+      this.toastr.error("Ruta No Eliminada, error con la identificación de la empresa");
+    }
+  }
   
 }

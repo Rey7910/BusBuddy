@@ -21,6 +21,9 @@ export class ServiceRutasService {
     return this.http.put<Ruta>(this.Url,ruta);
   }
   deleteRuta(ruta:Ruta){
-    return this.http.delete<Ruta>(this.Url+"/"+ruta.idRuta);
+    return this.http.delete<Ruta>(this.Url);
+  }
+  deleteRutaId(idRuta:number){
+    return this.http.delete<Ruta>(this.Url+"/"+idRuta);
   }
 }
