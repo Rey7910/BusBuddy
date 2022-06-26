@@ -31,7 +31,19 @@ export class LoginComponent implements OnInit {
     if(currentUser != undefined){
       if(this.searchUser.contrasena == currentUser.contrasena){
         this.toastr.success('Usuario loggeado con éxito');
-        this.router.navigate(['/home-usuario'])
+        if(currentUser.rol == 0){ //cliente
+          this.router.navigate(['/home-usuario'])
+        }
+        else if(currentUser.rol == 1){ //administrador de empresa
+          this.router.navigate(['/asignar-rutas-empresa'])
+        }
+        else if (currentUser.rol == 2){ //administrador de terminal
+          //this.router.navigate(['/terminal'])
+        }
+        else if (currentUser.rol == 3){ //conductor
+          //this.router.navigate(['/conductor'])
+        }
+        
       }
       else{
         this.toastr.error('Contraseña incorrecta, vuelva a intentarlo');
@@ -39,8 +51,6 @@ export class LoginComponent implements OnInit {
     }
     else{
       this.toastr.error('El correo no se encuentra registrado');
-
-
     }
   }
 
