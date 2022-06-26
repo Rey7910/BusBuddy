@@ -130,6 +130,7 @@ create table reserva(
     telefono long,
     telefono_emergencia long,
     silla int,
+    estado int,
     primary key(idreserva),
     foreign key(idruta) references ruta(idruta),
     foreign key(idusuario) references usuario(idusuario)
