@@ -1,5 +1,5 @@
 export class Conductor{
-    idConductor:number;
+    idconductor:number;
     idUsuario:number;
     idEmpresa:number;
     id:number;

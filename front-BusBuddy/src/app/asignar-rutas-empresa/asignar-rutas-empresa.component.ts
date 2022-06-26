@@ -7,6 +7,8 @@ import { RutaView } from '../Modelo/RutaView';
 import { ToastrService } from 'ngx-toastr';
 import { Terminal } from '../Modelo/Terminal';
 import { ServiceTerminalService } from '../Service/service-terminal.service';
+import { ServiceConductorService } from '../Service/service-conductor.service';
+import { Conductor } from '../Modelo/Conductor';
 @Component({
   selector: 'app-asignar-rutas-empresa',
   templateUrl: './asignar-rutas-empresa.component.html',
@@ -14,9 +16,10 @@ import { ServiceTerminalService } from '../Service/service-terminal.service';
 })
 export class AsignarRutasEmpresaComponent implements OnInit {
   caja_editar = false;
-  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceTerminal:ServiceTerminalService,private toastr: ToastrService, private router:Router) { }
+  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceTerminal:ServiceTerminalService,private serviceConductor:ServiceConductorService,private toastr: ToastrService, private router:Router) { }
   rutas:RutaView[];
   terminales:Terminal[];
+  conductores:Conductor[];
   newRuta=new Ruta();
   ngOnInit(): void {
     this.serviceView.getRutas().
@@ -25,6 +28,9 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     }) ;
     this.serviceTerminal.getTerminales().subscribe(data=>{
       this.terminales=data;
+    });
+    this.serviceConductor.getConductores().subscribe(data=>{
+      this.conductores=data;
     });
     sessionStorage.setItem("idEmpresa",'1');
   }
@@ -73,19 +79,22 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     this.caja_editar = false; 
   }
   Eliminar(idRuta:number){
-    var idE=sessionStorage.getItem("idEmpresa");
-    if(idE!=null){
-      this.service.deleteRutaId(idRuta).subscribe(data=>{
-        this.toastr.success("Ruta Eliminada con exito");
-        window.location.reload();
-      },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
-    this.serviceView.getRutas().
-    subscribe(data=>{
-      this.rutas=data;
-    }) ;
-    }else{
-      this.toastr.error("Ruta No Eliminada, error con la identificación de la empresa");
+    if(confirm("¿Seguro quieres eliminar la ruta?")) {
+        var idE=sessionStorage.getItem("idEmpresa");
+      if(idE!=null){
+        this.service.deleteRutaId(idRuta).subscribe(data=>{
+          this.toastr.success("Ruta Eliminada con exito");
+          window.location.reload();
+        },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
+      this.serviceView.getRutas().
+      subscribe(data=>{
+        this.rutas=data;
+      }) ;
+      }else{
+        this.toastr.error("Ruta No Eliminada, error con la identificación de la empresa");
+      }
     }
+    
   }
   
 }

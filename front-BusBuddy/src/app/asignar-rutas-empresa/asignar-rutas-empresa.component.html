@@ -45,9 +45,18 @@
     <!-- BARRA -->
     <section>
         <div class="banner-main">
-            <img src="../../assets/fondo.png" alt="#" />
+            <img src="../../assets/Fondo.png" alt="#" />
             <div class="container">
-                <div class="text-bg">
+                <div class="text-bg"><div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Conductor </label>
+
+                            <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
+                                <option disabled selected>Ingrese origen</option>
+                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
+                                  {{conductor.idconductor}}
+                                </option>
+                              </select>
+                        </div>
                     <h1>CREA TODAS<br><strong class="white"> TUS RUTAS</strong></h1>
                     <div class="container">
                         <form class="main-form">
@@ -72,8 +81,14 @@
                                             <input id="fechaSalida" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.fechaSalida"class="form-control" placeholder="Any" type="date" name="Any">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                            <label>Conductor</label>
-                                            <input id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor" class="form-control" placeholder="Nombre" type="text" name="">
+                                            <label>Conductor </label>
+                
+                                            <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
+                                                <option disabled selected>Ingrese origen</option>
+                                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
+                                                  {{conductor.idconductor}}
+                                                </option>
+                                              </select>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Destino</label>
@@ -179,7 +194,8 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Origen </label>
 
-                            <select  id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.origen">
+                            <select  class="form-select form-select-sm"  id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.origen">
+                                <option disabled selected>Ingrese origen</option>
                                 <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
                                   {{terminal.nombre}}
                                 </option>
@@ -189,22 +205,30 @@
                             <label>Fecha salida</label>
                             <input id="fechaSalida" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.fechaSalida" class="form-control" placeholder="Any" type="date" name="Any">
                         </div>
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                      <!--  <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Conductor</label>
                             <input id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor"  class="form-control" placeholder="Nombre" type="text" name="">
-                        </div>
-                      <!--  
-                            
-                            <input  id="destino" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino" class="form-control" placeholder="" type="text" name="Any">
                         </div>-->
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                        <label>Destino</label>
-                        <select  id="destino" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino">
-                            <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
-                              {{terminal.nombre}}
-                            </option>
-                          </select>
+                            <label>Conductor </label>
+
+                            <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
+                                <option disabled selected>Ingrese origen</option>
+                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
+                                  {{conductor.idconductor}}
+                                </option>
+                              </select>
                         </div>
+                      
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Destino</label>
+                            <select  class="form-select form-select-sm"  id="destino" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino">
+                                <option disabled selected>Ingrese destino</option>
+                                <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
+                                  {{terminal.nombre}}
+                                </option>
+                              </select>                                        
+                            </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Fecha llegada</label>
                             <input id="fechaLlegada"[ngModelOptions]="{standalone: true}"  [(ngModel)]="newRuta.fechaLlegada" class="form-control" placeholder="Any" type="date" name="Any">
