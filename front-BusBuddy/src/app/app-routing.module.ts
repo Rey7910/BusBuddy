@@ -8,6 +8,7 @@ import { AsignarRutasEmpresaComponent } from './asignar-rutas-empresa/asignar-ru
 import {MisRutasComponent} from './mis-rutas/mis-rutas.component';
 import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.component';
 import { SettingsComponent } from './settings/settings.component';
+import { PersonalComponent } from './personal/personal.component';
 
 const routes: Routes = [
   {
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'settings',
     component: SettingsComponent,
+  },
+  {
+    path: 'personal',
+    component: PersonalComponent,
   },
 
 ];

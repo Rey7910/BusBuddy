@@ -18,6 +18,10 @@ import{ServiceRutasService} from '../app/Service/service-rutas.service'
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceTerminalService } from './Service/service-terminal.service';
 import { SettingsComponent } from './settings/settings.component';
+import { PersonalComponent } from './personal/personal.component';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +33,7 @@ import { SettingsComponent } from './settings/settings.component';
     CompraTiqueteComponent,
     MisRutasComponent,
     SettingsComponent,
+    PersonalComponent,
     
   ],
   imports: [
