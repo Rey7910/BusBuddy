@@ -41,9 +41,19 @@ public class RutaView implements Serializable {
     private int precio;
     @Column(name="estado")
     private String estado;
-
+    @Column(name="idconductor")
+    private int idConductor; //c
     public RutaView() {
     }
+    public int getIdConductor() {
+        return idConductor;
+    }
+
+    public void setIdConductor(int idConductor) {
+        this.idConductor = idConductor;
+    }
+
+
 
     public int getIdRuta() {
         return idRuta;

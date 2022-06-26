@@ -18,7 +18,7 @@ public class Ruta implements Serializable {
     @Column(name="idruta")
     private int idRuta;
     @Column(name="idconductor")
-    private int idConductor; //c
+    private int idConductor;
     @NotNull
     @Column(name="idempresa")
     private int idEmpresa;

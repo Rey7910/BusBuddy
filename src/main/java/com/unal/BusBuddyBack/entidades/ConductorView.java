@@ -1,19 +1,18 @@
 package com.unal.BusBuddyBack.entidades;
 
-import java.io.Serializable;
-import java.text.SimpleDateFormat;
+import com.sun.istack.NotNull;
+import org.hibernate.annotations.Immutable;
 
 import javax.persistence.*;
-import com.sun.istack.NotNull;
+import java.io.Serializable;
 
 @Entity
-@Table(name="conductor")
-public class Conductor implements Serializable {
-    private static final long serialVersionUID = 6L;
-    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
+@Immutable
 
+@Table(name= "info_conductores" )
+public class ConductorView implements Serializable {
+    private static final long serialVersionUID = 6941689238517063607L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idconductor")
     private int idConductor;
     @NotNull
@@ -28,17 +27,12 @@ public class Conductor implements Serializable {
     private String eps;
     @Column(name = "ciudad")
     private String ciudad;
-    
-    public Conductor(int idConductor, int idUsuario, int idEmpresa, int id, String eps, String ciudad) {
-        this.idConductor = idConductor;
-        this.idUsuario = idUsuario;
-        this.idEmpresa = idEmpresa;
-        this.id = id;
-        this.eps = eps;
-        this.ciudad = ciudad;
-    }
+    @Column(name="nombre")
+    private String nombre;
+    @Column(name="apellido")
+    private String apellido;
 
-    public Conductor() {
+    public ConductorView() {
     }
 
     public int getIdConductor() {
@@ -89,4 +83,19 @@ public class Conductor implements Serializable {
         this.ciudad = ciudad;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
 }
