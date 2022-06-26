@@ -9,6 +9,7 @@ import {MisRutasComponent} from './mis-rutas/mis-rutas.component';
 import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PersonalComponent } from './personal/personal.component';
+import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes-usuario.component'
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'personal',
     component: PersonalComponent,
+  },
+  {
+    path: 'mis-tiquetes-usuario',
+    component: MisTiquetesUsuarioComponent,
   },
 
 ];

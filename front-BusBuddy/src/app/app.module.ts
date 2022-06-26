@@ -19,6 +19,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServiceTerminalService } from './Service/service-terminal.service';
 import { SettingsComponent } from './settings/settings.component';
 import { PersonalComponent } from './personal/personal.component';
+import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes-usuario.component';
 
 
 
@@ -34,6 +35,7 @@ import { PersonalComponent } from './personal/personal.component';
     MisRutasComponent,
     SettingsComponent,
     PersonalComponent,
+    MisTiquetesUsuarioComponent,
     
   ],
   imports: [
