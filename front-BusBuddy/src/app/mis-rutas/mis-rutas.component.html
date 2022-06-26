@@ -64,7 +64,7 @@
 
             <table class="table table-hover">
               <thead>
-                <tr>
+                <tr >
                   <th>Fecha de salida</th>
                   <th>Origen</th>
                   <th>Fecha de llegada</th>
@@ -75,40 +75,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>12/06/2022 6:30 pm</td>
-                  <td>Bogotá</td>
-                  <td>13/06/2022 4:30 am</td>
-                  <td>Tame</td>
-                  <td>En curso</td>
+                <tr *ngFor="let ruta of rutas">
+                  <td>{{ruta.fechaSalida | date :'short'}}</td>
+                  <td>{{ruta.origenT}}</td>
+                  <td>{{ruta.fechaLlegada | date :'short'}}</td>
+                  <td>{{ruta.destinoT}}</td>
+                  <td>{{ruta.estado}}</td>
                   <td>
                       <button style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
                   </td>
 
 
                 </tr>
-                <tr>
-                    <td>12/06/2022 6:30 pm</td>
-                    <td>Bogotá</td>
-                    <td>13/06/2022 4:30 am</td>
-                    <td>Tame</td>
-                    <td>En curso</td>
-                    <td>
-                        <button style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
-                    </td>
-  
-  
-                  </tr>
-                  <tr>
-                    <td>12/06/2022 6:30 pm</td>
-                    <td>Bogotá</td>
-                    <td>13/06/2022 4:30 am</td>
-                    <td>Tame</td>
-                    <td>En curso</td>
-                    <td>
-                        <button style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
-                    </td>
-                  </tr>
               </tbody>
             </table>
           </div>
