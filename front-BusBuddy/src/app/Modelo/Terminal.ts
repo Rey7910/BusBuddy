@@ -1,9 +1,10 @@
 export class Terminal{
-    idTerminal:number;
+    id:number;
     idAlterno:number;
     nombre:String;
     capacidad:number;
     estado:String;
+    ciudad:String;
     constructor(){
         
     }
