@@ -13,14 +13,14 @@ public class Bus implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idbus")
-    private int idbus;
+    private int idBus;
     @NotNull
     @Column(name = "idempresa")
-    private int idempresa;
+    private int idEmpresa;
     @Column(name = "placa")
-    private int placa;
+    private String placa;
     @Column(name = "marca")
-    private int marca;
+    private String marca;
     @Column(name = "SOAT")
     private int SOAT;
     @Column(name = "sillas")
@@ -29,36 +29,36 @@ public class Bus implements Serializable{
     public Bus() {
     }
 
-    public Bus(int idbus, int idempresa, int placa, int marca, int SOAT, int sillas) {
-        this.idbus = idbus;
-        this.idempresa = idempresa;
+    public Bus(int idBus, int idEmpresa, String placa, String marca, int SOAT, int sillas) {
+        this.idBus = idBus;
+        this.idEmpresa = idEmpresa;
         this.placa = placa;
         this.marca = marca;
         this.SOAT = SOAT;
         this.sillas = sillas;
     }
-    public int getIdbus() {
-        return idbus;
+    public int getIdBus() {
+        return idBus;
     }
-    public void setIdbus(int idbus) {
-        this.idbus = idbus;
+    public void setIdBus(int idBus) {
+        this.idBus = idBus;
     }
-    public int getIdempresa() {
-        return idempresa;
+    public int getIdEmpresa() {
+        return idEmpresa;
     }
-    public void setIdempresa(int idempresa) {
-        this.idempresa = idempresa;
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
-    public int getPlaca() {
+    public String getPlaca() {
         return placa;
     }
-    public void setPlaca(int placa) {
+    public void setPlaca(String placa) {
         this.placa = placa;
     }
-    public int getMarca() {
+    public String getMarca() {
         return marca;
     }
-    public void setMarca(int marca) {
+    public void setMarca(String marca) {
         this.marca = marca;
     }
     public int getSOAT() {
