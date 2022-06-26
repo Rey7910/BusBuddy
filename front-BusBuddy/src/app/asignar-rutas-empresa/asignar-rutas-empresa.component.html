@@ -139,7 +139,7 @@
                 <td>{{ruta.precio}}</td>
                 <td>{{ruta.conductor}}</td>
                 <td>
-                    <button (click)="Editar2()" style="margin-left: 5px;" class="btn btn-warning">
+                    <button (click)="Editar2(ruta.idRuta)" style="margin-left: 5px;" class="btn btn-warning">
                         <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
                             <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
                           </svg>                        </button>
@@ -168,36 +168,36 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Origen </label>
 
-                            <input id="origen" class="form-control" placeholder="" type="text" name="">
+                            <input id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.origen" class="form-control" placeholder="" type="text" name="">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Fecha salida</label>
-                            <input id="fechaSalida" class="form-control" placeholder="Any" type="date" name="Any">
+                            <input id="fechaSalida" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.fechaSalida" class="form-control" placeholder="Any" type="date" name="Any">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Conductor</label>
-                            <input id="conductor"  class="form-control" placeholder="Nombre" type="text" name="">
+                            <input id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor"  class="form-control" placeholder="Nombre" type="text" name="">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Destino</label>
-                            <input id="destino" class="form-control" placeholder="" type="text" name="Any">
+                            <input  id="destino" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino" class="form-control" placeholder="" type="text" name="Any">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Fecha llegada</label>
-                            <input id="fechaLlegada" class="form-control" placeholder="Any" type="date" name="Any">
+                            <input id="fechaLlegada"[ngModelOptions]="{standalone: true}"  [(ngModel)]="newRuta.fechaLlegada" class="form-control" placeholder="Any" type="date" name="Any">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Precio</label>
-                            <input id="precio" class="form-control" placeholder="00.0" type="text" name="00.0">
+                            <input id="precio" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.precio" class="form-control" placeholder="00.0" type="text" name="00.0">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Bus</label>
-                            <input id="bus"  class="form-control" placeholder="00.0" type="text" name="00.0">
+                            <input id="bus" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idBus" class="form-control" placeholder="00.0" type="text" name="00.0">
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                    <button type="button" style="width: 130px; margin-top: 60px; margin-left: 60px;"  class="btn btn-success btn-lg">Modificar</button>
+                    <button (click)="Editar(newRuta)" type="button" style="width: 130px; margin-top: 60px; margin-left: 60px;"  class="btn btn-success btn-lg">Modificar</button>
                     <button (click)="Cancelar()"  type="button" style="width: 130px; margin-top: 10px; margin-left: 60px;"  class="btn btn-warning btn-lg">Cancelar</button>
 
                 </div>

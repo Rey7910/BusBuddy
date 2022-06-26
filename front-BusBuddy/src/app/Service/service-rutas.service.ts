@@ -18,7 +18,7 @@ export class ServiceRutasService {
     return this.http.get<Ruta>(this.Url+"/"+id);
   }
   updateRuta(ruta:Ruta){
-    return this.http.put<Ruta>(this.Url+"/"+ruta.idRuta,ruta);
+    return this.http.put<Ruta>(this.Url,ruta);
   }
   deleteRuta(ruta:Ruta){
     return this.http.delete<Ruta>(this.Url+"/"+ruta.idRuta);
