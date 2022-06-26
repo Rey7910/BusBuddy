@@ -64,13 +64,13 @@
                             </div>
                             <h2 class="text-uppercase text-center mb-5">Vinculación Laboral</h2>
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Empresa</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="empresa">NIT Empresa</label>
+                                    <input type="text" id="empresa" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchEmpresa.nit" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Token de verificación</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="pin">Pin de verificación</label>
+                                    <input type="text" id="pin" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchPersonal.pin" class="form-control form-control-lg" />
                                 </div>
                             <div class="form-outline mb-4" style="text-align: center;">
                                 <button  type="button" (click)="cambio2()" class="btn btn-success gradient-custom-4 text-body">Validar datos</button>
@@ -88,35 +88,30 @@
                                     src="https://i.pinimg.com/originals/61/4f/41/614f41bfff5dff361543597e7414b5f4.jpg">
                             </div>
                             <h2 class="text-uppercase text-center mb-5">Vinculación Laboral</h2>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">NIT Empresa</label>
-                                    <input type="text" id="nombres" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchEmpresa.nit" class="form-control form-control-lg" >
-                                </div>
 
-                                <div class="form-outline mb-4">
+                                <!-- <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Empresa</label>
                                     <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
                                 </div>
-
                                 
                                 <div class="form-outline mb-4">
                                     <label class="form-label" for="form3Example1cg">Cargo</label>
                                     <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                </div> -->
+
+                                <div class="form-outline mb-4">
+                                    <label class="form-label" for="eps">Afiliación EPS</label>
+                                    <input type="text" id="eps" [ngModelOptions]="{standalone: true}" [(ngModel)]="newConductor.eps" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Afiliación EPS</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="ciudad">Ciudad</label>
+                                    <input type="text" id="ciudad" [ngModelOptions]="{standalone: true}" [(ngModel)]="newConductor.ciudad" class="form-control form-control-lg" />
                                 </div>
 
                                 <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Ciudad</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="form3Example1cg">Cedula</label>
-                                    <input type="text" id="form3Example1cg" class="form-control form-control-lg" />
+                                    <label class="form-label" for="cedula">Cedula</label>
+                                    <input type="text" id="cedula" [ngModelOptions]="{standalone: true}" [(ngModel)]="newConductor.id" class="form-control form-control-lg" />
                                 </div>
 
                             <div class="form-outline mb-4" style="text-align: center;">
