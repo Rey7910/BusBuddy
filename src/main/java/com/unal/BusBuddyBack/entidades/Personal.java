@@ -7,7 +7,7 @@ import javax.persistence.*;
 import com.sun.istack.NotNull;
 
 @Entity
-@Table(name="personal")
+@Table(name="personal", uniqueConstraints = @UniqueConstraint(columnNames = "pin"))
 public class Personal implements Serializable{
     private static final long serialVersionUID = 4L;
     
