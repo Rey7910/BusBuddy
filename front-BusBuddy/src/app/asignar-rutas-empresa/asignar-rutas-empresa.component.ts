@@ -11,6 +11,8 @@ import { ServiceConductorService } from '../Service/service-conductor.service';
 import { Conductor } from '../Modelo/Conductor';
 import { ServiceBusService } from '../Service/service-bus.service';
 import { Bus } from '../Modelo/Bus';
+import { ServiceConductorViewService } from '../Service/service-conductor-view.service';
+import { ConductorView } from '../Modelo/ConductorView';
 @Component({
   selector: 'app-asignar-rutas-empresa',
   templateUrl: './asignar-rutas-empresa.component.html',
@@ -18,10 +20,10 @@ import { Bus } from '../Modelo/Bus';
 })
 export class AsignarRutasEmpresaComponent implements OnInit {
   caja_editar = false;
-  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceBus:ServiceBusService,private serviceTerminal:ServiceTerminalService,private serviceConductor:ServiceConductorService,private toastr: ToastrService, private router:Router) { }
+  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceBus:ServiceBusService,private serviceTerminal:ServiceTerminalService,private serviceConductorView:ServiceConductorViewService,private toastr: ToastrService, private router:Router) { }
   rutas:RutaView[];
   terminales:Terminal[];
-  conductores:Conductor[];
+  conductores:ConductorView[];
   buses:Bus[];
   newRuta=new Ruta();
   ngOnInit(): void {
@@ -32,7 +34,7 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     this.serviceTerminal.getTerminales().subscribe(data=>{
       this.terminales=data;
     });
-    this.serviceConductor.getConductores().subscribe(data=>{
+    this.serviceConductorView.getConductores().subscribe(data=>{
       this.conductores=data;
     });
     this.serviceBus.getBuses().subscribe(data=>{

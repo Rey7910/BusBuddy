@@ -47,16 +47,7 @@
         <div class="banner-main">
             <img src="../../assets/Fondo.png" alt="#" />
             <div class="container">
-                <div class="text-bg"><div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                            <label>Conductor </label>
-
-                            <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
-                                <option disabled selected>Ingrese origen</option>
-                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
-                                  {{conductor.idconductor}}
-                                </option>
-                              </select>
-                        </div>
+                <div class="text-bg">
                     <h1>CREA TODAS<br><strong class="white"> TUS RUTAS</strong></h1>
                     <div class="container">
                         <form class="main-form">
@@ -85,8 +76,8 @@
                 
                                             <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
                                                 <option disabled selected>Seleccione conductor</option>
-                                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
-                                                  {{conductor.idconductor}}
+                                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idConductor">
+                                                  {{conductor.nombre+" "+conductor.apellido}}
                                                 </option>
                                               </select>
                                         </div>
@@ -220,8 +211,8 @@
 
                             <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
                                 <option disabled selected>Seleccione conductor</option>
-                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
-                                  {{conductor.idconductor}}
+                                <option *ngFor="let conductor of conductores" [ngValue]="conductor.idConductor">
+                                  {{conductor.nombre+" "+conductor.apellido}}
                                 </option>
                               </select>
                         </div>
