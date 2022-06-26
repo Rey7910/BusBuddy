@@ -18,6 +18,9 @@ public class Personal implements Serializable{
     @NotNull
     @Column(name = "idusuario")
     private int idusuario;
+    @NotNull
+    @Column(name = "idempresa")
+    private int idempresa;
     @Column(name = "nombre")
     private int nombre;
     @Column(name = "apellido")
@@ -35,10 +38,11 @@ public class Personal implements Serializable{
     @Column(name = "pin")
     private String pin;
 
-    public Personal(int idpersonal, int idusuario, int nombre, String apellido, String telefono, String cargo,
+
+    public Personal(int idusuario, int idempresa, int nombre, String apellido, String telefono, String cargo,
             String eps, String ciudad, long id, String pin) {
-        this.idpersonal = idpersonal;
         this.idusuario = idusuario;
+        this.idempresa = idempresa;
         this.nombre = nombre;
         this.apellido = apellido;
         this.telefono = telefono;
@@ -130,6 +134,14 @@ public class Personal implements Serializable{
 
     public void setPin(String pin) {
         this.pin = pin;
+    }
+
+    public int getIdempresa() {
+        return idempresa;
+    }
+
+    public void setIdempresa(int idempresa) {
+        this.idempresa = idempresa;
     }
 
 }
