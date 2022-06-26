@@ -25,8 +25,7 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public Usuario save(Usuario element) {
-        element.setRol(0); //hacerlo cliente
+    public Usuario save(Usuario element) { 
         return dataURepository.save(element);
     }
 
