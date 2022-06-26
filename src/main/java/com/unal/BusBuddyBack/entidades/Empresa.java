@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name="empresa")
+@Table(name="empresa", uniqueConstraints = @UniqueConstraint(columnNames = "nit"))
 public class Empresa implements Serializable {
     private static final long serialVersionUID = 5L;
 
