@@ -4,6 +4,7 @@ import { Ruta } from '../Modelo/Ruta';
 import { ServiceRutasService } from '../Service/service-rutas.service';
 import { ServiceRutasViewService } from '../Service/service-rutas-view.service';
 import { RutaView } from '../Modelo/RutaView';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-asignar-rutas-empresa',
   templateUrl: './asignar-rutas-empresa.component.html',
@@ -11,7 +12,7 @@ import { RutaView } from '../Modelo/RutaView';
 })
 export class AsignarRutasEmpresaComponent implements OnInit {
 
-  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService, private router:Router) { }
+  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private toastr: ToastrService, private router:Router) { }
   rutas:RutaView[]
   newRuta=new Ruta();
   ngOnInit(): void {
@@ -28,17 +29,20 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     if(idE!=null){
       ruta.idEmpresa=+idE;
       this.service.crearRuta(ruta).subscribe(data=>{
-        window.alert("Ruta Creada con exito");
+        this.toastr.success("Ruta Creada con exito");
         window.location.reload();
-      },err =>window.alert("Verifica datos, ha ocurrido un error"));
+      },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
     this.serviceView.getRutas().
     subscribe(data=>{
       this.rutas=data;
     }) ;
     }else{
-      window.alert("Ruta No creada, error con la identificación de la empresa");
+      this.toastr.error("Ruta No creada, error con la identificación de la empresa");
     }
     
+  }
+  Editar(id:number):void{
+    sessionStorage.setItem("idAux",id.toString());
   }
   
 }
