@@ -895,10 +895,6 @@ input[type="radio"] .styled:checked+label::after {
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 150px;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    
 }
 .tiquete-form img{
 
