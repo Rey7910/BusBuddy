@@ -25,4 +25,12 @@ public class RutaRestController {
     public Ruta editar(@RequestBody Ruta r){
         return service.save(r);
     }
+    @DeleteMapping
+    public void eliminar(@RequestBody Ruta r){
+        service.delete(r);
+    }
+    @DeleteMapping(path="/{id}")
+    public void eliminar(@PathVariable("id") int id){
+        service.deleteId(id);
+    }
 }

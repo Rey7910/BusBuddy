@@ -35,6 +35,15 @@ public class TerminalService implements ITerminalService{
 
     }
 
+    @Override
+    public void deleteId(int id) {
+
+    }
+   /* @Override
+    public void delete(int id){
+
+    }*/
+
     
 }
 

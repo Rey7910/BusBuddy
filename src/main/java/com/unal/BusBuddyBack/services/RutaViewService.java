@@ -36,4 +36,9 @@ public class RutaViewService implements IRutaViewService{
     public void delete(RutaView ruta) {
 
     }
+
+    @Override
+    public void deleteId(int id) {
+
+    }
 }

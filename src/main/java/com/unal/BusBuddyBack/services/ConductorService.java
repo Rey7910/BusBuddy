@@ -30,4 +30,9 @@ public class ConductorService implements IConductorService{
     public void delete(Conductor element) {
         data.delete(element);
     }
+
+    @Override
+    public void deleteId(int id) {
+
+    }
 }

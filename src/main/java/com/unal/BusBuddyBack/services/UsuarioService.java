@@ -33,6 +33,11 @@ public class UsuarioService implements IUsuarioService {
     public void delete(Usuario id) {
         dataURepository.delete(id);
         
-    }    
-    
+    }
+
+    @Override
+    public void deleteId(int id) {
+
+    }
+
 }

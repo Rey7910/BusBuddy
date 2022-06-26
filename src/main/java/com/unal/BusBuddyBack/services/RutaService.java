@@ -33,5 +33,10 @@ public class RutaService  implements IRutaService {
         //data.delete(ruta);
     }
 
+    @Override
+    public void deleteId(int id) {
+        data.deleteById(id);
+    }
+
 
 }
