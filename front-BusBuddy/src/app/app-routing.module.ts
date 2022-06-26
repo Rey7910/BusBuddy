@@ -7,6 +7,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { AsignarRutasEmpresaComponent } from './asignar-rutas-empresa/asignar-rutas-empresa.component';
 import {MisRutasComponent} from './mis-rutas/mis-rutas.component';
 import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'compra-tiquete',
     component: CompraTiqueteComponent,
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent,
   },
 
 ];

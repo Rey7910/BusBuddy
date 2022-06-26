@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import{ServiceRutasService} from '../app/Service/service-rutas.service'
 import { HttpClientModule } from '@angular/common/http';
 import { ServiceTerminalService } from './Service/service-terminal.service';
+import { SettingsComponent } from './settings/settings.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { ServiceTerminalService } from './Service/service-terminal.service';
     AsignarRutasEmpresaComponent,
     CompraTiqueteComponent,
     MisRutasComponent,
+    SettingsComponent,
     
   ],
   imports: [
