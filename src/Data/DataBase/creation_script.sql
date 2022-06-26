@@ -30,6 +30,7 @@ create table empresa(
 create table personal(
     idpersonal int auto_increment not null,
     idusuario int not null,
+    idempresa int not null,
     nombre varchar(45),
     apellido varchar(45),
     telefono long,
@@ -39,7 +40,8 @@ create table personal(
     id long,
     pin varchar (45),
     primary key(idpersonal),
-    foreign key (idusuario) references usuario(idusuario)
+    foreign key (idusuario) references usuario(idusuario),
+    foreign key (idempresa) references empresa(idempresa)
 );
 
 create table conductor(
