@@ -132,7 +132,8 @@ create table reserva(
     foreign key(idruta) references ruta(idruta),
     foreign key(idusuario) references usuario(idusuario)
 )
-create view info_rutas as select ruta.idruta ,empresa.nombre as empresa, concat (usuario.nombre, usuario.apellido) as conductor , terminalo.nombre as terminal_origen,
+
+create or replace view info_rutas as select ruta.idruta ,empresa.nombre as empresa, concat (usuario.nombre," ", usuario.apellido) as conductor , terminalo.nombre as terminal_origen,
 terminalo.ciudad as ciudad_origen,  terminald.nombre as terminal_destino, terminald.ciudad as ciudad_destino, ruta.idbus as bus, ruta.fecha_salida as fecha_salida, 
 ruta.fecha_llegada as fecha_llegada, ruta.precio as precio, ruta.estado as estado from empresa, usuario, conductor, terminal as terminalo,terminal as terminald, ruta 
 where empresa.idempresa = ruta.idempresa and terminalo.idterminal = ruta.origen and terminald.idterminal = ruta.destino
