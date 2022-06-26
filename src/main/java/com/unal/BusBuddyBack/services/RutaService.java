@@ -30,7 +30,7 @@ public class RutaService  implements IRutaService {
 
     @Override
     public void delete(int id) {
-
+        //data.delete(ruta);
     }
 
 
