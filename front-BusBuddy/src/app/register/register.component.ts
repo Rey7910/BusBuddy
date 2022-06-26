@@ -49,16 +49,19 @@ export class RegisterComponent implements OnInit {
       this.box_vincu_lab = false; 
       this. box_vincu_lab_2 = false;
       this.box_usuario = false;
+      this.flagVL = false;
     }else if (this.box_vincu_lab_2==true){
       this.box_registo = false;
       this.box_vincu_lab = true;
       this.box_vincu_lab_2 = false;
       this.box_usuario = false;
+      this.flagVL = false;
     }else if (this.box_usuario == true){
       this.box_registo = false;
       this.box_vincu_lab = false;
       this.box_vincu_lab_2 = true;
-      this.box_usuario = false;    
+      this.box_usuario = false;  
+      this.flagVL = false;  
     }
 
   }
@@ -76,6 +79,7 @@ export class RegisterComponent implements OnInit {
     this.box_vincu_lab = false;
     this.box_vincu_lab_2 = true;
     this.box_usuario = false;
+    this.flagVL = true;
   }
 
   cambio3(){
@@ -100,18 +104,17 @@ export class RegisterComponent implements OnInit {
   crearusuario(user:Usuario){
 
     if(this.contrasena==user.contrasena){
+      if(this.flagVL){
+        
+      }
       this.serviceU.crearUsuario(user)
       .subscribe(data=>{
         this.toastr.success("Usuario Creado con exito");
         this.router.navigate(['/login'])
       }); 
-      if(this.flagVL){
-        
-      }
+      
     }else{
       this.toastr.warning("Las contraseñas no coinciden");
     }
   }
-
-
 }
