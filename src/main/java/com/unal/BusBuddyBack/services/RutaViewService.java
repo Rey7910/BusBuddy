@@ -1,6 +1,7 @@
 package com.unal.BusBuddyBack.services;
 
 
+import com.unal.BusBuddyBack.entidades.Ruta;
 import com.unal.BusBuddyBack.entidades.RutaView;
 import com.unal.BusBuddyBack.repository.RutaViewRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,11 @@ public class RutaViewService implements IRutaViewService{
     @Override
     public List<RutaView> listar() {
         return (List<RutaView>)data.findAll();
-
     }
-
+    @Override
+    public List<RutaView> listarConductorId(int id){
+        return (List<RutaView>) data.findByIdConductor(id);
+    }
 
     @Override
     public Optional<RutaView> listarId(int id) {
