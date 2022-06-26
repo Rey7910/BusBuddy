@@ -97,72 +97,116 @@
         </div>
     </section>
     <!-- end BARRA -->
-    <!-- rutas -->
-    <div id="rutas" class="rutas">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="titlepage">
-                        <h2>Rutas</h2>
-                        <span> Vemos todas las rutas de la empresa </span>
-                    </div>
+    <!-- TABLA -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="titlepage">
+                    <h2>Rutas</h2>
+                    <span> Vemos todas las rutas de la empresa </span>
                 </div>
             </div>
         </div>
-        <div class="bg">
-            <div class="container">
-                <form *ngFor="let ruta of rutas" class="rutas-form">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Origen</label><br>
-                                    <h3>{{ruta.origenT}}</h3>
-
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Fecha Salida</label><br>
-                                    <h3>{{ruta.fechaSalida | date :'short'}}</h3>
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <img src="../../assets/flecha.png" alt="#">
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Destino</label><br>
-                                    <h3>{{ruta.destinoT}}</h3>
-                                </div>
-
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Fecha llegada</label><br>
-                                    <h3>{{ruta.fechaLlegada | date :'short'}}</h3>
-                                </div>
-
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Precio</label><br>
-                                    <h3>{{ruta.precio}}</h3>
-
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Estado</label><br>
-                                    <h3>{{ruta.estado}}</h3>
-                                </div>
-                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12 col-10">
-                                    <label>Conductor</label><br>
-                                    <h4>{{ruta.conductor}}</h4>
-                                </div>
-                                <div  (click)="Editar(ruta.idRuta)" class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                                    <a >Editar</a>
-                                </div>
-
-                            </div>
-                        </div>
-                        
-                    </div>
-                </form>
-            </div>
-        </div>
+        <hr>
     </div>
-    <!-- end tiquetes -->
+    
+    <div class=" container">
+        <table class="table">
+            <thead>
+              <tr class="table-primary">
+                <th scope="col">#</th>
+                <th scope="col">Origen</th>
+                <th scope="col">Fecha salida</th>
+                <th scope="col"></th>
+                <th scope="col">Destino</th>
+                <th scope="col">Fecha llegada</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Conductor</th>
+                <th scope="col">Editar/Eliminar</th>
+
+              </tr>
+            </thead>
+            <tbody *ngFor="let ruta of rutas">
+              <tr>
+                <th scope="row">{{ruta.idRuta}}</th>
+                <td>{{ruta.origenT}}</td>
+                <td>{{ruta.fechaSalida | date :'short'}}</td>
+                <td>
+                    <img style="text-align: center;" src="../../assets/flecha.png">
+                </td>
+                <td>{{ruta.destinoT}}</td>
+                <td>{{ruta.fechaLlegada | date :'short'}}</td>
+                <td>{{ruta.precio}}</td>
+                <td>{{ruta.conductor}}</td>
+                <td>
+                    <button (click)="Editar2()" style="margin-left: 5px;" class="btn btn-warning">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                            <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                          </svg>                        </button>
+                        <button style="margin-left: 5px;" class="btn btn-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
+                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>
+                            </button>
+
+                </td>
+
+                
+              </tr>
+            </tbody>
+          </table>
+         </div>
+
+    <!--EDITAR-->
+<div *ngIf="caja_editar">
+    <hr>
+    <div style="background-color: rgb(185, 232, 232); border-radius: 10px;" class="container">
+        <form>
+            <h3>Modificar ruta</h3>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Origen </label>
+
+                            <input id="origen" class="form-control" placeholder="" type="text" name="">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Fecha salida</label>
+                            <input id="fechaSalida" class="form-control" placeholder="Any" type="date" name="Any">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Conductor</label>
+                            <input id="conductor"  class="form-control" placeholder="Nombre" type="text" name="">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Destino</label>
+                            <input id="destino" class="form-control" placeholder="" type="text" name="Any">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Fecha llegada</label>
+                            <input id="fechaLlegada" class="form-control" placeholder="Any" type="date" name="Any">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Precio</label>
+                            <input id="precio" class="form-control" placeholder="00.0" type="text" name="00.0">
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                            <label>Bus</label>
+                            <input id="bus"  class="form-control" placeholder="00.0" type="text" name="00.0">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                    <button type="button" style="width: 130px; margin-top: 60px; margin-left: 60px;"  class="btn btn-success btn-lg">Modificar</button>
+                    <button (click)="Cancelar()"  type="button" style="width: 130px; margin-top: 10px; margin-left: 60px;"  class="btn btn-warning btn-lg">Cancelar</button>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    
+    <!-- end EDITAR -->
 
 
 

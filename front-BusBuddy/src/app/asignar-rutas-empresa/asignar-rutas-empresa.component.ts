@@ -11,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./asignar-rutas-empresa.component.css']
 })
 export class AsignarRutasEmpresaComponent implements OnInit {
-
+  caja_editar = false;
   constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private toastr: ToastrService, private router:Router) { }
   rutas:RutaView[]
   newRuta=new Ruta();
@@ -43,6 +43,14 @@ export class AsignarRutasEmpresaComponent implements OnInit {
   }
   Editar(id:number):void{
     sessionStorage.setItem("idAux",id.toString());
+  }
+
+  Editar2(){
+    this.caja_editar = true; 
+  }
+
+  Cancelar(){
+    this.caja_editar = false; 
   }
   
 }
