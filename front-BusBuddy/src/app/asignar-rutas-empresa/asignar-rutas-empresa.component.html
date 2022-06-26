@@ -68,7 +68,7 @@
                                             <label>Origen </label>
 
                                             <select  class="form-select form-select-sm"  id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.origen">
-                                                <option disabled selected>Ingrese origen</option>
+                                                <option disabled selected>Seleccione origen</option>
                                                 <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
                                                   {{terminal.nombre}}
                                                 </option>
@@ -84,7 +84,7 @@
                                             <label>Conductor </label>
                 
                                             <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
-                                                <option disabled selected>Ingrese origen</option>
+                                                <option disabled selected>Seleccione conductor</option>
                                                 <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
                                                   {{conductor.idconductor}}
                                                 </option>
@@ -93,7 +93,7 @@
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Destino</label>
                                             <select  class="form-select form-select-sm"  id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino">
-                                                <option disabled selected>Ingrese destino</option>
+                                                <option disabled selected>Seleccione destino</option>
                                                 <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
                                                   {{terminal.nombre}}
                                                 </option>
@@ -107,8 +107,14 @@
                                             <input id="precio" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.precio" class="form-control" placeholder="00.0" type="text" name="00.0">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                            <label>Bus</label>
-                                            <input id="bus" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idBus" class="form-control" placeholder="00.0" type="text" name="00.0">
+                                            <label>Bus </label>
+                
+                                            <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idBus">
+                                                <option disabled selected>Seleccione bus</option>
+                                                <option *ngFor="let bus of buses" [ngValue]="bus.idBus">
+                                                  {{bus.placa}}
+                                                </option>
+                                              </select>
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +201,7 @@
                             <label>Origen </label>
 
                             <select  class="form-select form-select-sm"  id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.origen">
-                                <option disabled selected>Ingrese origen</option>
+                                <option disabled selected>Seleccione origen</option>
                                 <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
                                   {{terminal.nombre}}
                                 </option>
@@ -213,7 +219,7 @@
                             <label>Conductor </label>
 
                             <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idConductor">
-                                <option disabled selected>Ingrese origen</option>
+                                <option disabled selected>Seleccione conductor</option>
                                 <option *ngFor="let conductor of conductores" [ngValue]="conductor.idconductor">
                                   {{conductor.idconductor}}
                                 </option>
@@ -223,7 +229,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label>Destino</label>
                             <select  class="form-select form-select-sm"  id="destino" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.destino">
-                                <option disabled selected>Ingrese destino</option>
+                                <option disabled selected>Seleccione destino</option>
                                 <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
                                   {{terminal.nombre}}
                                 </option>
@@ -238,8 +244,14 @@
                             <input id="precio" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.precio" class="form-control" placeholder="00.0" type="text" name="00.0">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                            <label>Bus</label>
-                            <input id="bus" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idBus" class="form-control" placeholder="00.0" type="text" name="00.0">
+                            <label>Bus </label>
+
+                            <select  class="form-select form-select-sm"  id="conductor" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.idBus">
+                                <option disabled selected>Seleccione bus</option>
+                                <option *ngFor="let bus of buses" [ngValue]="bus.idBus">
+                                  {{bus.placa}}
+                                </option>
+                              </select>
                         </div>
                     </div>
                 </div>

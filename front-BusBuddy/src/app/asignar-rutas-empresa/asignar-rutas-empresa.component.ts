@@ -9,6 +9,8 @@ import { Terminal } from '../Modelo/Terminal';
 import { ServiceTerminalService } from '../Service/service-terminal.service';
 import { ServiceConductorService } from '../Service/service-conductor.service';
 import { Conductor } from '../Modelo/Conductor';
+import { ServiceBusService } from '../Service/service-bus.service';
+import { Bus } from '../Modelo/Bus';
 @Component({
   selector: 'app-asignar-rutas-empresa',
   templateUrl: './asignar-rutas-empresa.component.html',
@@ -16,10 +18,11 @@ import { Conductor } from '../Modelo/Conductor';
 })
 export class AsignarRutasEmpresaComponent implements OnInit {
   caja_editar = false;
-  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceTerminal:ServiceTerminalService,private serviceConductor:ServiceConductorService,private toastr: ToastrService, private router:Router) { }
+  constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceBus:ServiceBusService,private serviceTerminal:ServiceTerminalService,private serviceConductor:ServiceConductorService,private toastr: ToastrService, private router:Router) { }
   rutas:RutaView[];
   terminales:Terminal[];
   conductores:Conductor[];
+  buses:Bus[];
   newRuta=new Ruta();
   ngOnInit(): void {
     this.serviceView.getRutas().
@@ -31,6 +34,9 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     });
     this.serviceConductor.getConductores().subscribe(data=>{
       this.conductores=data;
+    });
+    this.serviceBus.getBuses().subscribe(data=>{
+      this.buses=data;
     });
     sessionStorage.setItem("idEmpresa",'1');
   }
