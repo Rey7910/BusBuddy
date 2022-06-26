@@ -31,8 +31,8 @@ public class PersonalService implements IPersonalService{
     }
 
     @Override
-    public void delete(int id) {
-        dataPersonal.deleteById(id);
+    public void delete(Personal id) {
+        dataPersonal.delete(id);
     }
     
 }

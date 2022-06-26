@@ -27,7 +27,7 @@ public class ConductorService implements IConductorService{
         return data.save(element);
     }
 
-    public void delete(int id) {
-        data.deleteById(id);
+    public void delete(Conductor element) {
+        data.delete(element);
     }
 }
