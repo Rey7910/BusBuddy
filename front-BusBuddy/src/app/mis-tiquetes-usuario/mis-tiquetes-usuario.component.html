@@ -100,7 +100,39 @@
                     
                     </div>
                 </form>
-                <br>
+                <form  *ngFor="let tiquete of tiquetes" class="tiquete-form">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Numero de reserva</label><br>
+                            <h3>{{tiquete.idReserva}}</h3>                       
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Origen</label><br>
+                            <h3>{{tiquete.origen}}</h3>
+                    
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Fecha Salida</label><br>
+                            <h3>{{tiquete.fechaSalida | date :'short'}}</h3>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Destino</label><br>
+                            <h3>{{tiquete.destino}}</h3>
+                        </div>
+                    
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Nombre</label><br>
+                            <h3>{{tiquete.fechaLlegada | date :'short'}}</h3>
+                        </div>
+                    
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Cedula</label><br>
+                            <h3>{{tiquete.estado}}</h3>
+                    
+                        </div>
+                    
+                    </div>
+                </form>
             </div>
         </div>
     </div>

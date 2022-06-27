@@ -892,6 +892,7 @@ input[type="radio"] .styled:checked+label::after {
     background: #2eaafd;
     padding: 30px 50px;
     border-radius: 10px;
+    margin: 10px;
 
 }
 
