@@ -13,6 +13,7 @@ export class PersonalComponent implements OnInit {
 
   constructor(private serviceP:ServicePersonalService, private toastr: ToastrService, private router: Router) { }
 
+  newPerso=new Personal();
   personal:Personal[];
   boton_crear = true;
   caja_crear = false;
@@ -24,6 +25,19 @@ export class PersonalComponent implements OnInit {
       this.personal=data;
       console.log(data)
     }) ;
+  }
+
+  crearpersonall(perso: Personal){
+    perso.idempresa = 1
+    perso.idpersonal = 1
+    perso.idusuario = 1
+    this.serviceP.crearPersonal(perso)
+    .subscribe(data=>{
+      this.toastr.success("Persona Creado con exito");
+      console.log(perso)
+
+    }); 
+
   }
 
   cambiar_estado_caja(){
