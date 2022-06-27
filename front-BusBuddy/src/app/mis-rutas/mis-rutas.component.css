@@ -1135,3 +1135,13 @@ ul.location_icon span {
 .contact-page .form-control {
     margin-bottom: 20px;
 }
+
+.fondo-seleccionado{
+    background-color: #4682B4;  
+  }
+  .manito{
+    cursor: pointer;
+  }
+  .btn-estado:disabled {
+      background: #b7b7b7;
+  }
