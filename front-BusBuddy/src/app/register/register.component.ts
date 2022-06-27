@@ -71,19 +71,11 @@ export class RegisterComponent implements OnInit {
     if (this.box_vincu_lab==true) {
       this.box_registo = true;
       this.box_vincu_lab = false; 
-      this. box_vincu_lab_2 = false;
-      this.box_usuario = false;
-      this.flagVL = false;
-    }else if (this.box_vincu_lab_2==true){
-      this.box_registo = false;
-      this.box_vincu_lab = true;
-      this.box_vincu_lab_2 = false;
       this.box_usuario = false;
       this.flagVL = false;
     }else if (this.box_usuario == true){
       this.box_registo = false;
       this.box_vincu_lab = false;
-      this.box_vincu_lab_2 = true;
       this.box_usuario = false;  
       this.flagVL = false;  
     }
@@ -99,10 +91,37 @@ export class RegisterComponent implements OnInit {
   }
 
   cambio2(){
-    this.box_registo = false;
-    this.box_vincu_lab = false;
-    this.box_vincu_lab_2 = true;
-    this.box_usuario = false;
+    this.personal.forEach(element => {
+      this.mapP.set(element.pin,element)
+    });
+
+    this.empresas.forEach(element => {
+      this.mapE.set(element.nit,element)
+    });
+    var currentPersonal = this.mapP.get(this.searchPersonal.pin)
+    var currentEmpresa = this.mapE.get(this.searchEmpresa.nit)
+    if(currentPersonal!= undefined){
+      if(currentEmpresa!=undefined){
+        if(currentEmpresa.idEmpresa == currentPersonal.idEmpresa){
+          this.box_registo = false;
+          this.box_vincu_lab = false;
+          this.box_vincu_lab_2 = true;
+          this.box_usuario = false;
+          this.flagVL = true;
+          this.empresaId = currentEmpresa.idEmpresa;
+          this.searchPersonal = currentPersonal;
+        }else{
+          this.toastr.error("El empleado no está relacionado con aquella empresa")
+          window.location.reload();
+        }
+      }else{
+        this.toastr.error("Este nit no está vinculado con ninguna empresa")
+        window.location.reload();
+      }
+    }else{
+      this.toastr.error("Este pin no está vinculado con ningún empleado")
+      window.location.reload();
+    } 
   }
 
   cambio3(){
@@ -125,16 +144,40 @@ export class RegisterComponent implements OnInit {
   }
 
   crearusuario(user:Usuario){
-
     if(this.contrasena==user.contrasena){
+      if(this.flagVL){
+        user.idUsuario=this.searchPersonal.idUsuario
+        this.newConductor.idUsuario = this.searchPersonal.idUsuario
+        this.newConductor.idEmpresa = this.searchPersonal.idEmpresa
+        this.newConductor.ciudad = this.searchPersonal.ciudad
+        this.newConductor.eps = this.searchPersonal.eps
+        this.newConductor.id = this.searchPersonal.id
+        this.serviceC.crearConductor(this.newConductor)
+        .subscribe(data =>{
+          
+        });
+
+        user.nombre = this.searchPersonal.nombre
+        user.apellido = this.searchPersonal.apellido
+        user.rol = 3
+        user.telefono = this.searchPersonal.telefono
+        this.serviceU.updateUsuario(user)
+        .subscribe(data =>{
+          this.toastr.success("Usuario Creado con exito");
+          this.router.navigate(['/login'])
+        });
+      }else{
+      
         this.serviceU.crearUsuario(user)
         .subscribe(data=>{
           this.toastr.success("Usuario Creado con exito");
           this.router.navigate(['/login'])
         }); 
-      
+      }
     }else{
-      this.toastr.warning("Las contraseñas no coinciden");
+        this.toastr.warning("Las contraseñas no coinciden");
+      }
     }
+    
   }
-}
+
