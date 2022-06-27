@@ -5,6 +5,7 @@ import { Usuario } from '../Modelo/Usuario';
 import { ServiceUsuarioService } from '../Service/service-usuario.service';
 import { Personal } from '../Modelo/Personal';
 import { Empresa } from '../Modelo/Empresa';
+import { Conductor } from '../Modelo/Conductor';
 
 @Component({
   selector: 'app-register',
@@ -31,6 +32,9 @@ export class RegisterComponent implements OnInit {
   empresas: Empresa[]
   searchEmpresa = new Empresa();
   mapE=new Map<String,Empresa>;
+
+  newConductor = new Conductor();
+  
 
   flagVL = false;
   
@@ -75,11 +79,34 @@ export class RegisterComponent implements OnInit {
   }
 
   cambio2(){
-    this.box_registo = false;
-    this.box_vincu_lab = false;
-    this.box_vincu_lab_2 = true;
-    this.box_usuario = false;
-    this.flagVL = true;
+    this.personal.forEach(element => {
+      this.mapP.set(element.pin,element)
+    });
+    this.empresas.forEach(element => {
+      this.mapE.set(element.nit,element)
+    });
+    var currentPersonal = this.mapP.get(this.searchPersonal.pin)
+    var currentEmpresa = this.mapE.get(this.searchEmpresa.nit)
+    if(currentPersonal == undefined){
+      this.toastr.warning('El pin ingresado no está relacionado con ningún usuario');
+    }else{
+      if(currentEmpresa != undefined){
+        if(currentEmpresa.idEmpresa==currentPersonal.idEmpresa){
+          this.box_registo = false;
+          this.box_vincu_lab = false;
+          this.box_vincu_lab_2 = true;
+          this.box_usuario = false;
+          this.flagVL = true;
+        }else{
+          this.toastr.warning('El pin ingresado no está relacionado con la empresa');
+          window.location.reload();
+        } 
+      }
+      else{
+        this.toastr.warning('La empresa ingresada no está registrada en la aplicación');
+        window.location.reload();
+      }
+    } 
   }
 
   cambio3(){
@@ -106,12 +133,13 @@ export class RegisterComponent implements OnInit {
     if(this.contrasena==user.contrasena){
       if(this.flagVL){
         
-      }
-      this.serviceU.crearUsuario(user)
+      }else{
+        this.serviceU.crearUsuario(user)
       .subscribe(data=>{
         this.toastr.success("Usuario Creado con exito");
         this.router.navigate(['/login'])
       }); 
+      }
       
     }else{
       this.toastr.warning("Las contraseñas no coinciden");

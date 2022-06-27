@@ -7,18 +7,18 @@ import { Conductor } from '../Modelo/Conductor';
 })
 export class ServiceConductorService {
 
-  Url='http://localhost:8090/conductores';
+  Url='http://localhost:8090/conductor';
   constructor(private http:HttpClient) { }
-  getRutas(){
+  getConductores(){
     return this.http.get<Conductor[]>(this.Url);
   }
-  crearRuta(conductor:Conductor){
+  crearConductor(conductor:Conductor){
     return this.http.post<Conductor>(this.Url,conductor);
   }
-  getRutaId(id:number){
+  getConductorId(id:number){
     return this.http.get<Conductor>(this.Url+"/"+id);
   }
-  updateRuta(conductor:Conductor){
+  updateConductor(conductor:Conductor){
     return this.http.put<Conductor>(this.Url,conductor);
   }
  /* deleteRuta(conductor:Conductor){

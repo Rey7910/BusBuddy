@@ -11,4 +11,7 @@ export class ServiceRutasViewService {
   getRutas(){
     return this.http.get<RutaView[]>(this.Url);
   }
+  getRutasConductor(id:number){
+    return this.http.get<RutaView[]>(this.Url+"/conductor="+id);
+  }
 }

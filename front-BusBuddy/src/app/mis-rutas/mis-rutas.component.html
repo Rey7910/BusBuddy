@@ -64,7 +64,7 @@
 
             <table class="table table-hover">
               <thead>
-                <tr>
+                <tr >
                   <th>Fecha de salida</th>
                   <th>Origen</th>
                   <th>Fecha de llegada</th>
@@ -75,40 +75,18 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>12/06/2022 6:30 pm</td>
-                  <td>Bogotá</td>
-                  <td>13/06/2022 4:30 am</td>
-                  <td>Tame</td>
-                  <td>En curso</td>
+                <tr *ngFor="let ruta of rutas">
+                  <td>{{ruta.fechaSalida | date :'short'}}</td>
+                  <td>{{ruta.origenT}}</td>
+                  <td>{{ruta.fechaLlegada | date :'short'}}</td>
+                  <td>{{ruta.destinoT}}</td>
+                  <td>{{ruta.estado}}</td>
                   <td>
                       <button style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
                   </td>
 
 
                 </tr>
-                <tr>
-                    <td>12/06/2022 6:30 pm</td>
-                    <td>Bogotá</td>
-                    <td>13/06/2022 4:30 am</td>
-                    <td>Tame</td>
-                    <td>En curso</td>
-                    <td>
-                        <button style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
-                    </td>
-  
-  
-                  </tr>
-                  <tr>
-                    <td>12/06/2022 6:30 pm</td>
-                    <td>Bogotá</td>
-                    <td>13/06/2022 4:30 am</td>
-                    <td>Tame</td>
-                    <td>En curso</td>
-                    <td>
-                        <button style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
-                    </td>
-                  </tr>
               </tbody>
             </table>
           </div>
@@ -126,7 +104,8 @@
             <table class="table">
                 <thead>
                   <tr>
-                    <th scope="col-4">#</th>
+                    <th scope="col-4">Numero de silla</th>
+                    <th scope="col-2">Codigo de reserva</th>
                     <th scope="col-2">Nombre</th>
                     <th scope="col-2">Abordaje</th>
                   </tr>
@@ -134,6 +113,7 @@
                 <tbody>
                   <tr>
                     <th scope="row">1</th>
+                    <td>sdfsdfsfdsdfs</td>
                     <td>Angel Guillermo Peñarredonda Silva</td>
                     <td>
                         <button class="btn btn-success">
@@ -147,51 +127,28 @@
                             </button>
                     </td>
                   </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Reinaldo Toledo</td>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>sdfsdfsfdsdfs</td>
+                    <td>Angel Guillermo Peñarredonda Silva</td>
                     <td>
                         <button class="btn btn-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                          </svg></button>
-
-                          <button style="margin-left: 5px;" class="btn btn-danger">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>
-                            </button>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+                            </svg></button>
+                
+                        <button style="margin-left: 5px;" class="btn btn-danger">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                            </svg>
+                        </button>
                     </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">3</th>
-                    <td>Juan Camilo Zambrano</td>
-                    <td>
-                        <button class="btn btn-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                          </svg></button>
-
-                          <button style="margin-left: 5px;" class="btn btn-danger">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>
-                            </button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <th scope="row">4</th>
-                    <td>Nicol Guerrero</td>
-                    <td>
-                        <button class="btn btn-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
-                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
-                          </svg></button>
-
-                          <button style="margin-left: 5px;" class="btn btn-danger">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
-                                <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>
-                            </button>
-                    </td>
-                  </tr>
+                </tr>
+                  
                 </tbody>
               </table>
 

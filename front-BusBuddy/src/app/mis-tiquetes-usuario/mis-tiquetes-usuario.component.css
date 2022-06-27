@@ -805,7 +805,7 @@ input[type="radio"] .styled:checked+label::after {
     color: #000;
 }
 
-.main-form button{
+.main-form button {
     background: #ee580f;
     color: #fff;
     float: left;
@@ -885,22 +885,27 @@ input[type="radio"] .styled:checked+label::after {
 .tiquete-form h3 {
     float: left;
     background: rgba(255, 255, 255, 0.171);
-    padding: 10px 28px;
+    padding: 10px 5px;
     margin-left: -35px;
     color: #0a4668;
     font-size: 18px;
     font-weight: 600;
     border-radius: 10px;
+    
     width: 150px;
+
     overflow: auto;
-    white-space: pre-line;
+    white-space: pre-line ;
     text-overflow: clip;
+        
 }
-.tiquete-form img{
+
+.tiquete-form img {
 
     padding: 35px 35px;
 
 }
+
 .palne-img-area {
     position: absolute;
     top: -30px;
@@ -929,7 +934,6 @@ input[type="radio"] .styled:checked+label::after {
 
 .tiquete-form:hover {
     background: #1587e5;
-    
     ;
 }
 
