@@ -89,7 +89,7 @@ public class Reserva implements Serializable{
     }
 
     public String getApellido() {
-        return apellido;
+        return apellido; //
     }
 
     public void setApellido(String apellido) {
