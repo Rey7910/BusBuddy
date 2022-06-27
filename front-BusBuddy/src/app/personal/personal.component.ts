@@ -29,7 +29,7 @@ export class PersonalComponent implements OnInit {
 
   crearpersonall(perso: Personal){
     perso.idempresa = 1
-    perso.idpersonal = 1
+    //perso.idpersonal = 1
     perso.idusuario = 1
     this.serviceP.crearPersonal(perso)
     .subscribe(data=>{
