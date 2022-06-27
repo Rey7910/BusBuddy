@@ -13,12 +13,16 @@ import { ServiceTerminalService } from '../Service/service-terminal.service';
   styleUrls: ['./asignar-rutas-empresa.component.css']
 })
 export class AsignarRutasEmpresaComponent implements OnInit {
+  time = {hour: 13, minute: 30};
   caja_editar = false;
   constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceTerminal:ServiceTerminalService,private toastr: ToastrService, private router:Router) { }
   rutas:RutaView[];
   terminales:Terminal[];
   newRuta=new Ruta();
   ngOnInit(): void {
+
+
+
     this.serviceView.getRutas().
     subscribe(data=>{
       this.rutas=data;
