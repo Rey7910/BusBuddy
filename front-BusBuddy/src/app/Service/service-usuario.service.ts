@@ -17,4 +17,11 @@ export class ServiceUsuarioService {
   crearUsuario(usuario:Usuario){
     return this.http.post<Usuario>(this.Url,usuario);
   }
+
+  getUsuarioId(id:number){
+    return this.http.get<Usuario>(this.Url+"/"+id);
+  }
+  updateUsuario(usuario:Usuario){
+    return this.http.put<Usuario>(this.Url,usuario)
+  }
 }

@@ -5,6 +5,10 @@ import { Usuario } from '../Modelo/Usuario';
 import { ServiceUsuarioService } from '../Service/service-usuario.service';
 import { Personal } from '../Modelo/Personal';
 import { Empresa } from '../Modelo/Empresa';
+import { Conductor } from '../Modelo/Conductor';
+import { ServicePersonalService } from '../Service/service-personal.service';
+import { ServiceEmpresaService } from '../Service/service-empresa.service';
+import { ServiceConductorService } from '../Service/service-conductor.service';
 
 @Component({
   selector: 'app-register',
@@ -17,8 +21,9 @@ export class RegisterComponent implements OnInit {
   box_vincu_lab = false; 
   box_vincu_lab_2 = false;
   box_usuario = false;
-
-  constructor(private serviceU:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
+  
+  
+  constructor(private serviceU:ServiceUsuarioService, private serviceP:ServicePersonalService, private serviceE:ServiceEmpresaService, private serviceC:ServiceConductorService, private toastr: ToastrService, private router: Router) { }
   usuarios:Usuario[]
   newUser=new Usuario();
   mapU=new Map<String,Usuario>;
@@ -32,6 +37,10 @@ export class RegisterComponent implements OnInit {
   searchEmpresa = new Empresa();
   mapE=new Map<String,Empresa>;
 
+  conductores:Conductor[]
+  newConductor = new Conductor();
+
+  empresaId: number;
   flagVL = false;
   
 
@@ -39,6 +48,21 @@ export class RegisterComponent implements OnInit {
     this.serviceU.getUsuarios().
     subscribe(data=>{
       this.usuarios=data;
+    }) ;
+    
+    this.serviceP.getPersonal().
+    subscribe(data=>{
+      this.personal=data;
+    }) ;
+
+    this.serviceE.getEmpresas().
+    subscribe(data=>{
+      this.empresas=data;
+    }) ;
+
+    this.serviceC.getConductores().
+    subscribe(data=>{
+      this.conductores=data;
     }) ;
 
   }
@@ -79,7 +103,6 @@ export class RegisterComponent implements OnInit {
     this.box_vincu_lab = false;
     this.box_vincu_lab_2 = true;
     this.box_usuario = false;
-    this.flagVL = true;
   }
 
   cambio3(){
@@ -104,14 +127,11 @@ export class RegisterComponent implements OnInit {
   crearusuario(user:Usuario){
 
     if(this.contrasena==user.contrasena){
-      if(this.flagVL){
-        
-      }
-      this.serviceU.crearUsuario(user)
-      .subscribe(data=>{
-        this.toastr.success("Usuario Creado con exito");
-        this.router.navigate(['/login'])
-      }); 
+        this.serviceU.crearUsuario(user)
+        .subscribe(data=>{
+          this.toastr.success("Usuario Creado con exito");
+          this.router.navigate(['/login'])
+        }); 
       
     }else{
       this.toastr.warning("Las contraseñas no coinciden");

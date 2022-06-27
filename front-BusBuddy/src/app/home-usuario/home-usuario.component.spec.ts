@@ -11,6 +11,7 @@ describe('HomeUsuarioComponent', () => {
       declarations: [ HomeUsuarioComponent ]
     })
     .compileComponents();
+    
 
     fixture = TestBed.createComponent(HomeUsuarioComponent);
     component = fixture.componentInstance;
