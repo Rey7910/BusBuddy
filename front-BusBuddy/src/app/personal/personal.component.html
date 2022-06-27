@@ -3,6 +3,7 @@
 
 <head>
 
+
 </head>
 <!-- body -->
 
@@ -26,10 +27,10 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="activa"> <a href="/asignar-rutas-empresa">Rutas </a> </li>
+                                        <li> <a href="/asignar-rutas-empresa">Rutas </a> </li>
                                         <li class="activa"> <a href="/personal">Personal</a> </li>
-                                        <li><a href="#blog">Configuracion</a></li>
-                                        <li><a href="#contact">Cerrar sesión</a></li>
+                                        <li><a href="/settings">Configuracion</a></li>
+                                        <li><a href="/home-page">Cerrar sesión</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -41,9 +42,197 @@
         <!-- end header inner -->
     </header>
     <!-- end header -->
+    <!-- BARRA -->
+    <section>
 
-     <!-- footer -->
-     <footer>
+        <div class="container">
+            <h1 style="font-size: 46px;">CONFIGURACIÓN DE <strong style="color: aqua;">PERSONAL</strong></h1>
+            <p>CRUD GRAFICO PARA LA EMPRESA "EMPRESA"</p>
+            <br>
+            <div *ngIf="boton_crear" style="height: 30px;">
+                <button style="height: 40px; width: 150px;" (click)="cambiar_estado_caja()" class="btn btn-success">Crear empleado</button>
+
+            </div>
+
+            <div *ngIf="caja_crear"
+                style=" height: 700px; border-radius: 5px; border-color:black ; border-width: 9px; background-color: rgb(188, 236, 236); margin-top: 25px; ">
+                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                    <div class="container">
+                        <form>
+                            <h3>Crea un nuevo usuario</h3>
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">Nombres: </div>
+                                <input placeholder="Nombres" class="col-sm-4 form-control" type="text">
+                            </div>
+
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">Apellidos: </div>
+                                <input placeholder="Apellidos" class="col-sm-4 form-control" type="text">
+                            </div>
+
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">Telefono: </div>
+                                <input placeholder="Telefono" class="col-sm-4 form-control" type="text">
+                            </div>
+
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">Cargo: </div>
+                                <input placeholder="Cargo" class="col-sm-4 form-control" type="text">
+                            </div>
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">EPS: </div>
+                                <input placeholder="EPS" class="col-sm-4 form-control" type="text">
+                            </div>
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">Ciudad: </div>
+                                <input placeholder="Ciudad" class="col-sm-4 form-control" type="text">
+                            </div>
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">Documento: </div>
+                                <input placeholder="Documento" class="col-sm-4 form-control" type="text">
+                            </div>
+                            <div style="margin-left: 5px;" class="row">
+                                <div class="col-sm-2">PIN: </div>
+                                <input placeholder="PIN" class="col-sm-4 form-control" type="text">
+                            </div>
+
+                            <div style="height: 30px;">
+                                <button style="height: 40px; width: 150px;" class="btn btn-primary">Crear</button>
+                                <button (click)="cambiar_estado_caja()" style="height: 40px; width: 150px; margin-left: 10px;" class="btn btn-warning">Cancelar</button>
+
+                            </div>
+
+                        </form>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+
+            <br>
+
+            <h1>Lista de empleados</h1>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col-4">#</th>
+                        <th scope="col-4">Nombre</th>
+                        <th scope="col-4">Apellido</th>
+                        <th scope="col-4">Telefono</th>
+                        <th scope="col-4">Cargo</th>
+                        <th scope="col-4">EPS</th>
+                        <th scope="col-4">Ciudad</th>
+                        <th scope="col-4">Documento</th>
+                        <th scope="col-4">Pin</th>
+                        <th scope="col-4">Editar/Modificar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let perso of personal">
+                        <td>{{perso.idpersonal}}</td>
+                        <td>{{perso.nombre}}</td>
+                        <td>{{perso.apellido}}</td>
+                        <td>{{perso.telefono}}</td>
+                        <td>{{perso.cargo}}</td>
+                        <td>{{perso.eps}}</td>
+                        <td>{{perso.ciudad}}</td>
+                        <td>{{perso.id}}</td>
+                        <td>{{perso.pin}}</td>
+                        <td>
+                            <button (click)="cambiar_estado_caja2()" style="margin-left: 5px;" class="btn btn-warning">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-pencil" viewBox="0 0 16 16">
+                                    <path
+                                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                </svg> </button>
+                            <button style="margin-left: 5px;" class="btn btn-danger">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                    class="bi bi-x-lg" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
+                                </svg>
+                            </button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div *ngIf="caja_editar"
+            style="height: 700px; border-radius: 5px; border-color:black ; border-width: 9px; background-color: rgb(188, 236, 236); margin-top: 25px; ">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                <div class="container">
+                    <form>
+                        <h3>Edita al usuario "usuario"</h3>
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">Nombres: </div>
+                            <input placeholder="Nombres" class="col-sm-4 form-control" type="text">
+                        </div>
+
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">Apellidos: </div>
+                            <input placeholder="Apellidos" class="col-sm-4 form-control" type="text">
+                        </div>
+
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">Telefono: </div>
+                            <input placeholder="Telefono" class="col-sm-4 form-control" type="text">
+                        </div>
+
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">Cargo: </div>
+                            <input placeholder="Cargo" class="col-sm-4 form-control" type="text">
+                        </div>
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">EPS: </div>
+                            <input placeholder="EPS" class="col-sm-4 form-control" type="text">
+                        </div>
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">Ciudad: </div>
+                            <input placeholder="Ciudad" class="col-sm-4 form-control" type="text">
+                        </div>
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">Documento: </div>
+                            <input placeholder="Documento" class="col-sm-4 form-control" type="text">
+                        </div>
+                        <div style="margin-left: 5px;" class="row">
+                            <div class="col-sm-2">PIN: </div>
+                            <input placeholder="PIN" class="col-sm-4 form-control" type="text">
+                        </div>
+
+                        <div style="height: 30px;">
+                            <button style="height: 40px; width: 150px;" class="btn btn-primary">Editar</button>
+                            <button (click)="cambiar_estado_caja2()" style="height: 40px; width: 150px; margin-left: 10px;" class="btn btn-warning">Cancelar</button>
+
+                        </div>
+
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+        </div>
+
+        
+
+    </section>
+
+
+    <!-- end BARRA -->
+    <!-- rutas -->
+
+    <!-- end tiquetes -->
+
+
+
+    <!-- footer -->
+    <footer>
         <div id="contact" class="footer">
             <div class="container">
                 <div class="row pdn-top-30">
