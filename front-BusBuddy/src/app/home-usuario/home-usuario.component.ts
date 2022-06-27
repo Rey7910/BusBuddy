@@ -49,7 +49,11 @@ export class HomeUsuarioComponent implements OnInit {
       this.tiquetever = false;
       this.toastr.error("Ingresar todos los datos","Busqueda no realizada");
       
-    } 
+    }
+    else if (this.verOrigen == this.verDestino) {
+      this.tiquetever = false;
+      this.toastr.error("Ingresar un origen diferente a destino", "Origen igual a destino");
+    }
     else{
       this.tiquetever = true;
       this.toastr.success("", "Busqueda realizada");
