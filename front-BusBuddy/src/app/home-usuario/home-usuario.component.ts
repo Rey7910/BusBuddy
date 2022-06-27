@@ -18,6 +18,8 @@ export class HomeUsuarioComponent implements OnInit {
     this.rutas=[];
    }
   rutas:RutaView[];
+  terminales:Terminal[];
+  
   ngOnInit(): void {
   }
 
