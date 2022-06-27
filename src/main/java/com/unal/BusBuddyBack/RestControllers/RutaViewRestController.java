@@ -28,7 +28,6 @@ public class RutaViewRestController {
     public List<RutaView> consultarPrueba(
             @PathVariable("origen") int origen, @PathVariable( "destino") int destino, @PathVariable( "fecha") @DateTimeFormat(pattern = "yyyy-MM-dd") Date fechaSalida, @PathVariable( "min")int precioMin, @PathVariable( "max") int precioMax
     ){
-        System.out.println("Todo ok hasta ahora?");
         return service.consultaFiltrada( origen,  destino,  fechaSalida,  precioMin,  precioMax);
     }
 }
