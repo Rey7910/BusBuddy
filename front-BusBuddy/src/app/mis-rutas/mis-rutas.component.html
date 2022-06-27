@@ -111,7 +111,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let tiquete of tiquetes" >
+                  <tr [ngClass]= "'fondo-seleccionado'" class="manito" *ngFor="let tiquete of tiquetes" >
                     <th scope="row">{{tiquete.silla}}</th>
                     <td>{{tiquete.idReserva}}</td>
                     <td>{{tiquete.nombre}} {{tiquete.apellido}}</td>
