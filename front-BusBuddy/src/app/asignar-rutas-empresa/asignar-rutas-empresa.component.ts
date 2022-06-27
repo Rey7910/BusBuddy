@@ -19,6 +19,7 @@ import { ConductorView } from '../Modelo/ConductorView';
   styleUrls: ['./asignar-rutas-empresa.component.css']
 })
 export class AsignarRutasEmpresaComponent implements OnInit {
+  time = {hour: 13, minute: 30};
   caja_editar = false;
   constructor(private service:ServiceRutasService,private serviceView:ServiceRutasViewService,private serviceBus:ServiceBusService,private serviceTerminal:ServiceTerminalService,private serviceConductorView:ServiceConductorViewService,private toastr: ToastrService, private router:Router) { }
   rutas:RutaView[];
@@ -27,6 +28,9 @@ export class AsignarRutasEmpresaComponent implements OnInit {
   buses:Bus[];
   newRuta=new Ruta();
   ngOnInit(): void {
+
+
+
     this.serviceView.getRutas().
     subscribe(data=>{
       this.rutas=data;
