@@ -1,74 +1,69 @@
 package com.unal.BusBuddyBack.entidades;
 
-import java.io.Serializable;
+import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
-import com.sun.istack.NotNull;
-
+import java.io.Serializable;
 @Entity
-@Table (name = "reserva" )
-public class Reserva implements Serializable{
-    private static final long serialVersionUID = 10L;
+@Table(name="reserva")
+public class Reserva implements Serializable {
+    private static final long serialVersionUID = 490109428070011876L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="idreserva")
-    private int idreserva; 
-    @NotNull
+    private int idReserva;
+    @NonNull
     @Column(name="idruta")
-    private int idruta;
-    @NotNull
+    private int idRuta;
     @Column(name="idusuario")
-    private int idusuario;
+    private int idUsuario;
     @Column(name="nombre")
     private String nombre;
     @Column(name="apellido")
     private String apellido;
     @Column(name="id")
-    private long id; //cedula, número de identificación
+    private String id;
     @Column(name="telefono")
-    private long telefono;
+    private String telefono;
     @Column(name="telefono_emergencia")
-    private long telefono_emergencia;
+    private String telefonoEmergencia;
     @Column(name="silla")
     private int silla;
-    
+    @Column(name="estado")
+    private int estado;
     public Reserva() {
     }
 
-    public Reserva(int idruta, int idusuario, String nombre, String apellido, long id, long telefono,
-            long telefono_emergencia, int silla) {
-        this.idruta = idruta;
-        this.idusuario = idusuario;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.id = id;
-        this.telefono = telefono;
-        this.telefono_emergencia = telefono_emergencia;
-        this.silla = silla;
+    public int getEstado() {
+        return estado;
     }
 
-    public int getIdreserva() {
-        return idreserva;
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
-    public void setIdreserva(int idreserva) {
-        this.idreserva = idreserva;
+    public int getIdReserva() {
+        return idReserva;
     }
 
-    public int getIdruta() {
-        return idruta;
+    public void setIdReserva(int idReserva) {
+        this.idReserva = idReserva;
     }
 
-    public void setIdruta(int idruta) {
-        this.idruta = idruta;
+    public int getIdRuta() {
+        return idRuta;
     }
 
-    public int getIdusuario() {
-        return idusuario;
+    public void setIdRuta(int idRuta) {
+        this.idRuta = idRuta;
     }
 
-    public void setIdusuario(int idusuario) {
-        this.idusuario = idusuario;
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getNombre() {
@@ -87,28 +82,28 @@ public class Reserva implements Serializable{
         this.apellido = apellido;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public long getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(long telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public long getTelefono_emergencia() {
-        return telefono_emergencia;
+    public String getTelefonoEmergencia() {
+        return telefonoEmergencia;
     }
 
-    public void setTelefono_emergencia(long telefono_emergencia) {
-        this.telefono_emergencia = telefono_emergencia;
+    public void setTelefonoEmergencia(String telefonoEmergencia) {
+        this.telefonoEmergencia = telefonoEmergencia;
     }
 
     public int getSilla() {
@@ -117,5 +112,5 @@ public class Reserva implements Serializable{
 
     public void setSilla(int silla) {
         this.silla = silla;
-    } 
+    }
 }

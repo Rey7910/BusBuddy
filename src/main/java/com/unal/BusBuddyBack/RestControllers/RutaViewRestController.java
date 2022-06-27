@@ -20,7 +20,6 @@ public class RutaViewRestController {
     }
     @GetMapping(path="/conductor={id}")
     public List<RutaView> consultarPorConductor(@PathVariable("id") int id){
-        System.out.println("AAAAAAAA"+id);
         return service.listarConductorId(id);
     }
 }
