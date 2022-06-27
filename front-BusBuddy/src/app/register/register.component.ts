@@ -72,19 +72,11 @@ export class RegisterComponent implements OnInit {
     if (this.box_vincu_lab==true) {
       this.box_registo = true;
       this.box_vincu_lab = false; 
-      this. box_vincu_lab_2 = false;
-      this.box_usuario = false;
-      this.flagVL = false;
-    }else if (this.box_vincu_lab_2==true){
-      this.box_registo = false;
-      this.box_vincu_lab = true;
-      this.box_vincu_lab_2 = false;
       this.box_usuario = false;
       this.flagVL = false;
     }else if (this.box_usuario == true){
       this.box_registo = false;
       this.box_vincu_lab = false;
-      this.box_vincu_lab_2 = true;
       this.box_usuario = false;  
       this.flagVL = false;  
     }
@@ -100,10 +92,35 @@ export class RegisterComponent implements OnInit {
   }
 
   cambio2(){
-    this.box_registo = false;
-    this.box_vincu_lab = false;
-    this.box_vincu_lab_2 = true;
-    this.box_usuario = false;
+    this.personal.forEach(element => {
+      this.mapP.set(element.pin,element)
+    });
+
+    this.empresas.forEach(element => {
+      this.mapE.set(element.nit,element)
+    });
+    var currentPersonal = this.mapP.get(this.searchPersonal.pin)
+    var currentEmpresa = this.mapE.get(this.searchEmpresa.nit)
+    if(currentPersonal!= undefined){
+      if(currentEmpresa!=undefined){
+        if(currentEmpresa.idEmpresa == currentPersonal.idEmpresa){
+          this.box_registo = false;
+          this.box_vincu_lab = false;
+          this.box_vincu_lab_2 = true;
+          this.box_usuario = false;
+          this.flagVL = true;
+          this.empresaId = currentEmpresa.idEmpresa;
+          this.searchPersonal = currentPersonal;
+          this.cambio3();
+        }else{
+          this.toastr.error("El empleado no está relacionado con aquella empresa")
+        }
+      }else{
+        this.toastr.error("Este nit no está vinculado con ninguna empresa")
+      }
+    }else{
+      this.toastr.error("Este pin no está vinculado con ningún empleado")
+    } 
   }
 
   cambio3(){
@@ -141,9 +158,11 @@ export class RegisterComponent implements OnInit {
           this.toastr.success("Usuario Creado con exito");
           this.router.navigate(['/login'])
         }); 
-      
-    }else{
-      this.toastr.warning("Las contraseñas no coinciden");
+      }
+    else{
+        this.toastr.warning("Las contraseñas no coinciden");
+      }
     }
+    
   }
-}
+

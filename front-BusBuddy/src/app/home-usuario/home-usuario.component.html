@@ -72,10 +72,6 @@
                                             <input class="form-control" placeholder="" type="text" name="Any">
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                                            <label>Fecha llegada</label>
-                                            <input class="form-control" placeholder="Any" type="date" name="Any">
-                                        </div>
-                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Max Precio</label>
                                             <input class="form-control" placeholder="00.0" type="text" name="00.0">
                                         </div>
@@ -142,8 +138,8 @@
 
                             </div>
                         </div>
-                        <div   class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                            <a href="/compra-tiquetes">Compra</a>
+                        <div  (click)="comprar(ruta.idRuta)" class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
+                            <a >Compra</a>
                         </div>
                     </div>
                 </form>

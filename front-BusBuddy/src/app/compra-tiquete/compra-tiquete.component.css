@@ -121,13 +121,29 @@ td {
 .silla:active {
     background-color: #ff8142;
 }
+.sillaocupada{
+    background-color: rgb(209, 86, 86);
+    border-radius: 10px;
+}
+.sillaseleccionada {
+    background-color: #ff8142;
+    border-radius: 10px;
+}
 .form-label {
     font: bold;
     font-size: 20px;
 }
 label {
-    font-size: 15px;
+    font-size: 10px;
 }
 h3 {
     color: #ff8142;
+}
+h4 {
+    font-size: 30px
+}
+.Datos{
+    background-color: #0aadf8d7;
+    border-radius: 20px;
+    padding: 30px;
 }

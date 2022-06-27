@@ -27,5 +27,8 @@ export class ServiceReservasService {
   updateReserva(reserva:Reserva){
     return this.http.put<Reserva>(this.Url,reserva);
   } 
+  crearReserva(reserva:Reserva){ //Comprar xd
+    return this.http.post<Reserva>(this.Url,reserva);
+  }
 
 }
