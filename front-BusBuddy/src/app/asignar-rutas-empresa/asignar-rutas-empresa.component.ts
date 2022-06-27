@@ -50,18 +50,22 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     
     
     var idE=sessionStorage.getItem("idEmpresa");
-    if(idE!=null){
-      ruta.idEmpresa=+idE;
-      this.service.crearRuta(ruta).subscribe(data=>{
-        this.toastr.success("Ruta Creada con exito");
-        window.location.reload();
-      },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
-    this.serviceView.getRutas().
-    subscribe(data=>{
-      this.rutas=data;
-    }) ;
+    if(ruta.destino!=ruta.origen){
+      if(idE!=null){
+        ruta.idEmpresa=+idE;
+        this.service.crearRuta(ruta).subscribe(data=>{
+          this.toastr.success("Ruta Creada con exito");
+          window.location.reload();
+        },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
+      this.serviceView.getRutas().
+      subscribe(data=>{
+        this.rutas=data;
+      }) ;
+      }else{
+        this.toastr.error("Ruta No creada, error con la identificación de la empresa");
+      }
     }else{
-      this.toastr.error("Ruta No creada, error con la identificación de la empresa");
+      this.toastr.error("Selecciona un destino distinto al origen por favor");
     }
     
   }
