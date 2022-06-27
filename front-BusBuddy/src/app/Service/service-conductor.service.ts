@@ -7,13 +7,14 @@ import { Conductor } from '../Modelo/Conductor';
 })
 export class ServiceConductorService {
 
-  Url='http://localhost:8090/conductor';
   constructor(private http:HttpClient) { }
+  Url='http://localhost:8090/conductor';
+
   getConductores(){
     return this.http.get<Conductor[]>(this.Url);
   }
   crearConductor(conductor:Conductor){
-    return this.http.post<Conductor>(this.Url,conductor);
+    return this.http.post<Conductor>(this.Url, conductor)
   }
   getConductorId(id:number){
     return this.http.get<Conductor>(this.Url+"/"+id);

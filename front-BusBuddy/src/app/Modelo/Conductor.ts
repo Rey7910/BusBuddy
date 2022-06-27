@@ -1,7 +1,7 @@
 export class Conductor{
-    idConductor:number;
-    idUsuario:number;
-    idEmpresa:number;
+    idconductor:number;
+    idusuario:number;
+    idempresa:number;
     id:number;
     eps:String;
     ciudad:String;
