@@ -71,6 +71,11 @@
                                             <label>Fecha salida</label>
                                             <input id="fechaSalida" [ngModelOptions]="{standalone: true}" [(ngModel)]="newRuta.fechaSalida"class="form-control" placeholder="Any" type="date" name="Any">
                                         </div>
+                                        
+                                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
+                                            <label>Hora salida</label>
+                                            <ngb-timepicker [(ngModel)]="time"></ngb-timepicker>
+                                        </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Conductor </label>
                 
