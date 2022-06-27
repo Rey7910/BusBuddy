@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   newUser=new Usuario();
   mapU=new Map<String,Usuario>;
   contrasena:String;
+  aux = new Date;
 
   personal: Personal[]
   searchPersonal = new Personal();
@@ -126,8 +127,16 @@ export class RegisterComponent implements OnInit {
 
   crearusuario(user:Usuario){
 
+
     if(this.contrasena==user.contrasena){
-        this.serviceU.crearUsuario(user)
+
+
+      // this.aux.setFullYear(user.fechaNacimiento.getFullYear())
+      // this.aux.setMonth(user.fechaNacimiento.getMonth())
+      // this.aux.setDate(user.fechaNacimiento.getDate()+1)
+
+
+      this.serviceU.crearUsuario(user)
         .subscribe(data=>{
           this.toastr.success("Usuario Creado con exito");
           this.router.navigate(['/login'])
