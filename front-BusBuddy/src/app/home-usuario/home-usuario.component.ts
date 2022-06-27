@@ -52,14 +52,16 @@ export class HomeUsuarioComponent implements OnInit {
     this.serviceRutasView.getRutasFiltradas(this.verOrigen,this.verDestino,this.verFechasalida,this.verMinprecio,this.verMaxprecio).
     subscribe(data=>{
       this.rutas=data;
-    }) ;
-    
-      if(this.rutas.length>0){
+      if(data.length>0){
         this.tiquetever = true;
         this.toastr.success( "Busqueda realizada");
       }else{
+        this.tiquetever = false;
         this.toastr.info("No hay viajes que coincidad con las carácteristicas que necesitas");
       }
+    }) ;
+    
+      
       
 
     }

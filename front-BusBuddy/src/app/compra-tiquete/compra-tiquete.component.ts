@@ -69,7 +69,7 @@ export class CompraTiqueteComponent implements OnInit {
   comprar(reservaAComprar:Reserva){
     
     if(this.idUsuario!=null){
-      if(this.silla == null && this.silla == 0){
+      if(this.silla == null || this.silla == 0){
         this.toastr.error("Selecciona un asiento por favor");
       } else if ( this.tiqueteAComprar.nombre == null || this.tiqueteAComprar.apellido == null || this.tiqueteAComprar.id == null || this.tiqueteAComprar.telefono == null || this.tiqueteAComprar.telefonoEmergencia == null){        
         this.toastr.error("Diligencia todos los datos del pasajero", "Datos pasajero incompletos");
