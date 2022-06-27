@@ -6,6 +6,7 @@ import com.unal.BusBuddyBack.services.IUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,8 +32,9 @@ public class UsuarioRestController {
         return servUsuario.save(usuario);
     } 
     
-    @PutMapping
-    public Usuario editar(@RequestBody Usuario usuario){
+    @PutMapping(path ={"/{id}"})
+    public Usuario editar(@RequestBody Usuario usuario, @PathVariable("id") int id){
+        usuario.setIdusuario(id);
         return servUsuario.save(usuario);
     }
 }
