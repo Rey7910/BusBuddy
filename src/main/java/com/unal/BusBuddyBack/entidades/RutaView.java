@@ -44,6 +44,27 @@ public class RutaView implements Serializable {
     private String estado;
     @Column(name="idconductor")
     private int idConductor; //c
+    @Column(name="origen")
+    private int origenId;
+    @Column(name="destino")
+    private int destinoId;
+
+    public int getOrigenId() {
+        return origenId;
+    }
+
+    public void setOrigenId(int origenId) {
+        this.origenId = origenId;
+    }
+
+    public int getDestinoId() {
+        return destinoId;
+    }
+
+    public void setDestinoId(int destinoId) {
+        this.destinoId = destinoId;
+    }
+
     public RutaView() {
     }
     public int getIdConductor() {

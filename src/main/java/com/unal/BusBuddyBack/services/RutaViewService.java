@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 @Service
@@ -20,7 +21,12 @@ public class RutaViewService implements IRutaViewService{
     }
     @Override
     public List<RutaView> listarConductorId(int id){
-        return (List<RutaView>) data.findByIdConductor(id);
+        return data.findByIdConductor(id);
+    }
+
+    @Override
+    public List<RutaView> consultaFiltrada(int origen, int destino, Date fechaSalida, int precioMin, int precioMax) {
+        return data.findByFilters( origen,  destino,  fechaSalida, precioMin,  precioMax);
     }
 
     @Override

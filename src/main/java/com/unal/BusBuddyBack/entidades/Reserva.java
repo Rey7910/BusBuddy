@@ -28,7 +28,7 @@ public class Reserva implements Serializable{
     @Column(name="telefono")
     private long telefono;
     @Column(name="telefono_emergencia")
-    private long telefono_emergencia;
+    private long telefonoEmergencia;
     @Column(name="silla")
     private int silla;
     @Column(name="estado")
@@ -45,14 +45,14 @@ public class Reserva implements Serializable{
     }
 
     public Reserva(int idRuta, int idUsuario, String nombre, String apellido, long id, long telefono,
-                   long telefono_emergencia, int silla) {
+                   long telefonoEmergencia, int silla) {
         this.idRuta = idRuta;
         this.idUsuario = idUsuario;
         this.nombre = nombre;
         this.apellido = apellido;
         this.id = id;
         this.telefono = telefono;
-        this.telefono_emergencia = telefono_emergencia;
+        this.telefonoEmergencia = telefonoEmergencia;
         this.silla = silla;
     }
 
@@ -112,12 +112,12 @@ public class Reserva implements Serializable{
         this.telefono = telefono;
     }
 
-    public long getTelefono_emergencia() {
-        return telefono_emergencia;
+    public long getTelefonoEmergencia() {
+        return telefonoEmergencia;
     }
 
-    public void setTelefono_emergencia(long telefono_emergencia) {
-        this.telefono_emergencia = telefono_emergencia;
+    public void setTelefonoEmergencia(long telefonoEmergencia) {
+        this.telefonoEmergencia = telefonoEmergencia;
     }
 
     public int getSilla() {
