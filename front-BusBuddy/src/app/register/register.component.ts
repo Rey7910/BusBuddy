@@ -19,7 +19,6 @@ import { ServiceConductorService } from '../Service/service-conductor.service';
 export class RegisterComponent implements OnInit {
   box_registo = true;
   box_vincu_lab = false; 
-  box_vincu_lab_2 = false;
   box_usuario = false;
   
   
@@ -86,7 +85,6 @@ export class RegisterComponent implements OnInit {
   cambio(){
     this.box_registo = false;
     this.box_vincu_lab = true;
-    this.box_vincu_lab_2 = false;
     this.box_usuario = false;
 
   }
@@ -108,7 +106,6 @@ export class RegisterComponent implements OnInit {
         if(currentEmpresa.idempresa == currentPersonal.idempresa){
           this.box_registo = false;
           this.box_vincu_lab = false;
-          this.box_vincu_lab_2 = true;
           this.box_usuario = false;
           this.flagVL = true;
           this.empresaId = currentEmpresa.idempresa;
@@ -134,7 +131,6 @@ export class RegisterComponent implements OnInit {
     if(currentUser == undefined){
         this.box_registo = false;
         this.box_vincu_lab = false;
-        this.box_vincu_lab_2 = false;
         this.box_usuario = true;
         this.newUser.rol=0; 
     }

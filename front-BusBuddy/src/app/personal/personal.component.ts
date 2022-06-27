@@ -14,14 +14,42 @@ export class PersonalComponent implements OnInit {
   constructor(private serviceP:ServicePersonalService, private toastr: ToastrService, private router: Router) { }
 
   personal:Personal[];
+  boton_crear = true;
+  caja_crear = false;
+  caja_editar = false;
 
   ngOnInit(): void {
     this.serviceP.getPersonal().
     subscribe(data=>{
       this.personal=data;
+      console.log(data)
     }) ;
   }
 
+  cambiar_estado_caja(){
+   if(this.boton_crear==true){
+      this.boton_crear = false;
+      this.caja_crear = true; 
+      console.log("aaa2aaa")
+
+  } else if (this.caja_crear == true && this.boton_crear == false){
+    this.boton_crear = true;
+    this.caja_crear = false; 
+    console.log("aaaaaa")
+
+  }
   
+}
+
+cambiar_estado_caja2(){
+  if(this.caja_editar==true){
+     this.caja_editar = false;
+     console.log("aaa2aaa")
+
+ } else if (this.caja_editar == false){
+ this.caja_editar = true;
+ }
+ 
+}
 
 }
