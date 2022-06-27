@@ -1,5 +1,5 @@
 export class Personal{
-    idPersonal:number;
+    idpersonal:number;
     idUsuario:number;
     idEmpresa: number;
     nombre:String;
