@@ -22,6 +22,6 @@ export class ServiceUsuarioService {
     return this.http.get<Usuario>(this.Url+"/"+id);
   }
   updateUsuario(usuario:Usuario){
-    return this.http.put<Usuario>(this.Url,usuario)
+    return this.http.put<Usuario>(this.Url+"/"+usuario.idUsuario,usuario)
   }
 }
