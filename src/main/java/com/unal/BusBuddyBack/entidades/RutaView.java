@@ -14,6 +14,7 @@ import java.util.Date;
 @Immutable
 @Table(name= "info_rutas" ) //nombre en base de datos
 public class RutaView implements Serializable {
+    private static final long serialVersionUID = 2952519884827823773L;
     @Id
     @Column(name="idruta")
     private int idRuta;

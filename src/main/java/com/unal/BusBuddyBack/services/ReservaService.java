@@ -61,9 +61,6 @@ public class ReservaService implements IReservaService{
         return data.findByIdRutaAndEstado(idRuta, estado);
     }
 
-    @Override
-    public List<Reserva> listarUsuarioId(int id) {
-        return (List<Reserva>) data.findByIdUsuario(id);
-    }
+
     
 }
