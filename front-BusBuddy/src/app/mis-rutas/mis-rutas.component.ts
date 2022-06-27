@@ -20,7 +20,7 @@ export class MisRutasComponent implements OnInit {
   reservaUpdate:Reserva;
   idRutaValidar:number; 
   ngOnInit(): void {
-    this.visibleValidateTable=false;
+    this.visibleValidateTable=true;
     this.serviceRutasView.getRutasConductor(1).subscribe(data=>
       this.rutas=data
     );
