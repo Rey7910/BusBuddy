@@ -110,17 +110,15 @@ export class RegisterComponent implements OnInit {
           this.flagVL = true;
           this.empresaId = currentEmpresa.idEmpresa;
           this.searchPersonal = currentPersonal;
+          this.cambio3();
         }else{
           this.toastr.error("El empleado no está relacionado con aquella empresa")
-          window.location.reload();
         }
       }else{
         this.toastr.error("Este nit no está vinculado con ninguna empresa")
-        window.location.reload();
       }
     }else{
       this.toastr.error("Este pin no está vinculado con ningún empleado")
-      window.location.reload();
     } 
   }
 
@@ -154,7 +152,7 @@ export class RegisterComponent implements OnInit {
         this.newConductor.id = this.searchPersonal.id
         this.serviceC.crearConductor(this.newConductor)
         .subscribe(data =>{
-          
+          this.toastr.success("Conductor Creado con exito");
         });
 
         user.nombre = this.searchPersonal.nombre
