@@ -7,8 +7,8 @@ export class Reserva{
     nombre:String ;
     apellido:String ;
     id:String ;
-    telefono:String ;
-    telefonoEmergencia:String ;
+    telefono:number ;
+    telefonoEmergencia:number ;
     silla:number;
     estado:number;
     constructor(){
