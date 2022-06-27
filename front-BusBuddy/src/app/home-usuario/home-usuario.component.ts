@@ -19,8 +19,18 @@ export class HomeUsuarioComponent implements OnInit {
    }
   rutas:RutaView[];
   terminales:Terminal[];
+  verRuta:number;
   
   ngOnInit(): void {
+
+
+    this.serviceRutas.getRutas().
+      subscribe(data => {
+        this.rutas = data;
+      });
+    this.serviceTerminales.getTerminales().subscribe(data => {
+      this.terminales = data;
+    });
   }
 
   AparecerTiquetes(){

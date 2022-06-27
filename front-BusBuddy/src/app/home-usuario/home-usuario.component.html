@@ -57,7 +57,12 @@
                                     <div class="row">
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Origen </label>
-                                            <input class="form-control" placeholder="" type="text" name="">
+                                            <select class="form-select form-select-sm" id="origen" [ngModelOptions]="{standalone: true}" [(ngModel)]="verRuta">
+                                                <option disabled selected>Seleccione origen</option>
+                                                <option *ngFor="let terminal of terminales" [ngValue]="terminal.id">
+                                                    {{terminal.nombre}}
+                                                </option>
+                                            </select>
                                         </div>
                                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                                             <label>Fecha salida</label>

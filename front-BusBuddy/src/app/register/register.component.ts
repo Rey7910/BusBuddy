@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
   newUser=new Usuario();
   mapU=new Map<String,Usuario>;
   contrasena:String;
+  aux = new Date;
 
   personal: Personal[]
   searchPersonal = new Personal();
