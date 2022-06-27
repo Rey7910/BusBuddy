@@ -1,7 +1,7 @@
 export class Personal{
-    idPersonal:number;
-    idUsuario:number;
-    idEmpresa: number;
+    idpersonal:number;
+    idusuario:number;
+    idempresa: number;
     nombre:String;
     apellido:String;
     telefono:number;
