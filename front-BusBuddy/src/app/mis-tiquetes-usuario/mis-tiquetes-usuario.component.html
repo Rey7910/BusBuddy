@@ -55,10 +55,10 @@
                 <div class="text-bg">
                     <h1>MIS<br><strong class="white">Tiquetes</strong></h1>
                     <h3>Filtrar por estado de la ruta:</h3>
-                    <button type="button" class="button">Abordado</button>
-                    <button type="button" class="button">Vencidos</button>
-                    <button type="button" class="button">Disponible</button>
-                    <button type="button" class="button">Todos</button>
+                    <button (click)="filtrarAbordados()" type="button" class="button">Abordado</button>
+                    <button (click)="filtrarVencidos()" type="button" class="button">Vencidos</button>
+                    <button (click)="filtrarDisponibles()" type="button" class="button">Disponible</button>
+                    <button (click)="filtrarTodos()" type="button" class="button">Todos</button>
                 </div>
             </div>
 
@@ -67,34 +67,34 @@
         <br>
         <div class="bg">
             <div class="container">
-                <form  class="tiquete-form">
+                <form  *ngFor="let tiquete of tiquetes" class="tiquete-form">
                     <div class="row">
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                             <label>Numero de reserva</label><br>
-                            <h3>LLENAR</h3>                       
+                            <h3>{{tiquete.idReserva}}</h3>                       
                         </div>
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                             <label>Origen</label><br>
-                            <h3>LLENAR</h3>
+                            <h3>{{tiquete.origen}}</h3>
                     
                         </div>
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                             <label>Fecha Salida</label><br>
-                            <h3>LLENAR</h3>
+                            <h3>{{tiquete.fechaSalida | date :'short'}}</h3>
                         </div>
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                             <label>Destino</label><br>
-                            <h3>LLENAR</h3>
+                            <h3>{{tiquete.destino}}</h3>
                         </div>
                     
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                             <label>Fecha llegada</label><br>
-                            <h3>LLENAR</h3>
+                            <h3>{{tiquete.fechaLlegada | date :'short'}}</h3>
                         </div>
                     
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
                             <label>Estado</label><br>
-                            <h3>LLENAR</h3>
+                            <h3>{{tiquete.estado}}</h3>
                     
                         </div>
                     
