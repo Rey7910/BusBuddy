@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-settings',
@@ -10,7 +11,7 @@ export class SettingsComponent implements OnInit {
   caja_info = true;
   caja_pass = false;
 
-  constructor() { }
+  constructor(private _location: Location) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,9 @@ export class SettingsComponent implements OnInit {
   ver_pass(){
     this.caja_info = false;
     this.caja_pass = true;
+  }
+  goBack() {
+    this._location.back();
   }
 
 }

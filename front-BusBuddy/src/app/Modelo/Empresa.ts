@@ -1,5 +1,5 @@
 export class Empresa{
-    idEmpresa:number;
+    idempresa:number;
     nombre:String;
     nit:String;
     email:String;

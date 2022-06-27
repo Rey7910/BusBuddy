@@ -78,11 +78,6 @@ export class RegisterComponent implements OnInit {
       this.box_vincu_lab = false;
       this.box_usuario = false;  
       this.flagVL = false;  
-    }else{
-      this.box_registo = true;
-      this.box_vincu_lab = false;
-      this.box_usuario = false;  
-      this.flagVL = false;  
     }
 
   }
@@ -106,13 +101,16 @@ export class RegisterComponent implements OnInit {
     var currentEmpresa = this.mapE.get(this.searchEmpresa.nit)
     if(currentPersonal!= undefined){
       if(currentEmpresa!=undefined){
-        if(currentEmpresa.idEmpresa == currentPersonal.idEmpresa){
+        console.log(currentPersonal.idempresa)
+        console.log(currentEmpresa.idempresa)
+        if(currentEmpresa.idempresa == currentPersonal.idempresa){
           this.box_registo = false;
           this.box_vincu_lab = false;
           this.box_usuario = false;
           this.flagVL = true;
-          this.empresaId = currentEmpresa.idEmpresa;
+          this.empresaId = currentEmpresa.idempresa;
           this.searchPersonal = currentPersonal;
+          console.log(currentPersonal)
           this.cambio3();
         }else{
           this.toastr.error("El empleado no está relacionado con aquella empresa")
@@ -146,17 +144,8 @@ export class RegisterComponent implements OnInit {
   crearusuario(user:Usuario){
     if(this.contrasena==user.contrasena){
       if(this.flagVL){
-        user.idUsuario=this.searchPersonal.idUsuario
-        this.newConductor.idUsuario = this.searchPersonal.idUsuario
-        this.newConductor.idEmpresa = this.searchPersonal.idEmpresa
-        this.newConductor.ciudad = this.searchPersonal.ciudad
-        this.newConductor.eps = this.searchPersonal.eps
-        this.newConductor.id = this.searchPersonal.id
-        this.serviceC.crearConductor(this.newConductor)
-        .subscribe(data =>{
-          this.toastr.success("Conductor Creado con exito");
-        });
-
+        this.crearConductor(this.newConductor)
+        user.idUsuario=this.searchPersonal.idusuario
         user.nombre = this.searchPersonal.nombre
         user.apellido = this.searchPersonal.apellido
         user.rol = 3
@@ -177,6 +166,19 @@ export class RegisterComponent implements OnInit {
     }else{
         this.toastr.warning("Las contraseñas no coinciden");
       }
+    }
+
+    crearConductor(conductor:Conductor){
+      conductor.idusuario = this.searchPersonal.idusuario
+      conductor.idempresa = this.searchPersonal.idempresa
+      conductor.ciudad = this.searchPersonal.ciudad
+      conductor.eps = this.searchPersonal.eps
+      conductor.id = this.searchPersonal.id
+      console.log(conductor)
+      this.serviceC.crearConductor(conductor)
+      .subscribe(data =>{
+        this.toastr.success("Conductor Creado con exito");
+      });
     }
     
   }

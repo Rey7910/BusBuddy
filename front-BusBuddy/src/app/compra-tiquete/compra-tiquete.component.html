@@ -24,24 +24,24 @@
                     <h4 ><strong class="white">Datos Pasajero</strong></h4>
                      <div class = "row">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <label class="form-label" for="cedula">Nombres </label>
-                            <input type="nombre" id="init" class="form-control form-control-lg">
+                            <label class="form-label" for="nombre">Nombres </label>
+                            <input type="text" id="nombre" [ngModelOptions]="{standalone: true}" [(ngModel)]="tiqueteAComprar.nombre" class="form-control form-control-lg">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <label class="form-label" for="cedula">Apellidos </label>
-                            <input type="nombre" id="init" class="form-control form-control-lg">
+                            <label class="form-label" for="apellidos">Apellidos </label>
+                            <input type="text" id="apellidos" [ngModelOptions]="{standalone: true}" [(ngModel)]="tiqueteAComprar.apellido" class="form-control form-control-lg">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
                             <label class="form-label" for="cedula">Cedula</label>
-                            <input type="number" id="init" class="form-control form-control-lg">
+                            <input type="number" id="cedula" [ngModelOptions]="{standalone: true}" [(ngModel)]="tiqueteAComprar.id" class="form-control form-control-lg">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                            <label class="form-label" for="cedula">Telefono</label>
-                            <input type="number" id="init" class="form-control form-control-lg">
+                            <label class="form-label" for="telefono" >Telefono</label>
+                            <input type="number" id="telefono" [ngModelOptions]="{standalone: true}" [(ngModel)]="tiqueteAComprar.telefono" class="form-control form-control-lg">
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12">
-                            <label class="form-label" for="cedula">Telefono De Emergencia</label>
-                            <input type="number" id="init" class="form-control form-control-lg">
+                            <label class="form-label" for="telefono2">Telefono De Emergencia</label>
+                            <input type="number" id="telefono2" [ngModelOptions]="{standalone: true}" [(ngModel)]="tiqueteAComprar.telefonoEmergencia" class="form-control form-control-lg">
                         </div>
                     </div></div>
                     <br>
@@ -64,10 +64,22 @@
                                     <label class="form-label" for="usuario">CVV</label>
                                     <input type="number" min="0" max="9999" id="usuario" class="form-control form-control-lg">
                                 </div>
+                                
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <label class="form-label" for="usuario">Fecha de vencimiento</label>
-                                    <input type="email" id="usuario" class="form-control form-control-lg">
+                                    <div class="row">
+                                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-4">
+                                            <input placeholder="mes" type="number" id="usuario" class="form-control form-control-lg">
+                                        </div>
+                                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-1 col-1">
+                                            <label class="raya"for="usuario">/</label>
+                                        </div>
+                                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-4 col-4">
+                                            <input placeholder="año" type="number" id="usuario" class="form-control form-control-lg">
+                                        </div>
+                                    </div>
                                 </div>
+                                
                             </div> 
                         
                         </div>
@@ -138,15 +150,17 @@
                                 </tbody>
                             </table>
                             <div >
-                                <label  class="form-label" >TU SILLA ES </label><br>
-                                 <h3>{{silla}}</h3>
+                                <label  *ngIf="silla!=0" class="form-label" >TU SILLA ES </label><br>
+                                <h3 *ngIf="silla!=0" >{{silla}}</h3>
+                                <label  *ngIf="silla==0" class="form-label" >Selecciona una Silla </label><br>
+                                 
 
                             </div> 
                             </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center">
-                        <a  class="button" href="/mis-tiquetes-usuario">Comprar</a>
+                    <div (click)="comprar(tiqueteAComprar)"class="d-flex justify-content-center">
+                        <a  class="button" >Comprar</a>
                     </div>
                 </div>
             </div>
