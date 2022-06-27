@@ -82,7 +82,7 @@
                   <td>{{ruta.destinoT}}</td>
                   <td>{{ruta.estado}}</td>
                   <td>
-                      <button style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
+                      <button (click)="getValidarTable(ruta.idRuta)" style="padding: 4px;" class=" btn btn-success">Validar pasajeros </button>
                   </td>
 
 
@@ -93,7 +93,7 @@
           
     </section>
 
-    <section>
+    <section *ngIf="visibleValidateTable">
         <br>
         <div style="padding: 20px; border-radius: 3px; background-color: rgb(202, 202, 202)" class="container">
             <p style="font-size: 46px;">VALIDAR PASAREJOS</p>
@@ -111,43 +111,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>sdfsdfsfdsdfs</td>
-                    <td>Angel Guillermo Peñarredonda Silva</td>
+                  <tr *ngFor="let tiquete of tiquetes" >
+                    <th scope="row">{{tiquete.silla}}</th>
+                    <td>{{tiquete.idReserva}}</td>
+                    <td>{{tiquete.nombre}} {{tiquete.apellido}}</td>
                     <td>
-                        <button class="btn btn-success">
+                        <button (click)="validarReserva(tiquete)" class="btn btn-success">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
                             <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
                           </svg></button>
 
-                          <button style="margin-left: 5px;" class="btn btn-danger">
+                          <button  style="margin-left: 5px;" class="btn btn-danger">
                             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25"  fill="currentColor" class="bi bi-x-lg" viewBox="0 0 16 16">
                                 <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"/></svg>
                             </button>
                     </td>
                   </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>sdfsdfsfdsdfs</td>
-                    <td>Angel Guillermo Peñarredonda Silva</td>
-                    <td>
-                        <button class="btn btn-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-lg"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
-                            </svg></button>
                 
-                        <button style="margin-left: 5px;" class="btn btn-danger">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-lg"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z" />
-                            </svg>
-                        </button>
-                    </td>
-                </tr>
                   
                 </tbody>
               </table>
