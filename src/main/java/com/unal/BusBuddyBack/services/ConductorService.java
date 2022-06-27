@@ -11,28 +11,34 @@ import com.unal.BusBuddyBack.repository.ConductorRepository;
 
 @Service
 public class ConductorService implements IConductorService{
-    @Autowired
-    private ConductorRepository data; //
 
+    @Autowired
+    private ConductorRepository data;
+    @Override
     public List<Conductor> listar() {
-        return (List<Conductor>)data.findAll();
+        return (List<Conductor>) data.findAll();
     }
 
+    @Override
     public Optional<Conductor> listarId(int id) {
-
         return data.findById(id);
     }
 
-    public Conductor save(Conductor element){
+    @Override
+    public Conductor save(Conductor element) {
         return data.save(element);
     }
 
+    @Override
     public void delete(Conductor element) {
-        data.delete(element);
+        // TODO Auto-generated method stub
+        
     }
 
     @Override
     public void deleteId(int id) {
-
+        data.deleteById(id);
+        
     }
+    
 }
