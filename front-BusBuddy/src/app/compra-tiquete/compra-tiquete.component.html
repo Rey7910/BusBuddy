@@ -46,7 +46,7 @@
                     </div></div>
                     <br>
                     <div class="row">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12" >
                             
                             
                             <h4 class=" text-center mb-5 ">Datos Tarjeta</h4>
@@ -87,58 +87,58 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td class="silla" (click)="silla = 1">1</td>
-                                        <td class="silla" (click)="silla = 2">2</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==1,'silla' : a[1],'sillaocupada':!a[1]}" class="silla" (click)="sillaClick(1)">1</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==2,'silla' : a[2],'sillaocupada':!a[2]}" class="silla" (click)="sillaClick(2)">2</td>
                                         <th></th>
-                                        <td class="silla" (click)="silla = 3"> 3</td>
-                                        <td class="silla" (click)="silla = 4">4</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==3,'silla' : a[3],'sillaocupada':!a[3]}" class="silla" (click)="sillaClick(3)"> 3</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==4,'silla' : a[4],'sillaocupada':!a[4]}" class="silla" (click)="sillaClick(4)">4</td>
                                     </tr>
                                     <tr>
-                                        <td class="silla" (click)="silla = 5">5</td>
-                                        <td class="silla" (click)="silla = 6">6</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==5,'silla' : a[5],'sillaocupada':!a[5]}" class="silla" (click)="sillaClick(5)">5</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==6,'silla' : a[6],'sillaocupada':!a[6]}" class="silla" (click)="sillaClick(6)">6</td>
                                         <th></th>
-                                        <td class="silla" (click)="silla = 7"> 7</td>
-                                        <td class="silla" (click)="silla = 8">8</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==7,'silla' : a[7],'sillaocupada':!a[7]}" class="silla" (click)="sillaClick(7)"> 7</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==8,'silla' : a[8],'sillaocupada':!a[8]}" class="silla" (click)="sillaClick(8)">8</td>
                                     </tr>
                                     <tr>
-                                        <td class="silla" (click)="silla = 9">9</td>
-                                        <td class="silla" (click)="silla = 10">10</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==9,'silla' : a[9],'sillaocupada':!a[9]}" class="silla" (click)="sillaClick(9)">9</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==10,'silla' : a[10],'sillaocupada':!a[10]}" class="silla" (click)="sillaClick(10)">10</td>
                                         <th></th>
-                                        <td class="silla" (click)="silla = 11"> 11</td>
-                                        <td class="silla" (click)="silla = 12">12</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==11,'silla' : a[11],'sillaocupada':!a[11]}" class="silla" (click)="sillaClick(11)"> 11</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==12,'silla' : a[12],'sillaocupada':!a[12]}" class="silla" (click)="sillaClick(12)">12</td>
                                     </tr>
                                     <tr>
-                                        <td class="silla" (click)="silla = 13">13</td>
-                                        <td class="silla" (click)="silla = 14">14</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==13,'silla' : a[13],'sillaocupada':!a[13]}" class="silla" (click)="sillaClick(13)">13</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==14,'silla' : a[14],'sillaocupada':!a[14]}" class="silla" (click)="sillaClick(14)">14</td>
                                         <th></th>
-                                        <td class="silla" (click)="silla = 15"> 15</td>
-                                        <td class="silla" (click)="silla = 16">16</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==15,'silla' : a[15],'sillaocupada':!a[15]}" class="silla" (click)="sillaClick(15)"> 15</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==16,'silla' : a[16],'sillaocupada':!a[16]}" class="silla" (click)="sillaClick(16)">16</td>
                                     </tr>
                                     <tr>
-                                        <td class="silla" (click)="silla = 17">17</td>
-                                        <td class="silla" (click)="silla = 18">18</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==17,'silla' : a[17],'sillaocupada':!a[17]}" class="silla" (click)="sillaClick(17)">17</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==18,'silla' : a[18],'sillaocupada':!a[18]}" class="silla" (click)="sillaClick(18)">18</td>
                                         <th></th>
-                                        <td class="silla" (click)="silla = 19"> 19</td>
-                                        <td class="silla" (click)="silla = 20">20</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==19,'silla' : a[19],'sillaocupada':!a[19]}" class="silla" (click)="sillaClick(19)"> 19</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==20,'silla' : a[20],'sillaocupada':!a[20]}" class="silla" (click)="sillaClick(20)">20</td>
                                     </tr>
                                     <tr>
-                                        <td class="silla" (click)="silla = 21">21</td>
-                                        <td class="silla" (click)="silla = 22">22</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==21,'silla' : a[21],'sillaocupada':!a[21]}" class="silla" (click)="sillaClick(21)">21</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==22,'silla' : a[22],'sillaocupada':!a[22]}" class="silla" (click)="sillaClick(22)">22</td>
                                         <th></th>
-                                        <td class="silla" (click)="silla = 23">23</td>
-                                        <td class="silla" (click)="silla = 24">24</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==23,'silla' : a[23],'sillaocupada':!a[23]}" class="silla" (click)="sillaClick(23)">23</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==24,'silla' : a[24],'sillaocupada':!a[24]}" class="silla" (click)="sillaClick(24)">24</td>
                                     </tr>
                                     <tr>
-                                        <td class="silla" (click)="silla = 25">25</td>
-                                        <td class="silla" (click)="silla = 26">26</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==25,'silla' : a[25],'sillaocupada':!a[25]}" class="silla" (click)="sillaClick(25)">25</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==26,'silla' : a[26],'sillaocupada':!a[26]}" class="silla" (click)="sillaClick(26)">26</td>
                                         <th></th>
-                                        <td class="silla" (click)="silla = 27">27</td>
-                                        <td class="silla" (click)="silla = 28">28</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==27,'silla' : a[27],'sillaocupada':!a[27]}" class="silla" (click)="sillaClick(28)">27</td>
+                                        <td [ngClass]="{'sillaseleccionada' : silla==28,'silla' : a[28],'sillaocupada':!a[28]}" class="silla" (click)="sillaClick(28)">28</td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <div>
-                                <label class="form-label" >TU SILLA ES </label><br>
+                            <div >
+                                <label  class="form-label" >TU SILLA ES </label><br>
                                  <h3>{{silla}}</h3>
 
                             </div> 

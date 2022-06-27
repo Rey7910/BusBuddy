@@ -31,6 +31,10 @@ export class HomeUsuarioComponent implements OnInit {
     
     this.tiquetever = true;
   }
+  comprar(idRuta:number){
+    sessionStorage.setItem("idRutaBuy",idRuta.toString());
+    this.router.navigate(['/compra-tiquete']);
+  }
   
   
 
