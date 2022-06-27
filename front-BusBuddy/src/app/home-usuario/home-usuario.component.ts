@@ -16,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 export class HomeUsuarioComponent implements OnInit {
 
   tiquetever = false;
-  constructor(private serviceRutas: ServiceRutasViewService, private serviceTerminales: ServiceTerminalService, private router: Router, private toastr: ToastrService ) {
+  constructor(private serviceRutasView: ServiceRutasViewService, private serviceTerminales: ServiceTerminalService, private router: Router, private toastr: ToastrService ) {
     this.rutas=[];
    }
   rutas:RutaView[];
@@ -31,20 +31,14 @@ export class HomeUsuarioComponent implements OnInit {
   ngOnInit(): void {
 
 
-    this.serviceRutas.getRutas().
-      subscribe(data => {
-        this.rutas = data;
-      });
+    
     this.serviceTerminales.getTerminales().subscribe(data => {
       this.terminales = data;
     });
   }
 
   AparecerTiquetes(){
-    this.serviceRutas.getRutas().
-    subscribe(data=>{
-      this.rutas=data;
-    }) ;
+    
     if (this.verOrigen == null || this.verDestino == null || this.verFechasalida == null || this.verMaxprecio == null || this.verMinprecio == null){
       this.tiquetever = false;
       this.toastr.error("Ingresar todos los datos","Busqueda no realizada");
@@ -55,6 +49,10 @@ export class HomeUsuarioComponent implements OnInit {
       this.toastr.error("Ingresar un origen diferente a destino", "Origen igual a destino");
     }
     else{
+      this.serviceRutasView.getRutasFiltradas(this.verOrigen,this.verDestino,this.verFechasalida,this.verMinprecio,this.verMaxprecio).
+    subscribe(data=>{
+      this.rutas=data;
+    }) ;
       this.tiquetever = true;
       this.toastr.success("", "Busqueda realizada");
 

@@ -17,6 +17,11 @@ export class CompraTiqueteComponent implements OnInit {
   sillasOcupadas:Reserva[];
   tiqueteAComprar:Reserva;
   a:boolean[];
+  tarCedula:number;
+  tarNumero:number;
+  tarCVV:number;
+  tarMes:number;
+  tarAno:number;
   constructor(private serviceReservas:ServiceReservasService, private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -64,18 +69,23 @@ export class CompraTiqueteComponent implements OnInit {
   comprar(reservaAComprar:Reserva){
     
     if(this.idUsuario!=null){
-      if(this.silla!=null && this.silla!=0){
-        this.tiqueteAComprar.silla=this.silla;
-        this.tiqueteAComprar.idUsuario=this.idUsuario;
-        this.tiqueteAComprar.idRuta=this.idRuta;
-        this.serviceReservas.crearReserva(reservaAComprar).subscribe(data=>{
-          this,this.toastr.success("Tiquete comprado con exito");
+      if(this.silla == null && this.silla == 0){
+        this.toastr.error("Selecciona un asiento por favor");
+      } else if ( this.tiqueteAComprar.nombre == null || this.tiqueteAComprar.apellido == null || this.tiqueteAComprar.id == null || this.tiqueteAComprar.telefono == null || this.tiqueteAComprar.telefonoEmergencia == null){        
+        this.toastr.error("Diligencia todos los datos del pasajero", "Datos pasajero incompletos");
+      } else if ( this.tarCedula == null || this.tarNumero  == null || this.tarCVV == null || this.tarMes == null || this.tarAno == null) {
+        this.toastr.error("Diligencia todos los datos de la tarjeta", "Datos tajeta incompletos");
+      }     
+      else{
+        this.tiqueteAComprar.silla = this.silla;
+        this.tiqueteAComprar.idUsuario = this.idUsuario;
+        this.tiqueteAComprar.idRuta = this.idRuta;
+        this.serviceReservas.crearReserva(reservaAComprar).subscribe(data => {
+          this, this.toastr.success("Tiquete comprado con exito");
           this.router.navigate(['/home-usuario']);
-        },error=>{
+        }, error => {
           this.toastr.error("Ha ocurrido un error al realizar la compra");
         });
-      }else{
-        this.toastr.error("Selecciona un asiento por favor");
       }
     }else{
       this.toastr.error("Ha ocurrido un error con la autenticación de sesión del usuario");
