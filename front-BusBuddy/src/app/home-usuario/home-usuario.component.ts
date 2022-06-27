@@ -6,6 +6,8 @@ import { RutaView } from '../Modelo/RutaView';
 import { Terminal } from '../Modelo/Terminal';
 import { ServiceRutasViewService } from '../Service/service-rutas-view.service';
 import { ServiceTerminalService } from '../Service/service-terminal.service';
+import { ToastrService } from 'ngx-toastr';
+
 @Component({
   selector: 'app-home-usuario',
   templateUrl: './home-usuario.component.html',
@@ -14,12 +16,17 @@ import { ServiceTerminalService } from '../Service/service-terminal.service';
 export class HomeUsuarioComponent implements OnInit {
 
   tiquetever = false;
-  constructor(private serviceRutas:ServiceRutasViewService,private serviceTerminales:ServiceTerminalService, private router:Router) {
+  constructor(private serviceRutas: ServiceRutasViewService, private serviceTerminales: ServiceTerminalService, private router: Router, private toastr: ToastrService ) {
     this.rutas=[];
    }
   rutas:RutaView[];
   terminales:Terminal[];
-  verRuta:number;
+  verOrigen:number;
+  verDestino: number;
+  verFechasalida: Date;
+  verMinprecio: number;
+  verMaxprecio: number;
+
   
   ngOnInit(): void {
 
@@ -38,8 +45,17 @@ export class HomeUsuarioComponent implements OnInit {
     subscribe(data=>{
       this.rutas=data;
     }) ;
+    if (this.verOrigen == null || this.verDestino == null || this.verFechasalida == null || this.verMaxprecio == null || this.verMinprecio == null){
+      this.tiquetever = false;
+      this.toastr.error("Ingresar todos los datos","Busqueda no realizada");
+      
+    } 
+    else{
+      this.tiquetever = true;
+      this.toastr.success("", "Busqueda realizada");
+
+    }
     
-    this.tiquetever = true;
   }
   comprar(idRuta:number){
     sessionStorage.setItem("idRutaBuy",idRuta.toString());

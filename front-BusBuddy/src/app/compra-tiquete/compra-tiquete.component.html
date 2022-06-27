@@ -138,8 +138,10 @@
                                 </tbody>
                             </table>
                             <div >
-                                <label  class="form-label" >TU SILLA ES </label><br>
-                                 <h3>{{silla}}</h3>
+                                <label  *ngIf="silla!=0" class="form-label" >TU SILLA ES </label><br>
+                                <h3 *ngIf="silla!=0" >{{silla}}</h3>
+                                <label  *ngIf="silla==0" class="form-label" >Selecciona una Silla </label><br>
+                                 
 
                             </div> 
                             </div>
