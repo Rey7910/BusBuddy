@@ -143,23 +143,37 @@ export class RegisterComponent implements OnInit {
   }
 
   crearusuario(user:Usuario){
-
-
     if(this.contrasena==user.contrasena){
+      if(this.flagVL){
+        user.idUsuario=this.searchPersonal.idUsuario
+        this.newConductor.idUsuario = this.searchPersonal.idUsuario
+        this.newConductor.idEmpresa = this.searchPersonal.idEmpresa
+        this.newConductor.ciudad = this.searchPersonal.ciudad
+        this.newConductor.eps = this.searchPersonal.eps
+        this.newConductor.id = this.searchPersonal.id
+        this.serviceC.crearConductor(this.newConductor)
+        .subscribe(data =>{
+          this.toastr.success("Conductor Creado con exito");
+        });
 
-
-      // this.aux.setFullYear(user.fechaNacimiento.getFullYear())
-      // this.aux.setMonth(user.fechaNacimiento.getMonth())
-      // this.aux.setDate(user.fechaNacimiento.getDate()+1)
-
-
-      this.serviceU.crearUsuario(user)
+        user.nombre = this.searchPersonal.nombre
+        user.apellido = this.searchPersonal.apellido
+        user.rol = 3
+        user.telefono = this.searchPersonal.telefono
+        this.serviceU.updateUsuario(user)
+        .subscribe(data =>{
+          this.toastr.success("Usuario Creado con exito");
+          this.router.navigate(['/login'])
+        });
+      }else{
+      
+        this.serviceU.crearUsuario(user)
         .subscribe(data=>{
           this.toastr.success("Usuario Creado con exito");
           this.router.navigate(['/login'])
         }); 
       }
-    else{
+    }else{
         this.toastr.warning("Las contraseñas no coinciden");
       }
     }
