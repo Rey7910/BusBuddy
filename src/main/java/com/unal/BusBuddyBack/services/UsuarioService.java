@@ -30,8 +30,8 @@ public class UsuarioService implements IUsuarioService {
     }
 
     @Override
-    public void delete(Usuario id) {
-        dataURepository.delete(id);
+    public void delete(Usuario element) {
+        dataURepository.delete(element);
         
     }
 

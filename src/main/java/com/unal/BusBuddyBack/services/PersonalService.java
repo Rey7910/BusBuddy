@@ -37,7 +37,7 @@ public class PersonalService implements IPersonalService{
 
     @Override
     public void deleteId(int id) {
-
+        dataPersonal.deleteById(id);
     }
 
 }
