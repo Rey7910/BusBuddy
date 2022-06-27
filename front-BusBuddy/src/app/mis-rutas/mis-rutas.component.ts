@@ -17,10 +17,11 @@ export class MisRutasComponent implements OnInit {
   constructor(private serviceRutasView:ServiceRutasViewService, private serviceReservas:ServiceReservasService, private router:Router,private toastr: ToastrService) { }
   rutas:RutaView[];
   tiquetes:Reserva[];
+  tiquetesValidados:Reserva[];
   reservaUpdate:Reserva;
   idRutaValidar:number; 
   ngOnInit(): void {
-    this.visibleValidateTable=true;
+    this.visibleValidateTable=false;
     this.serviceRutasView.getRutasConductor(1).subscribe(data=>
       this.rutas=data
     );
@@ -31,13 +32,20 @@ export class MisRutasComponent implements OnInit {
     this.serviceReservas.getReservasRutaYEstado(idRuta,0).subscribe(data=> //0 Para validar boletos aun no validados
         this.tiquetes=data
       );
+      this.serviceReservas.getReservasRutaYEstado(idRuta,1).subscribe(data=> 
+        this.tiquetesValidados=data
+      );
+      
   }
   validarReserva(reserva:Reserva){
     reserva.estado=+1;
     this.serviceReservas.updateReserva(reserva).subscribe(data=>{
       this.toastr.success("Tiquete Validado con exito");
-      this.serviceReservas.getReservasRutaYEstado(reserva.idRuta,0).subscribe(data=> //0 Para validar boletos aun no validados
+      this.serviceReservas.getReservasRutaYEstado(reserva.idRuta,0).subscribe(data=>
         this.tiquetes=data
+      );
+      this.serviceReservas.getReservasRutaYEstado(reserva.idRuta,1).subscribe(data=> 
+        this.tiquetesValidados=data
       );
     },err =>this.toastr.error("Tiquete no validado, ha ocurrido un error"));
     

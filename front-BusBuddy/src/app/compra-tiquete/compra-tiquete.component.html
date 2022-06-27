@@ -1,59 +1,135 @@
-<section class="vh-100 bg-image" style="background-image: url('../../assets/Logo_ghost.jpg');">
-    <div class="mask d-flex align-items-center h-100 gradient-custom-3">
-        <div class="container h-130">
-            <div class="row d-flex justify-content-center align-items-center h-20">
-                <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-                    <div class="card" style="border-radius: 15px;">
-                        <div class="card-body p-5">
-                            <div style="text-align: center;">
-                                <img width="170" height="170" src="../../assets/Logo_ghost.jpg">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+</head>
+<!-- body -->
+
+<body class="main-layout">
+
+    <!-- compra -->
+    <div id="compra" class="compra">
+        <!-- principio mas filtro -->
+        <div class="banner-main">
+            <img src="../../assets/Fondo.png" alt="#" />
+            <div class="container">
+                <div class="text-bg">
+                    <div style="text-align: center;">
+                        <img width="175" height="175" src="../../assets/Logo_ghost.jpg">
+                    </div>
+                    <h2 class="text-uppercase text-center mb-5 ">Compra</h2>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="cedula">Cedula</label>
+                                <input type="number" id="init" 
+                                    class="form-control form-control-lg">
                             </div>
-                            <h2 class="text-uppercase text-center mb-5">COMPRA</h2>
-                            <form>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="formnumerodesillas">Numero de sillas</label>
-                                    <input type="text" id="numerodesillas" class="form-control form-control-lg" />
-                                
+                    
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="terjeta">Numero de tarjeta</label>
+                                <input type="number" id="tarjeta" 
+                                    class="form-control form-control-lg">
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <label class="form-label" for="usuario">CVV</label>
+                                    <input type="number" min="0" max="9999" id="usuario" class="form-control form-control-lg">
                                 </div>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="formnumerodesillas">Puestos asigados</label>
-                                    <h5 class=" text-center mb-5">Sus puestos son el numero 1, 2, 3</h5>
-            
+                                <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                    <label class="form-label" for="usuario">Fecha de vencimiento</label>
+                                    <input type="email" id="usuario" class="form-control form-control-lg">
                                 </div>
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="formcedula">Cedula</label>
-                                    <input type="text" id="Cedula" class="form-control form-control-lg" />
-                                    
-                                </div>
-
-                                <div class="form-outline mb-4">
-                                    <label class="form-label" for="formnumerodetarjeta">Numero de tarjeta</label>
-                                    <input type="email" id="numerodetarjeta" class="form-control form-control-lg" />
-                                    
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <label class="form-label" for="formcvv">cvv</label>
-                                        <input type="email" id="cvv" class="form-control form-control-lg" />
-                                
-                                    </div>
-                                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                                        <label class="form-label" for="formfechadevencicimiento">Fecha de vencimiento</label>
-                                        <input type="email" id="formfechadevencicimiento" class="form-control form-control-lg" />
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-center p-3">
-                                    <button type="button"
-                                        class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" >
-                                        <a href="/compra-tiquete">Compra</a>
-                                    </button>
-                                </div>
-                            </form>
-
+                            </div> 
+                        
                         </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                            <!--sillas -->
+                            <label class="form-label" >Elegir silla</label>
+                            <table >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">VENTANA</th>
+                                        <th scope="col">PASILLO</th>
+                                        <th scope="col"></th>
+                                        <th scope="col">PASILLO</th>
+                                        <th scope="col">VENTANA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 1">1</td>
+                                        <td class="silla" (click)="silla = 2">2</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 3"> 3</td>
+                                        <td class="silla" (click)="silla = 4">4</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 5">5</td>
+                                        <td class="silla" (click)="silla = 6">6</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 7"> 7</td>
+                                        <td class="silla" (click)="silla = 8">8</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 9">9</td>
+                                        <td class="silla" (click)="silla = 10">10</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 11"> 11</td>
+                                        <td class="silla" (click)="silla = 12">12</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 13">13</td>
+                                        <td class="silla" (click)="silla = 14">14</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 15"> 15</td>
+                                        <td class="silla" (click)="silla = 16">16</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 17">17</td>
+                                        <td class="silla" (click)="silla = 18">18</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 19"> 19</td>
+                                        <td class="silla" (click)="silla = 20">20</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 21">21</td>
+                                        <td class="silla" (click)="silla = 22">22</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 23">23</td>
+                                        <td class="silla" (click)="silla = 24">24</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 25">25</td>
+                                        <td class="silla" (click)="silla = 26">26</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 27">27</td>
+                                        <td class="silla" (click)="silla = 28">28</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div>
+                                <label class="form-label" >TU SILLA ES </label><br>
+                                 <h3>{{silla}}</h3>
+
+                            </div> 
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a  class="button" href="/mis-tiquetes-usuario">Comprar</a>
                     </div>
                 </div>
             </div>
         </div>
+        <!--end principio mas filtro -->
+    
     </div>
-</section>
+
+
+
+
+</body>
+
+</html>

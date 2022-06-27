@@ -6,6 +6,9 @@ import { ServiceUsuarioService } from '../Service/service-usuario.service';
 import { Personal } from '../Modelo/Personal';
 import { Empresa } from '../Modelo/Empresa';
 import { Conductor } from '../Modelo/Conductor';
+import { ServicePersonalService } from '../Service/service-personal.service';
+import { ServiceEmpresaService } from '../Service/service-empresa.service';
+import { ServiceConductorService } from '../Service/service-conductor.service';
 
 @Component({
   selector: 'app-register',
@@ -18,8 +21,9 @@ export class RegisterComponent implements OnInit {
   box_vincu_lab = false; 
   box_vincu_lab_2 = false;
   box_usuario = false;
-
-  constructor(private serviceU:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
+  
+  
+  constructor(private serviceU:ServiceUsuarioService, private serviceP:ServicePersonalService, private serviceE:ServiceEmpresaService, private serviceC:ServiceConductorService, private toastr: ToastrService, private router: Router) { }
   usuarios:Usuario[]
   newUser=new Usuario();
   mapU=new Map<String,Usuario>;
@@ -33,9 +37,10 @@ export class RegisterComponent implements OnInit {
   searchEmpresa = new Empresa();
   mapE=new Map<String,Empresa>;
 
+  conductores:Conductor[]
   newConductor = new Conductor();
-  
 
+  empresaId: number;
   flagVL = false;
   
 
@@ -43,6 +48,21 @@ export class RegisterComponent implements OnInit {
     this.serviceU.getUsuarios().
     subscribe(data=>{
       this.usuarios=data;
+    }) ;
+    
+    this.serviceP.getPersonal().
+    subscribe(data=>{
+      this.personal=data;
+    }) ;
+
+    this.serviceE.getEmpresas().
+    subscribe(data=>{
+      this.empresas=data;
+    }) ;
+
+    this.serviceC.getConductores().
+    subscribe(data=>{
+      this.conductores=data;
     }) ;
 
   }
@@ -79,34 +99,10 @@ export class RegisterComponent implements OnInit {
   }
 
   cambio2(){
-    this.personal.forEach(element => {
-      this.mapP.set(element.pin,element)
-    });
-    this.empresas.forEach(element => {
-      this.mapE.set(element.nit,element)
-    });
-    var currentPersonal = this.mapP.get(this.searchPersonal.pin)
-    var currentEmpresa = this.mapE.get(this.searchEmpresa.nit)
-    if(currentPersonal == undefined){
-      this.toastr.warning('El pin ingresado no está relacionado con ningún usuario');
-    }else{
-      if(currentEmpresa != undefined){
-        if(currentEmpresa.idEmpresa==currentPersonal.idEmpresa){
-          this.box_registo = false;
-          this.box_vincu_lab = false;
-          this.box_vincu_lab_2 = true;
-          this.box_usuario = false;
-          this.flagVL = true;
-        }else{
-          this.toastr.warning('El pin ingresado no está relacionado con la empresa');
-          window.location.reload();
-        } 
-      }
-      else{
-        this.toastr.warning('La empresa ingresada no está registrada en la aplicación');
-        window.location.reload();
-      }
-    } 
+    this.box_registo = false;
+    this.box_vincu_lab = false;
+    this.box_vincu_lab_2 = true;
+    this.box_usuario = false;
   }
 
   cambio3(){
@@ -131,15 +127,11 @@ export class RegisterComponent implements OnInit {
   crearusuario(user:Usuario){
 
     if(this.contrasena==user.contrasena){
-      if(this.flagVL){
-        
-      }else{
         this.serviceU.crearUsuario(user)
-      .subscribe(data=>{
-        this.toastr.success("Usuario Creado con exito");
-        this.router.navigate(['/login'])
-      }); 
-      }
+        .subscribe(data=>{
+          this.toastr.success("Usuario Creado con exito");
+          this.router.navigate(['/login'])
+        }); 
       
     }else{
       this.toastr.warning("Las contraseñas no coinciden");

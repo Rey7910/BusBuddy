@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           //this.router.navigate(['/terminal'])
         }
         else if (currentUser.rol == 3){ //conductor
-          //this.router.navigate(['/conductor'])
+          this.router.navigate(['/mis-rutas'])
         }
         
       }

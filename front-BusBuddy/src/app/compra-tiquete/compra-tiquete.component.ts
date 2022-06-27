@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompraTiqueteComponent implements OnInit {
 
+  silla= 0;
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+    
 }

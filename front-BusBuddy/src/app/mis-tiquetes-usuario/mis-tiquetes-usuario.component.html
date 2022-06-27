@@ -27,13 +27,13 @@
                             <div class="limit-box">
                                 <nav class="main-menu">
                                     <ul class="menu-area-main">
-                                        <li class="activa"> <a href="/home-usuario"> Comprar </a> </li>
-                                        <li> <a href="/mis-tiquetes-usuario">Mis Tiquetes</a> </li>
+                                        <li > <a href="/home-usuario"> Comprar </a> </li>
+                                        <li class="activa"> <a href="/mis-tiquetes-usuario">Mis Tiquetes</a> </li>
                                         <li><a href="/home-usuario">Configuracion</a></li>
                                         <li><a href="/home-page">Cerrar sesión</a></li>
                                     </ul>
                                 </nav>
-                            </div>'ng sder'
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -42,59 +42,95 @@
         <!-- end header inner -->
     </header>
     <!-- end header -->
-    
+
+
+
+
     <!--tiquetes -->
     <div  id="tiquetes" class="tiquete">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 ">
-                    <div class="titlepage">
-                        <h2>Mis Tiquetes</h2>
-                        <span> Vemos todos los tiquetes disponibles </span>
-                    </div>
+        <!-- principio mas filtro -->
+        <div class="banner-main">
+            <img src="../../assets/Fondo.png" alt="#" />
+            <div class="container">
+                <div class="text-bg">
+                    <h1>MIS<br><strong class="white">Tiquetes</strong></h1>
+                    <h3>Filtrar por estado de la ruta:</h3>
+                    <button (click)="filtrarAbordados()" type="button" class="button">Abordado</button>
+                    <button (click)="filtrarVencidos()" type="button" class="button">Vencidos</button>
+                    <button (click)="filtrarDisponibles()" type="button" class="button">Disponible</button>
+                    <button (click)="filtrarTodos()" type="button" class="button">Todos</button>
                 </div>
             </div>
-        </div>
+
+        </div> 
+        <!--end principio mas filtro -->
+        <br>
         <div class="bg">
             <div class="container">
-                <form  class="tiquete-form">
+                <form  *ngFor="let tiquete of tiquetes" class="tiquete-form">
                     <div class="row">
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Origen</label><br>
-                                    <h3>adsfsdfsdfsdfsdf zsc</h3>
-
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Fecha Salida</label><br>
-                                    <h3>dasfsdfs sedfsdf</h3>
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <img src="../../assets/flecha.png" alt="#">
-                                </div>
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Destino</label><br>
-                                    <h3>asd</h3>
-                                </div>
-
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Fecha llegada</label><br>
-                                    <h3>asd</h3>
-                                </div>
-
-                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
-                                    <label>Precio</label><br>
-                                    <h3>asd</h3>
-
-                                </div>
-
-
-                            </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Numero de reserva</label><br>
+                            <h3>{{tiquete.idReserva}}</h3>                       
                         </div>
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 col-12">
-                            <a>Compra</a>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Origen</label><br>
+                            <h3>{{tiquete.origen}}</h3>
+                    
                         </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Fecha Salida</label><br>
+                            <h3>{{tiquete.fechaSalida | date :'short'}}</h3>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Destino</label><br>
+                            <h3>{{tiquete.destino}}</h3>
+                        </div>
+                    
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Nombre</label><br>
+                            <h3>{{tiquete.fechaLlegada | date :'short'}}</h3>
+                        </div>
+                    
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Cedula</label><br>
+                            <h3>{{tiquete.estado}}</h3>
+                    
+                        </div>
+                    
+                    </div>
+                </form>
+                <form  *ngFor="let tiquete of tiquetes" class="tiquete-form">
+                    <div class="row">
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Numero de reserva</label><br>
+                            <h3>{{tiquete.idReserva}}</h3>                       
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Origen</label><br>
+                            <h3>{{tiquete.origen}}</h3>
+                    
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Fecha Salida</label><br>
+                            <h3>{{tiquete.fechaSalida | date :'short'}}</h3>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Destino</label><br>
+                            <h3>{{tiquete.destino}}</h3>
+                        </div>
+                    
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Nombre</label><br>
+                            <h3>{{tiquete.fechaLlegada | date :'short'}}</h3>
+                        </div>
+                    
+                        <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-12">
+                            <label>Cedula</label><br>
+                            <h3>{{tiquete.estado}}</h3>
+                    
+                        </div>
+                    
                     </div>
                 </form>
             </div>
