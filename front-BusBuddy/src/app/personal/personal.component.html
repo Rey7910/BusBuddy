@@ -62,42 +62,42 @@
                             <h3>Crea un nuevo usuario</h3>
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">Nombres: </div>
-                                <input placeholder="Nombres" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.nombre" placeholder="Nombres" class="col-sm-4 form-control" type="text">
                             </div>
 
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">Apellidos: </div>
-                                <input placeholder="Apellidos" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.apellido" placeholder="Apellidos" class="col-sm-4 form-control" type="text">
                             </div>
 
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">Telefono: </div>
-                                <input placeholder="Telefono" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.telefono"  placeholder="Telefono" class="col-sm-4 form-control" type="text">
                             </div>
 
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">Cargo: </div>
-                                <input placeholder="Cargo" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.cargo"  placeholder="Cargo" class="col-sm-4 form-control" type="text">
                             </div>
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">EPS: </div>
-                                <input placeholder="EPS" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.eps" placeholder="EPS" class="col-sm-4 form-control" type="text">
                             </div>
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">Ciudad: </div>
-                                <input placeholder="Ciudad" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.ciudad" placeholder="Ciudad" class="col-sm-4 form-control" type="text">
                             </div>
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">Documento: </div>
-                                <input placeholder="Documento" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.id" placeholder="Documento" class="col-sm-4 form-control" type="text">
                             </div>
                             <div style="margin-left: 5px;" class="row">
                                 <div class="col-sm-2">PIN: </div>
-                                <input placeholder="PIN" class="col-sm-4 form-control" type="text">
+                                <input [ngModelOptions]="{standalone: true}" [(ngModel)]="newPerso.pin" placeholder="PIN" class="col-sm-4 form-control" type="text">
                             </div>
 
                             <div style="height: 30px;">
-                                <button style="height: 40px; width: 150px;" class="btn btn-primary">Crear</button>
+                                <button (click)="crearpersonall(newPerso)" style="height: 40px; width: 150px;" class="btn btn-primary">Crear</button>
                                 <button (click)="cambiar_estado_caja()" style="height: 40px; width: 150px; margin-left: 10px;" class="btn btn-warning">Cancelar</button>
 
                             </div>
