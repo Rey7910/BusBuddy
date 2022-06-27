@@ -142,3 +142,8 @@ terminalo.ciudad as ciudad_origen,  terminald.nombre as terminal_destino, termin
 ruta.fecha_llegada as fecha_llegada, ruta.precio as precio, ruta.estado as estado,conductor.idconductor as idconductor from empresa, usuario, conductor, terminal as terminalo,terminal as terminald, ruta 
 where empresa.idempresa = ruta.idempresa and terminalo.idterminal = ruta.origen and terminald.idterminal = ruta.destino
 and ruta.idconductor = conductor.idconductor and usuario.idusuario = conductor.idusuario;
+create or replace view info_reservas as select 
+reserva.idreserva as idreserva,reserva.silla as silla ,reserva.idusuario as  idusuario, ruta.fecha_llegada as fecha_llegada, ruta.fecha_salida as fecha_salida, 
+terminal1.ciudad as origen, terminal2.ciudad as destino, reserva.nombre as nombre, reserva.apellido as apellido, reserva.id as id, reserva.estado as estado
+from reserva,ruta,terminal as terminal1,terminal as terminal2
+ where ruta.origen=terminal1.idterminal and ruta.destino=terminal2.idterminal and reserva.idruta=ruta.idruta;
