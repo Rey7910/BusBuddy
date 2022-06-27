@@ -17,4 +17,11 @@ export class ServicePersonalService {
   crearPersonal(personal:Personal){
     return this.http.post<Personal>(this.Url,personal);
   }
+
+  deletePersonal(personal:Personal){
+    return this.http.delete<Personal>(this.Url);
+  }
+  deletePersonalId(idPersonal:number){
+    return this.http.delete<Personal>(this.Url+"/"+idPersonal);
+  }
 }

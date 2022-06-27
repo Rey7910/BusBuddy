@@ -8,7 +8,7 @@ export class Personal{
     cargo:String;
     eps:String;
     ciudad:String;
-    id:String;
+    id:number;
     pin:String;
     constructor(){
         
