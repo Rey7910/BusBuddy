@@ -1,7 +1,6 @@
 package com.unal.BusBuddyBack.entidades;
 
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 
 import javax.persistence.*;
 import com.sun.istack.NotNull;
@@ -10,7 +9,6 @@ import com.sun.istack.NotNull;
 @Table(name="conductor")
 public class Conductor implements Serializable {
     private static final long serialVersionUID = 6L;
-    SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
