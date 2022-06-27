@@ -23,20 +23,20 @@
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="usuario">Cedula</label>
-                                <input type="email" id="usuario" 
+                                <label class="form-label" for="cedula">Cedula</label>
+                                <input type="number" id="init" 
                                     class="form-control form-control-lg">
                             </div>
                     
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="contraseña">Numero de tarjeta</label>
-                                <input type="email" id="contraseña" 
+                                <label class="form-label" for="terjeta">Numero de tarjeta</label>
+                                <input type="number" id="tarjeta" 
                                     class="form-control form-control-lg">
                             </div>
                             <div class="row">
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <label class="form-label" for="usuario">CVV</label>
-                                    <input type="email" id="usuario" class="form-control form-control-lg">
+                                    <input type="number" min="0" max="9999" id="usuario" class="form-control form-control-lg">
                                 </div>
                                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                                     <label class="form-label" for="usuario">Fecha de vencimiento</label>
@@ -60,33 +60,65 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td scope="row" class="silla">1</td>
-                                        <td class="silla" onclick="GuardarSilla()">2</td>
+                                        <td class="silla" (click)="silla = 1">1</td>
+                                        <td class="silla" (click)="silla = 2">2</td>
                                         <th></th>
-                                        <td class="silla"> 3</td>
-                                        <td class="silla">4</td>
+                                        <td class="silla" (click)="silla = 3"> 3</td>
+                                        <td class="silla" (click)="silla = 4">4</td>
                                     </tr>
                                     <tr>
-                                        <td scope="row" class="silla">1</td>
-                                        <td class="silla">2</td>
+                                        <td class="silla" (click)="silla = 5">5</td>
+                                        <td class="silla" (click)="silla = 6">6</td>
                                         <th></th>
-                                        <td class="silla"> 3</td>
-                                        <td class="silla">4</td>
+                                        <td class="silla" (click)="silla = 7"> 7</td>
+                                        <td class="silla" (click)="silla = 8">8</td>
                                     </tr>
                                     <tr>
-                                        <td scope="row" class="silla">1</td>
-                                        <td class="silla">2</td>
+                                        <td class="silla" (click)="silla = 9">9</td>
+                                        <td class="silla" (click)="silla = 10">10</td>
                                         <th></th>
-                                        <td class="silla"> 3</td>
-                                        <td class="silla">4</td>
+                                        <td class="silla" (click)="silla = 11"> 11</td>
+                                        <td class="silla" (click)="silla = 12">12</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 13">13</td>
+                                        <td class="silla" (click)="silla = 14">14</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 15"> 15</td>
+                                        <td class="silla" (click)="silla = 16">16</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 17">17</td>
+                                        <td class="silla" (click)="silla = 18">18</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 19"> 19</td>
+                                        <td class="silla" (click)="silla = 20">20</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 21">21</td>
+                                        <td class="silla" (click)="silla = 22">22</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 23">23</td>
+                                        <td class="silla" (click)="silla = 24">24</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="silla" (click)="silla = 25">25</td>
+                                        <td class="silla" (click)="silla = 26">26</td>
+                                        <th></th>
+                                        <td class="silla" (click)="silla = 27">27</td>
+                                        <td class="silla" (click)="silla = 28">28</td>
                                     </tr>
                                 </tbody>
                             </table>
-                            <label class="form-label">Tu silla es</label>
+                            <div>
+                                <label class="form-label" >TU SILLA ES </label><br>
+                                 <h3>{{silla}}</h3>
+
+                            </div> 
                         </div>
                     </div>
                     <div class="d-flex justify-content-center">
-                        <button type="button" class="button">Comprar</button>
+                        <a  class="button" href="/mis-tiquetes-usuario">Comprar</a>
                     </div>
                 </div>
             </div>
@@ -95,10 +127,6 @@
     
     </div>
 
-
-
-
-    
 
 
 
