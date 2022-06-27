@@ -1,26 +1,27 @@
 package com.unal.BusBuddyBack.services;
 
-import com.unal.BusBuddyBack.entidades.Reserva;
-import com.unal.BusBuddyBack.repository.ReservaRespository;
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.Optional;
+import com.unal.BusBuddyBack.entidades.Reserva;
+import com.unal.BusBuddyBack.repository.ReservaRepository;
+
 @Service
 public class ReservaService implements IReservaService{
-
     @Autowired
-    private ReservaRespository data;
-
+    private ReservaRepository data;
     @Override
     public List<Reserva> listar() {
+        // TODO Auto-generated method stub
         return (List<Reserva>)data.findAll();
     }
 
     @Override
     public Optional<Reserva> listarId(int id) {
-        return Optional.empty();
+        return null;
     }
 
     @Override
@@ -30,30 +31,39 @@ public class ReservaService implements IReservaService{
 
     @Override
     public void delete(Reserva element) {
-
+        data.delete(element);
+        
     }
 
     @Override
     public void deleteId(int id) {
+        data.deleteById(id);
+        
+    }
 
+    @Override
+    public List<Reserva> listarPorUsuario(int idUsuario) {
+        return data.findByIdUsuario(idUsuario);
     }
 
     @Override
     public List<Reserva> listarPorUsuarioYEstado(int idUsuario, int estado) {
-        return (List<Reserva>) data.findByIdUsuarioAndEstado(idUsuario,estado);
-    }
-    @Override
-    public List<Reserva> listarPorUsuario(int idUsuario) {
-        return (List<Reserva>) data.findByIdUsuario(idUsuario);
+        return data.findByIdUsuarioAndEstado(idUsuario, estado);
     }
 
     @Override
     public List<Reserva> listarPorRuta(int idRuta) {
-        return (List<Reserva>) data.findByIdRuta(idRuta);
+        return data.findByIdRuta(idRuta);
     }
 
     @Override
     public List<Reserva> listarPorRutaYEstado(int idRuta, int estado) {
-        return (List<Reserva>) data.findByIdRutaAndEstado(idRuta,estado);
+        return data.findByIdRutaAndEstado(idRuta, estado);
     }
+
+    @Override
+    public List<Reserva> listarUsuarioId(int id) {
+        return (List<Reserva>) data.findByIdUsuario(id);
+    }
+    
 }
