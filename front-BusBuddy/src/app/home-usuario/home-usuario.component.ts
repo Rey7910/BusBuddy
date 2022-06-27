@@ -49,12 +49,18 @@ export class HomeUsuarioComponent implements OnInit {
       this.toastr.error("Ingresar un origen diferente a destino", "Origen igual a destino");
     }
     else{
-      this.serviceRutasView.getRutasFiltradas(this.verOrigen,this.verDestino,this.verFechasalida,this.verMinprecio,this.verMaxprecio).
+    this.serviceRutasView.getRutasFiltradas(this.verOrigen,this.verDestino,this.verFechasalida,this.verMinprecio,this.verMaxprecio).
     subscribe(data=>{
       this.rutas=data;
     }) ;
-      this.tiquetever = true;
-      this.toastr.success("", "Busqueda realizada");
+    
+      if(this.rutas.length>0){
+        this.tiquetever = true;
+        this.toastr.success( "Busqueda realizada");
+      }else{
+        this.toastr.info("No hay viajes que coincidad con las carácteristicas que necesitas");
+      }
+      
 
     }
     
