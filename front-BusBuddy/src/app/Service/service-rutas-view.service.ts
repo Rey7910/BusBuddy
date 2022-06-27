@@ -14,4 +14,8 @@ export class ServiceRutasViewService {
   getRutasConductor(id:number){
     return this.http.get<RutaView[]>(this.Url+"/conductor="+id);
   }
+  getRutasFiltradas(origen:number, destino:number, fechaSalida:Date, precioMin:number, precioMax:number){
+    //"/consultaFiltradao={origen}d={destino}f={fecha}min={min}max={max}"
+    return this.http.get<RutaView[]>(this.Url+"/consultaFiltradao="+origen+"d="+destino+"f="+fechaSalida+"min="+precioMin+"max="+precioMax);
+  }
 }
