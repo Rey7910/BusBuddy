@@ -135,7 +135,14 @@ img {
     max-width: 100%;
     height: auto;
 }
+.banner-main img {
 
+    overflow: hidden;
+}
+.banner-main {
+    height: 500px;
+    overflow: hidden;
+}
 :focus {
     outline: 0;
 }
@@ -740,7 +747,13 @@ input[type="radio"] .styled:checked+label::after {
     color: #0a69f8;
     font-weight: bold;
     padding-bottom: 35px;
-    padding-top: 25px;
+    padding-top: 20px;
+}
+.banner-main .text-bg h2 {
+    font-size: 25px;
+    line-height: 100px;
+    color:white;
+    font-weight: bold;
 }
 
 .white {
@@ -883,7 +896,7 @@ input[type="radio"] .styled:checked+label::after {
 }
 
 .tiquete-form h3 {
-    float: left;
+    float: center;
     background: rgba(255, 255, 255, 0.171);
     padding: 10px 5px;
     margin-left: -35px;
@@ -893,11 +906,25 @@ input[type="radio"] .styled:checked+label::after {
     border-radius: 10px;
     
     width: 150px;
-
     overflow: auto;
     white-space: pre-line ;
     text-overflow: clip;
         
+}
+
+.text-bg button{
+    background: #ee580f;
+    color: #fff;
+    float: center;
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px 10px;
+    margin: 0px 0px 0px 25px;
+    border-radius: 10px;
+}
+.text-bg button:hover {
+    background: #15cfe5;
+    border: solid #15cfe5 1px;
 }
 
 .tiquete-form img {

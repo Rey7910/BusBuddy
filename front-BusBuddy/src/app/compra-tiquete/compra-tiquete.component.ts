@@ -11,5 +11,6 @@ export class CompraTiqueteComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  GuardarSilla() {}
+    
 }

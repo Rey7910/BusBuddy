@@ -883,7 +883,7 @@ input[type="radio"] .styled:checked+label::after {
 }
 
 .tiquete-form h3 {
-    float: left;
+    float: center;
     background: rgba(255, 255, 255, 0.171);
     padding: 10px 28px;
     margin-left: -35px;
