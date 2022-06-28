@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
     });
 
     this.conductores.forEach(element => {
-      this.mapC.set(element.idusuario,element)
+      this.mapC.set(element.idUsuario,element)
     });
 
     var currentUser = this.map.get(correo)
@@ -62,25 +62,29 @@ export class LoginComponent implements OnInit {
       var currentAdminE = this.mapAE.get(currentUser.idusuario)
       var currentConductor = this.mapC.get(currentUser.idusuario)
       if(this.searchUser.contrasena == currentUser.contrasena){
-        this.toastr.success('Usuario loggeado con éxito');
+        
         sessionStorage.setItem("idUsuario",currentUser.idusuario.toString())
         
         if(currentUser.rol == 0){ //cliente
           sessionStorage.setItem("rol","0")
+          this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/home-usuario'])
         }
         else if(currentUser.rol == 1 && currentAdminE != undefined){ //administrador de empresa
           sessionStorage.setItem("rol","1")
           sessionStorage.setItem("idEmpresa",currentAdminE.idempresa.toString())
+          this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/asignar-rutas-empresa'])
         }
         else if (currentUser.rol == 2){ //administrador de terminal
           sessionStorage.setItem("rol","2")
+          this.toastr.success('Usuario loggeado con éxito');
           //this.router.navigate(['/terminal'])
         }
         else if (currentUser.rol == 3 && currentConductor != undefined){ //conductor
           sessionStorage.setItem("rol","3")
-          sessionStorage.setItem("idEmpresa",currentConductor.idempresa.toString())
+          sessionStorage.setItem("idEmpresa",currentConductor.idEmpresa.toString())
+          this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/mis-rutas'])
         }
         

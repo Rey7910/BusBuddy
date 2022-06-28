@@ -169,8 +169,8 @@ export class RegisterComponent implements OnInit {
     }
 
     crearConductor(conductor:Conductor){
-      conductor.idusuario = 2
-      conductor.idempresa = this.searchPersonal.idempresa
+      conductor.idUsuario = 2
+      conductor.idEmpresa = this.searchPersonal.idempresa
       conductor.ciudad = this.searchPersonal.ciudad
       conductor.eps = this.searchPersonal.eps
       conductor.id = this.searchPersonal.id
