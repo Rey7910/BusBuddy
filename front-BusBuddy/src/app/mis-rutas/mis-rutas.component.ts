@@ -47,7 +47,7 @@ export class MisRutasComponent implements OnInit {
       this.serviceReservas.getReservasRutaYEstado(reserva.idRuta,1).subscribe(data=> 
         this.tiquetesValidados=data
       );
-    },err =>this.toastr.error("Tiquete no validado, ha ocurrido un error"));
+    },err =>this.toastr.error("Persona no creada, ha ocurrido un error"));
     
   }
   rechazarReservas(){ //Rechazar las que están en estado 0 de la ruta cuando esta esté en curso 
