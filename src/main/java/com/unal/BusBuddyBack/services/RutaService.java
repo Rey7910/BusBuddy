@@ -24,7 +24,12 @@ public class RutaService  implements IRutaService {
     }
     @Override
     public List<Ruta> listarConductorId(int id){
-        return (List<Ruta>) data.findByIdConductor(id);
+        return  data.findByIdConductor(id);
+    }
+
+    @Override
+    public void setState(String estado, int id) {
+        data.updateRutaSetEstadoForIdRuta(id,estado);
     }
 //
 

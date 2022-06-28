@@ -4,6 +4,8 @@ import com.unal.BusBuddyBack.entidades.Ruta;
 import com.unal.BusBuddyBack.entidades.RutaView;
 import com.unal.BusBuddyBack.services.IRutaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -38,6 +40,11 @@ public class RutaRestController {
     @DeleteMapping(path="/{id}")
     public void eliminar(@PathVariable("id") int id){
         service.deleteId(id);
+    }
+    @PutMapping(path="/{id}state={state}")
+    public void setState(@PathVariable("state") String state, @PathVariable("id") int id){
+        System.out.println("Estado "+state+" Id: "+id);
+         service.setState(state,id);
     }
 
 }
