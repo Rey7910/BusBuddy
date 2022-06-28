@@ -29,7 +29,7 @@ create table empresa(
 
 create table personal(
     idpersonal int auto_increment not null,
-    idusuario int not,
+    idusuario int,
     idempresa int not null,
     nombre varchar(45),
     apellido varchar(45),
