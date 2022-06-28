@@ -12,6 +12,8 @@ export class RutaView{
     precio:number;
     estado:String;
     idConductor:number;
+    origenId:number;
+    destinoId:number;
     constructor(){
         
     }
