@@ -757,6 +757,21 @@ input[type="radio"] .styled:checked+label::after {
     font-size: 18px;
     font-weight: 600;
 }
+.main-form h2 {
+    float: left;
+    margin-top: -82px;
+    background: #1e8df5;
+    padding: 10px 28px;
+    margin-left: 60px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.main-form h2:hover {
+    background: #15cfe5;
+    border: solid #15cfe5 1px;
+}
 
 .main-form {
     background: #ffffffe8;

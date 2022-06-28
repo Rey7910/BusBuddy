@@ -65,6 +65,9 @@ export class HomeUsuarioComponent implements OnInit {
     sessionStorage.setItem("idRutaBuy",idRuta.toString());
     this.router.navigate(['/compra-tiquete']);
   }
+  AparecerTodos(){
+    this.tiquetever = true;
+  }
   
   
 
