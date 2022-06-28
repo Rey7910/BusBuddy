@@ -37,7 +37,7 @@ export class HomeUsuarioComponent implements OnInit {
     });
   }
 
-  AparecerTiquetes(){
+  filtrarTiquetes(){
     
     if (this.verOrigen == null || this.verDestino == null || this.verFechasalida == null || this.verMaxprecio == null || this.verMinprecio == null){
       this.tiquetever = false;
@@ -67,13 +67,24 @@ export class HomeUsuarioComponent implements OnInit {
     }
     
   }
+  AparecerTodos(){
+    this.tiquetever = true;
+    this.serviceRutasView.getRutas().
+    subscribe(data=>{
+      this.rutas=data;
+      if(data.length>0){
+        this.tiquetever = true;
+      }else{
+        this.tiquetever = false;
+        this.toastr.info("No hay viajes disponibles por el momento");
+      }
+    }) ;
+  }
   comprar(idRuta:number){
     sessionStorage.setItem("idRutaBuy",idRuta.toString());
     this.router.navigate(['/compra-tiquete']);
   }
-  AparecerTodos(){
-    this.tiquetever = true;
-  }
+  
   
   
 
