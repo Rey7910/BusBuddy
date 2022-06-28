@@ -22,15 +22,15 @@ public class AdministradorEmpresa implements Serializable{
     @Column(name = "id")
     private long id;
     @Column(name = "eps")
-    private int eps;
+    private String eps;
     @Column(name = "ciudad")
-    private int ciudad;
+    private String ciudad;
 
     public AdministradorEmpresa() {
     }
 
-    public AdministradorEmpresa(int idadministrador_empresa, int idusuario, int idempresa, long id, int eps,
-            int ciudad) {
+    public AdministradorEmpresa(int idadministrador_empresa, int idusuario, int idempresa, long id, String eps,
+            String ciudad) {
         this.idadministrador_empresa = idadministrador_empresa;
         this.idusuario = idusuario;
         this.idempresa = idempresa;
@@ -62,16 +62,16 @@ public class AdministradorEmpresa implements Serializable{
     public void setId(long id) {
         this.id = id;
     }
-    public int getEps() {
+    public String getEps() {
         return eps;
     }
-    public void setEps(int eps) {
+    public void setEps(String eps) {
         this.eps = eps;
     }
-    public int getCiudad() {
+    public String getCiudad() {
         return ciudad;
     }
-    public void setCiudad(int ciudad) {
+    public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
 }
