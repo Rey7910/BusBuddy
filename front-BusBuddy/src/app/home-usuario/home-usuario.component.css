@@ -131,6 +131,10 @@ a,
     transition: all .3s ease-in-out;
 }
 
+.flecha{
+    width: 30px;
+    height: auto;
+}
 
 img {
     width: 100%;
