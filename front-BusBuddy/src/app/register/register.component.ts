@@ -148,7 +148,7 @@ export class RegisterComponent implements OnInit {
         user.idusuario=this.searchPersonal.idusuario
         user.nombre = this.searchPersonal.nombre
         user.apellido = this.searchPersonal.apellido
-        user.rol = 3
+        user.rol = 2
         user.telefono = this.searchPersonal.telefono
         this.serviceU.updateUsuario(user)
         .subscribe(data =>{
