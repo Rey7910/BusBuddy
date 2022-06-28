@@ -745,7 +745,7 @@ input[type="radio"] .styled:checked+label::after {
     color: #0a69f8;
     font-weight: bold;
     padding-bottom: 35px;
-    padding-top: 25px;
+    padding-top: 15px;
 }
 
 .white {
@@ -767,7 +767,7 @@ input[type="radio"] .styled:checked+label::after {
     margin-top: -82px;
     background: #1e8df5;
     padding: 10px 28px;
-    margin-left: 60px;
+    margin-left: 160px;
     color: white;
     font-size: 18px;
     font-weight: 600;
