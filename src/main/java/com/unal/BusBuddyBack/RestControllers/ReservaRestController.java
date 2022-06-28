@@ -14,6 +14,10 @@ import java.util.List;
 public class ReservaRestController {
     @Autowired
     private IReservaService service;
+    @PostMapping
+    public Reserva agregar(@RequestBody Reserva ruta){
+        return service.save(ruta);
+    }
     @GetMapping
     public List<Reserva> consultar(){
         return service.listar();
