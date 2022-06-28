@@ -145,10 +145,10 @@ export class RegisterComponent implements OnInit {
     if(this.contrasena==user.contrasena){
       if(this.flagVL){
         this.crearConductor(this.newConductor)
-        user.idUsuario=this.searchPersonal.idusuario
+        user.idusuario=this.searchPersonal.idusuario
         user.nombre = this.searchPersonal.nombre
         user.apellido = this.searchPersonal.apellido
-        user.rol = 3
+        user.rol = 2
         user.telefono = this.searchPersonal.telefono
         this.serviceU.updateUsuario(user)
         .subscribe(data =>{
@@ -169,8 +169,8 @@ export class RegisterComponent implements OnInit {
     }
 
     crearConductor(conductor:Conductor){
-      conductor.idusuario = this.searchPersonal.idusuario
-      conductor.idempresa = this.searchPersonal.idempresa
+      conductor.idUsuario = 2
+      conductor.idEmpresa = this.searchPersonal.idempresa
       conductor.ciudad = this.searchPersonal.ciudad
       conductor.eps = this.searchPersonal.eps
       conductor.id = this.searchPersonal.id
