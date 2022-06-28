@@ -76,13 +76,13 @@ export class LoginComponent implements OnInit {
           this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/asignar-rutas-empresa'])
         }
-        else if (currentUser.rol == 2){ //administrador de terminal
+        else if (currentUser.rol == 3){ //administrador de terminal
           sessionStorage.setItem("rol","2")
           this.toastr.success('Usuario loggeado con éxito');
           //this.router.navigate(['/terminal'])
         }
-        else if (currentUser.rol == 3 && currentConductor != undefined){ //conductor
-          sessionStorage.setItem("rol","3")
+        else if (currentUser.rol == 2 && currentConductor != undefined){ //conductor
+          sessionStorage.setItem("rol","2")
           sessionStorage.setItem("idEmpresa",currentConductor.idEmpresa.toString())
           this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/mis-rutas'])
