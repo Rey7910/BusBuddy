@@ -11,6 +11,8 @@ import { SettingsComponent } from './settings/settings.component';
 import { PersonalComponent } from './personal/personal.component';
 import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes-usuario.component'
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
+
 
 const routes: Routes = [
   {
@@ -62,6 +64,11 @@ const routes: Routes = [
     path: 'pagina-error',
     component: PaginaErrorComponent,
   },
+  {
+    path: 'estadisticas',
+    component: EstadisticasComponent,
+  },
+
 
 
 ];

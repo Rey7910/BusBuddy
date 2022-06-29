@@ -25,8 +25,10 @@ export class PersonalComponent implements OnInit {
   caja_editar = false;
   ssidempresa = false;
   ssusuario = false;
+  nombreEmpresa: string | null;
 
   ngOnInit(): void {
+    this.nombreEmpresa = sessionStorage.getItem("nombreEmpresa")
     this.serviceP.getPersonal().
     subscribe(data=>{
       this.personal=data;

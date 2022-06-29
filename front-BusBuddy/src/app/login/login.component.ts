@@ -4,9 +4,12 @@ import { ToastrService } from 'ngx-toastr';
 import { AdministradorEmpresa } from '../Modelo/AdministradorEmpresa';
 import { Conductor } from '../Modelo/Conductor';
 import { Usuario } from '../Modelo/Usuario';
+import { Empresa } from '../Modelo/Empresa';
 import { ServiceAdminEmpresaService } from '../Service/service-admin-empresa.service';
 import { ServiceConductorService } from '../Service/service-conductor.service';
 import { ServiceUsuarioService } from '../Service/service-usuario.service';
+import { ServiceEmpresaService } from '../Service/service-empresa.service';
+
 
 @Component({
   selector: 'app-login',
@@ -15,7 +18,7 @@ import { ServiceUsuarioService } from '../Service/service-usuario.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router:Router, private service:ServiceUsuarioService, private serviceAdminE:ServiceAdminEmpresaService, private serviceC:ServiceConductorService, private toastr: ToastrService) { }
+  constructor( private ServiceEmpresa: ServiceEmpresaService, private router:Router, private service:ServiceUsuarioService, private serviceAdminE:ServiceAdminEmpresaService, private serviceC:ServiceConductorService, private toastr: ToastrService) { }
   usuarios:Usuario[]
   searchUser=new Usuario();
   map = new Map<String,Usuario>();
@@ -25,6 +28,9 @@ export class LoginComponent implements OnInit {
 
   conductores:Conductor[]
   mapC = new Map<number,Conductor>();
+
+  Empresas: Empresa[]
+  mapE = new Map<number, Empresa>();
 
   ngOnInit(): void {
     this.service.getUsuarios().
@@ -40,6 +46,11 @@ export class LoginComponent implements OnInit {
     this.serviceC.getConductores().
     subscribe(data=>{
       this.conductores = data
+    });
+
+    this.ServiceEmpresa.getEmpresas().
+    subscribe(data=>{
+      this.Empresas = data
     });
     
   }
@@ -57,6 +68,11 @@ export class LoginComponent implements OnInit {
       this.mapC.set(element.idUsuario,element)
     });
 
+    this.Empresas.forEach(element => {
+      this.mapE.set(element.idempresa,element)
+      console.log(this.mapE)
+    });
+
     var currentUser = this.map.get(correo)
     if(currentUser != undefined){
       var currentAdminE = this.mapAE.get(currentUser.idusuario)
@@ -70,11 +86,15 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/home-usuario'])
         }
         else if(currentUser.rol == 1 && currentAdminE != undefined){ //administrador de empresa
+          var currentEmpresa = this.mapE.get(currentAdminE.idempresa)
           sessionStorage.setItem("rol","1")
           sessionStorage.setItem("idEmpresa",currentAdminE.idempresa.toString())
-          
-          this.toastr.success('Usuario loggeado con éxito');
 
+          if(currentEmpresa != undefined){
+          sessionStorage.setItem("nombreEmpresa",currentEmpresa.nombre.toString())
+          }
+
+          this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/asignar-rutas-empresa'])
         }
         else if (currentUser.rol == 3){ //administrador de terminal
@@ -83,6 +103,7 @@ export class LoginComponent implements OnInit {
           //this.router.navigate(['/terminal'])
         }
         else if (currentUser.rol == 2 && currentConductor != undefined){ //conductor
+          console.log("hola")
           sessionStorage.setItem("rol","2")
           sessionStorage.setItem("idEmpresa",currentConductor.idEmpresa.toString())
           sessionStorage.setItem("idConductor",currentConductor.idConductor.toString());
