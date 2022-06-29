@@ -83,10 +83,15 @@ export class RegisterComponent implements OnInit {
   }
 
   cambio(){
-    this.box_registo = false;
-    this.box_vincu_lab = true;
-    this.box_usuario = false;
-
+    if (this.newUser.nombre == null || this.newUser.apellido == null || this.newUser.correo == null || this.newUser.fechaNacimiento == null) {
+      this.toastr.error("Por favor diliganciar todos los datos correctamente","Datos incompletos")
+    }
+    else{
+      this.box_registo = false;
+      this.box_vincu_lab = true;
+      this.box_usuario = false;
+    }
+    
   }
 
   cambio2(){
@@ -129,10 +134,16 @@ export class RegisterComponent implements OnInit {
     });
     var currentUser = this.mapU.get(this.newUser.correo)
     if(currentUser == undefined){
+      if (this.newUser.nombre == null || this.newUser.apellido == null || this.newUser.correo == null || this.newUser.fechaNacimiento == null) {
+        this.toastr.error("Por favor diliganciar todos los datos correctamente", "Datos incompletos")
+      }
+      else {
         this.box_registo = false;
         this.box_vincu_lab = false;
         this.box_usuario = true;
-        this.newUser.rol=0; 
+        this.newUser.rol = 0; 
+      }
+        
     }
     else{
       this.toastr.warning('El correo ya se encuentra registrado');
