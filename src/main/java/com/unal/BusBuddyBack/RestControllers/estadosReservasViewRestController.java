@@ -1,9 +1,6 @@
 package com.unal.BusBuddyBack.RestControllers;
 
-
-import com.unal.BusBuddyBack.entidades.ContadoresView;
 import com.unal.BusBuddyBack.entidades.EstadoReservaView;
-import com.unal.BusBuddyBack.services.IContadoresViewService;
 import com.unal.BusBuddyBack.services.IEstadoReservaViewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,15 +12,13 @@ import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RestController
-@RequestMapping({"/estadisticas"})
-public class EstadisticasRestController {
+@RequestMapping({"/estadoReservasView"})
+public class estadosReservasViewRestController {
     @Autowired
-    private IContadoresViewService serviceContadoresView;
+    private IEstadoReservaViewService serviceEstadoReservaView;
+    @GetMapping("/contadores_estadoReservas")
+    public List<EstadoReservaView> estadoReservas(){
 
-    @GetMapping("/contadores_estadoRutas")
-    public List<ContadoresView> contadores(){
-        return serviceContadoresView.listar();
+        return serviceEstadoReservaView.listar();
     }
-
-
 }
