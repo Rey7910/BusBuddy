@@ -41,3 +41,16 @@ insert into usuario(usuario,nombre,apellido,correo,contrasena,telefono,rol,fecha
 insert into usuario(usuario,nombre,apellido,correo,contrasena,telefono,rol,fecha_nacimiento) values ('oscarar','Oscar','Agudelo Rojas','oscarar@gmail.com','12345',3228224488,3,'1992-01-10');
 insert into usuario(usuario,nombre,apellido,correo,contrasena,telefono,rol,fecha_nacimiento) values ('vmarquesp','Victor','Marques Paredes','vmarquesp@gmail.com','12345',30418513128,3,'1991-05-03');
 insert into usuario(usuario,nombre,apellido,correo,contrasena,telefono,rol,fecha_nacimiento) values ('aaaayuda','Andrés','Astaiza Amado','aaaayuda@gmail.com','12345',3116218115,3,'1992-04-11');
+
+
+-- Rutas
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (1,'Por comenzar',4,1,'2022-07-14','2022-07-14',40000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (2,'Por comenzar',2,8,'2022-06-29','2022-06-29',30000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (3,'Por comenzar',12,5,'2022-05-13','2022-05-13',20000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (4,'Por comenzar',7,3,'2022-08-08','2022-08-08',40000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (5,'Por comenzar',6,9,'2022-11-17','2022-11-17',30000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (1,'Por comenzar',2,7,'2022-06-29','2022-06-29',15000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (2,'Por comenzar',6,3,'2022-07-09','2022-07-09',20000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (3,'Por comenzar',12,2,'2022-06-30','2022-06-30',40000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (4,'Por comenzar',3,7,'2022-12-27','2022-12-27',25000);
+insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (5,'Por comenzar',9,6,'2022-11-17','2022-11-17',30000);
