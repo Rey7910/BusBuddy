@@ -5,6 +5,6 @@ create view contador_demorado as select count(idruta) as demorado from ruta wher
 create view contador_finalizado as select count(idruta) as finalizado from ruta where estado = 'Finalizado';
 
 
-- Contadores de estado de 
+- Contadores de estado de ruta
 create view contadores as select * from contador_porcomenzar, contador_encurso,
 contador_llegadoalterminal, contador_demorado, contador_finalizado;
