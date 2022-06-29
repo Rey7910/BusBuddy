@@ -24,7 +24,6 @@ import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +38,7 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
     PersonalComponent,
     MisTiquetesUsuarioComponent,
    EstadisticasComponent,
-    PaginaErrorComponent,
+    PaginaErrorComponent
     
   ],
   imports: [

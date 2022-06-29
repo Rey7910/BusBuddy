@@ -16,6 +16,7 @@ export class PersonalComponent implements OnInit {
 
   constructor(private serviceP:ServicePersonalService, private serviceU:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
   newUser = new Usuario();
+  idusuario :number
 
   newPerso=new Personal();
   personal:Personal[];
@@ -34,18 +35,14 @@ export class PersonalComponent implements OnInit {
   }
 
   crearpersonall(perso: Personal){
+    this.crearUserVacio(this.newUser)
     var idemp = sessionStorage.getItem("idEmpresa")
     if(idemp != null){
       perso.idempresa =+ idemp  
     }
-    this.newUser.fechaNacimiento= new Date("2000-01-01")
-    this.newUser.rol= 2
-    this.newUser.telefono=123123
-    this.serviceU.crearUsuario(this.newUser)
-    .subscribe(data=>{
-      perso.idusuario = data.idusuario
-    });
 
+    perso.idusuario = this.idusuario 
+    console.log(perso.idusuario, this.idusuario)
     this.serviceP.crearPersonal(perso)
     .subscribe(data=>{
       this.toastr.success("Persona Creado con exito");
@@ -54,6 +51,17 @@ export class PersonalComponent implements OnInit {
 
     }); 
 
+  }
+
+  crearUserVacio(userV:Usuario){
+    userV.fechaNacimiento= new Date("2000-01-01")
+    userV.rol= 2
+    userV.telefono=123123
+    this.serviceU.crearUsuario(userV)
+    .subscribe(data=>{
+      this.idusuario = data.idusuario;
+      console.log(data.idusuario, this.idusuario)
+    });
   }
 
   cambiar_estado_caja(){
