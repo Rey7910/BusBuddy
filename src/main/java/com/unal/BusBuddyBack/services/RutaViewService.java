@@ -25,6 +25,11 @@ public class RutaViewService implements IRutaViewService{
     }
 
     @Override
+    public List<RutaView> listarEmpresaId(int id){
+        return data.findByIdEmpresa(id);
+    }
+
+    @Override
     public List<RutaView> consultaFiltrada(int origen, int destino, Date fechaSalida, int precioMin, int precioMax) {
         return data.findByFilters( origen,  destino,  fechaSalida, precioMin,  precioMax);
     }
