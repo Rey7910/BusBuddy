@@ -55,7 +55,7 @@ export class PersonalComponent implements OnInit {
       },err=>{
         this.toastr.error(perso.idusuario+"");
       }); 
-  },5000);
+  },1000);
     
     
 
