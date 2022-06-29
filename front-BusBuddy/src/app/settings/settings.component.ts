@@ -18,6 +18,7 @@ export class SettingsComponent implements OnInit {
   constructor(private _location: Location, private serviceU:ServiceUsuarioService, private toastr:ToastrService) { }
 
   usuarios:Usuario[]
+  mostrarusu = new Usuario();
   editUser=new Usuario();
   actualUser = new Usuario();
   mapU = new Map<number,Usuario>;
@@ -34,6 +35,17 @@ export class SettingsComponent implements OnInit {
     this.serviceU.getUsuarios().
     subscribe(data=>{
       this.usuarios=data; 
+      this.usuarios.forEach(element => {
+        this.mapU.set(element.idusuario,element)
+      });
+
+      var currentUser = this.mapU.get(this.idUsuario)
+      if (currentUser != undefined){
+        this.actualUser=currentUser
+        this.mostrarusu = this.actualUser;
+
+      }
+      console.log(this.mostrarusu.apellido)
     });
     
   }
