@@ -75,7 +75,11 @@ export class CompraTiqueteComponent implements OnInit {
         this.toastr.error("Diligencia todos los datos del pasajero", "Datos pasajero incompletos");
       } else if ( this.tarCedula == null || this.tarNumero  == null || this.tarCVV == null || this.tarMes == null || this.tarAno == null) {
         this.toastr.error("Diligencia todos los datos de la tarjeta", "Datos tajeta incompletos");
-      }     
+      } else if (this.tarMes<= 12 && this.tarMes >0) {
+        this.toastr.error("Diligencia un mes valido de 1 a 12", "Mes no valido");
+      } else if (this.tarAno <= 3000 && this.tarAno > 2022) {
+        this.toastr.error("Diligencia un año valido", "Año valido");
+      }    
       else{
         this.tiqueteAComprar.silla = this.silla;
         this.tiqueteAComprar.idUsuario = this.idUsuario;
