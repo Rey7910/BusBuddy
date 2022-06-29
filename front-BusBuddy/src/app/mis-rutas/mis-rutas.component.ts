@@ -22,12 +22,26 @@ export class MisRutasComponent implements OnInit {
   reservaUpdate:Reserva;
   idRutaValidar:number; 
   selectedRuta:RutaView;
+  idConductor:number;
+  pasajerosNoAbordados:Reserva[];
+  pasajerosPerdidos:Reserva[];
   ngOnInit(): void {
-    this.visibleValidateTable=false;
-    this.serviceRutasView.getRutasConductor(1).subscribe(data=>
-      this.rutas=data
-    );
-    console.log(this.rutas);
+    var rolString=sessionStorage.getItem("rol");
+    var idConductorS=sessionStorage.getItem("idConductor");
+    if(idConductorS!=null && rolString=="2"){
+      this.idConductor=+idConductorS;
+      this.visibleValidateTable=false;
+      this.serviceRutasView.getRutasConductor(this.idConductor).subscribe(data=>
+        this.rutas=data
+      );
+    }else{
+        //Redirigir a error
+        this.cerrarSesion();
+        this.router.navigate(['/pagina-error']);
+    }
+    
+
+    
   }
   getValidarTable(idRuta:number){
     this.visibleValidateTable=true;
@@ -53,10 +67,14 @@ export class MisRutasComponent implements OnInit {
       this.serviceReservas.getReservasRutaYEstado(reserva.idRuta,1).subscribe(data=> 
         this.tiquetesValidados=data
       );
-    },err =>this.toastr.error("Persona no creada, ha ocurrido un error"));
+    },err =>this.toastr.error("Tiquete no validado, ocurrio un error inesperado, intentalo nuevamente por favor"));
     
   }
-  rechazarReservas(){ //Rechazar las que están en estado 0 de la ruta cuando esta esté en curso 
+  rechazarReservas(reserva:Reserva){ //Rechazar las que están en estado 0 de la ruta cuando esta esté en curso 
+    reserva.estado=+2;
+    this.serviceReservas.updateReserva(reserva).subscribe(data=>{
+      console.log("xddd");
+    },err =>this.toastr.error("Tiquete no rechazado, ocurrio un error inesperado, intentalo nuevamente por favor"));
   }
   changeState(state:String,ruta:RutaView){
     if(ruta!=null ){
@@ -71,5 +89,40 @@ export class MisRutasComponent implements OnInit {
       this.toastr.info("Debes seleccionar una ruta.")
     }
     
+  }
+  perdidaDeBoletos(ruta:RutaView){
+    if(ruta!=null){
+      this.serviceReservas.getReservasRutaYEstado(ruta.idRuta,0).subscribe(data=>{//0 Para validar boletos aun no validados
+        this.pasajerosNoAbordados=data;
+        for(let pasajero of this.pasajerosNoAbordados.values()){
+        
+          this.rechazarReservas(pasajero);
+        }
+      } 
+      );
+      
+    }
+  }
+  recuperacionBoletos(ruta:RutaView){
+    if(ruta!=null){
+      this.serviceReservas.getReservasRutaYEstado(ruta.idRuta,2).subscribe(data=>{//2 para boletos perdidos
+        this.pasajerosPerdidos=data;
+        for(let pasajero of this.pasajerosPerdidos.values()){
+        
+          this.recuperarBoleto(pasajero);
+        }
+      } 
+      );
+      
+    }
+  }
+  recuperarBoleto(reserva:Reserva){
+    reserva.estado=+0;
+    this.serviceReservas.updateReserva(reserva).subscribe(data=>{
+      console.log("xddd");
+    },err =>this.toastr.error("Tiquete no rechazado, ocurrio un error inesperado, intentalo nuevamente por favor"));
+  }
+  cerrarSesion(){
+    sessionStorage.clear();
   }
 }

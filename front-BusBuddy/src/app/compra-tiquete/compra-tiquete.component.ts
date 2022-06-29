@@ -25,7 +25,6 @@ export class CompraTiqueteComponent implements OnInit {
   constructor(private serviceReservas:ServiceReservasService, private router:Router,private toastr: ToastrService) { }
 
   ngOnInit(): void {
-    sessionStorage.setItem("idUsuario","1");
     var x=sessionStorage.getItem("idRutaBuy");
     var idUsuarioS=sessionStorage.getItem("idUsuario");
     
@@ -37,7 +36,8 @@ export class CompraTiqueteComponent implements OnInit {
       this.validarAsientos();
     }else{
       //Redirigir a una pagina de error
-
+      this.cerrarSesion();
+      this.router.navigate(['/pagina-error']);
     }
     
     
@@ -95,5 +95,8 @@ export class CompraTiqueteComponent implements OnInit {
       this.toastr.error("Ha ocurrido un error con la autenticación de sesión del usuario");
     }
     
+  }
+  cerrarSesion(){
+    sessionStorage.clear();
   }
 }

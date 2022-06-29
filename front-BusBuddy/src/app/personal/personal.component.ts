@@ -2,7 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Personal } from '../Modelo/Personal';
+import { Usuario } from '../Modelo/Usuario';
+import { ServiceEmpresaService } from '../Service/service-empresa.service';
 import { ServicePersonalService } from '../Service/service-personal.service';
+import { ServiceUsuarioService } from '../Service/service-usuario.service';
 
 @Component({
   selector: 'app-personal',
@@ -11,26 +14,38 @@ import { ServicePersonalService } from '../Service/service-personal.service';
 })
 export class PersonalComponent implements OnInit {
 
-  constructor(private serviceP:ServicePersonalService, private toastr: ToastrService, private router: Router) { }
+  constructor(private serviceP:ServicePersonalService, private serviceU:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
+  newUser = new Usuario();
 
   newPerso=new Personal();
   personal:Personal[];
   boton_crear = true;
   caja_crear = false;
   caja_editar = false;
+  ssidempresa = false;
+  ssusuario = false;
 
   ngOnInit(): void {
     this.serviceP.getPersonal().
     subscribe(data=>{
       this.personal=data;
       console.log(data)
-    }) ;
+    });
   }
 
   crearpersonall(perso: Personal){
-    perso.idempresa = 1
-    //perso.idpersonal = 1
-    perso.idusuario = 1
+    var idemp = sessionStorage.getItem("idEmpresa")
+    if(idemp != null){
+      perso.idempresa =+ idemp  
+    }
+    this.newUser.fechaNacimiento= new Date("2000-01-01")
+    this.newUser.rol= 2
+    this.newUser.telefono=123123
+    this.serviceU.crearUsuario(this.newUser)
+    .subscribe(data=>{
+      perso.idusuario = data.idusuario
+    });
+
     this.serviceP.crearPersonal(perso)
     .subscribe(data=>{
       this.toastr.success("Persona Creado con exito");
