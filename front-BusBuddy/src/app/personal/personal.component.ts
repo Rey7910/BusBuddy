@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Personal } from '../Modelo/Personal';
 import { Usuario } from '../Modelo/Usuario';
+import { ServiceEmpresaService } from '../Service/service-empresa.service';
 import { ServicePersonalService } from '../Service/service-personal.service';
+import { ServiceUsuarioService } from '../Service/service-usuario.service';
 
 @Component({
   selector: 'app-personal',
@@ -12,7 +14,7 @@ import { ServicePersonalService } from '../Service/service-personal.service';
 })
 export class PersonalComponent implements OnInit {
 
-  constructor(private serviceP:ServicePersonalService, private toastr: ToastrService, private router: Router) { }
+  constructor(private serviceP:ServicePersonalService, private serviceU:ServiceUsuarioService, private toastr: ToastrService, private router: Router) { }
   newUser = new Usuario();
 
   newPerso=new Personal();
@@ -36,8 +38,14 @@ export class PersonalComponent implements OnInit {
     if(idemp != null){
       perso.idempresa =+ idemp  
     }
-    
-    // perso.idusuario = 1
+    this.newUser.fechaNacimiento= new Date("2000-01-01")
+    this.newUser.rol= 2
+    this.newUser.telefono=123123
+    this.serviceU.crearUsuario(this.newUser)
+    .subscribe(data=>{
+      perso.idusuario = data.idusuario
+    });
+
     this.serviceP.crearPersonal(perso)
     .subscribe(data=>{
       this.toastr.success("Persona Creado con exito");
