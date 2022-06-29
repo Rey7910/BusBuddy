@@ -34,7 +34,8 @@ export class MisRutasComponent implements OnInit {
       );
     }else{
         //Redirigir a error
-        console.log("F");
+        this.cerrarSesion();
+        this.router.navigate(['/pagina-error']);
     }
     
 

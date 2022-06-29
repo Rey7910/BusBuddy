@@ -19,6 +19,7 @@ export class HomeUsuarioComponent implements OnInit {
   constructor(private serviceRutasView: ServiceRutasViewService, private serviceTerminales: ServiceTerminalService, private router: Router, private toastr: ToastrService ) {
     this.rutas=[];
    }
+   idUsuario:number;
   rutas:RutaView[];
   terminales:Terminal[];
   verOrigen:number;
@@ -30,11 +31,18 @@ export class HomeUsuarioComponent implements OnInit {
   
   ngOnInit(): void {
 
-
+    var idUserS=localStorage.getItem("idUsuario");
+    if(idUserS!=null){
+      this.idUsuario=+idUserS;
+      this.serviceTerminales.getTerminales().subscribe(data => {
+        this.terminales = data;
+      });
+    }else{
+      this.cerrarSesion();
+      this.router.navigate(['/pagina-error']);
+    }
     
-    this.serviceTerminales.getTerminales().subscribe(data => {
-      this.terminales = data;
-    });
+    
   }
 
   filtrarTiquetes(){
@@ -86,6 +94,9 @@ export class HomeUsuarioComponent implements OnInit {
   }
   
   
-  
+  cerrarSesion(){
+    localStorage.setItem("idUsuario",this.idUsuario.toString());
+    sessionStorage.clear();
+  }
 
 }

@@ -47,8 +47,8 @@ export class AsignarRutasEmpresaComponent implements OnInit {
         this.buses=data;
       });
     }else{
-      //Enviar a pagina error
-      console.log("F");
+      this.cerrarSesion();
+      this.router.navigate(['/pagina-error']);
     }
     
     //sessionStorage.setItem("idEmpresa",'1');
