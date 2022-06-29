@@ -38,20 +38,28 @@ export class PersonalComponent implements OnInit {
 
   crearpersonall(perso: Personal){
     this.crearUserVacio(this.newUser)
-    var idemp = sessionStorage.getItem("idEmpresa")
-    if(idemp != null){
-      perso.idempresa =+ idemp  
-    }
+      
+    
+    setTimeout(()=>{
+      var idemp = sessionStorage.getItem("idEmpresa")
+      if(idemp != null){
+        perso.idempresa =+ idemp  
+      }
 
-    perso.idusuario = this.idusuario 
-    console.log(perso.idusuario, this.idusuario)
-    this.serviceP.crearPersonal(perso)
-    .subscribe(data=>{
-      this.toastr.success("Persona Creado con exito");
-      window.location.reload();
-      console.log(perso)
+      perso.idusuario = this.idusuario ;
+      console.log(perso.idusuario, this.idusuario);
+      this.serviceP.crearPersonal(perso)
+      .subscribe(data=>{
+        this.toastr.success("Persona Creado con exito");
+        window.location.reload();
+        console.log(perso)
 
-    }); 
+      },err=>{
+        this.toastr.error(perso.idusuario+"");
+      }); 
+  },1000);
+    
+    
 
   }
 

@@ -31,14 +31,14 @@ export class HomeUsuarioComponent implements OnInit {
   
   ngOnInit(): void {
 
-    var idUserS=localStorage.getItem("idUsuario");
+    var idUserS=sessionStorage.getItem("idUsuario");
     if(idUserS!=null){
       this.idUsuario=+idUserS;
       this.serviceTerminales.getTerminales().subscribe(data => {
         this.terminales = data;
       });
     }else{
-      this.cerrarSesion();
+      //this.cerrarSesion();
       this.router.navigate(['/pagina-error']);
     }
     
@@ -95,7 +95,6 @@ export class HomeUsuarioComponent implements OnInit {
   
   
   cerrarSesion(){
-    localStorage.setItem("idUsuario",this.idUsuario.toString());
     sessionStorage.clear();
   }
 
