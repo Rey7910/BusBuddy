@@ -15,20 +15,19 @@ export class EstadisticasComponent {
 	  theme: "dark2",
 	  exportEnabled: true,
 	  title: {
-		text: "Developer Work Week"
+		text: "Estados de ruta"
 	  },
 	  subtitles: [{
-		text: "Median hours/week"
+		text: "Se muestran los estados actuales en los que se encuentran cada ruta"
 	  }],
 	  data: [{
 		type: "pie", //change type to column, line, area, doughnut, etc
 		indexLabel: "{name}: {y}%",
 		dataPoints: [
-			{ name: "Overhead", y: 9.1 },
-			{ name: "Problem Solving", y: 3.7 },
-			{ name: "Debugging", y: 36.4 },
-			{ name: "Writing Code", y: 30.7 },
-			{ name: "Firefighting", y: 20.1 }
+			{ name: "Por comenzar", y: 9.1 },
+			{ name: "En curso", y: 3.7 },
+			{ name: "Finalizada", y: 36.4 },
+
 		]
 	  }]
   }
