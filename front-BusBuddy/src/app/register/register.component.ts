@@ -144,7 +144,7 @@ export class RegisterComponent implements OnInit {
   crearusuario(user:Usuario){
     if(this.contrasena==user.contrasena){
       if(this.flagVL){
-        this.crearConductor(this.newConductor)
+        
         user.idusuario=this.searchPersonal.idusuario
         user.nombre = this.searchPersonal.nombre
         user.apellido = this.searchPersonal.apellido
@@ -155,6 +155,7 @@ export class RegisterComponent implements OnInit {
           this.toastr.success("Usuario Creado con exito");
           this.router.navigate(['/login'])
         });
+        this.crearConductor(this.newConductor)
       }else{
       
         this.serviceU.crearUsuario(user)

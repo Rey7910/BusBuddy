@@ -26,7 +26,7 @@ export class PersonalComponent implements OnInit {
     subscribe(data=>{
       this.personal=data;
       console.log(data)
-    }) ;
+    });
   }
 
   crearpersonall(perso: Personal){
