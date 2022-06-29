@@ -12,7 +12,6 @@ import java.util.List;
 
 public interface RutaViewRepository extends CrudRepository<RutaView,Integer> {
     List<RutaView> findByIdConductor(int idConductor);
-    List<RutaView> findByIdEmpresa(int idEmpresa);
    /* @Query("select mvt from Mouvements mvt where mvt.dateCompte between :x and :y")
     public Page<Mouvements> getMouvementsByDate(@Param("x")LocalDate dateBefore, @Param("y")LocalDate dateAfter, Pageable pageable);*/
     //@Query(value="")
