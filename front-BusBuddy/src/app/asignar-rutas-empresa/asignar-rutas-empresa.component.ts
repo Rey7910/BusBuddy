@@ -34,7 +34,7 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     var idEmpresaS=sessionStorage.getItem("idEmpresa");
     if(idEmpresaS!=null){
       this.idEmpresa=+idEmpresaS;
-      this.serviceView.getRutas().subscribe(data=>{
+      this.serviceView.getRutasEmpresa(this.idEmpresa).subscribe(data=>{
         this.rutas=data;
       }) ;
       this.serviceTerminal.getTerminales().subscribe(data=>{

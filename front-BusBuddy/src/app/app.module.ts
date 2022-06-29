@@ -22,6 +22,7 @@ import { PersonalComponent } from './personal/personal.component';
 import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes-usuario.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
+import { ConfiguracionComponent } from './configuracion/configuracion.component';
 
 
 
@@ -40,6 +41,7 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
     MisTiquetesUsuarioComponent,
    EstadisticasComponent,
     PaginaErrorComponent,
+    ConfiguracionComponent,
     
   ],
   imports: [
