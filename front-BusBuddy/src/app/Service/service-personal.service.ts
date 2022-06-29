@@ -24,4 +24,8 @@ export class ServicePersonalService {
   deletePersonalId(idPersonal:number){
     return this.http.delete<Personal>(this.Url+"/"+idPersonal);
   }
+  updatePersonal(personal:Personal){
+    return this.http.put<Personal>(this.Url+"/"+personal.idpersonal,personal)
+  }
+
 }

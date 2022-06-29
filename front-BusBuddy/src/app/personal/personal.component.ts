@@ -47,6 +47,7 @@ export class PersonalComponent implements OnInit {
       }
 
       perso.idusuario = this.idusuario ;
+      perso.cargo = "Conductor";
       console.log(perso.idusuario, this.idusuario);
       this.serviceP.crearPersonal(perso)
       .subscribe(data=>{
@@ -87,17 +88,54 @@ export class PersonalComponent implements OnInit {
 
   }
   
-}
+  }
 
-cambiar_estado_caja2(){
-  if(this.caja_editar==true){
-     this.caja_editar = false;
-     console.log("aaa2aaa")
+  cambiar_estado_caja2(){
+    if(this.caja_editar==true){
+      this.caja_editar = false;
+      console.log("aaa2aaa")
 
- } else if (this.caja_editar == false){
- this.caja_editar = true;
- }
- 
-}
+  } else if (this.caja_editar == false){
+  this.caja_editar = true;
+  }
+  
+  }
+
+  Editar(persona:Personal):void{
+    persona.cargo = "Conductor";
+    var idemp = sessionStorage.getItem("idEmpresa");
+    if(idemp != undefined){
+      persona.idempresa=+ idemp;
+      this.serviceP.crearPersonal(persona).subscribe(data=>{
+        this.toastr.success("Persona Editada con exito");
+        window.location.reload();
+      },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
+      this.serviceP.getPersonal().
+      subscribe(data=>{
+        this.personal=data;
+        console.log(data)
+      });
+    } 
+    
+  }
+
+  Editar2(id:number){
+  this.newPerso.idpersonal=id;
+  this.cambiar_estado_caja2() 
+  }
+
+  Eliminar(id:number){
+    if(confirm("¿Seguro quieres eliminar el personal?")) {
+      this.serviceP.deletePersonalId(id).subscribe(data=>{
+        this.toastr.success("Personal Eliminado con exito");
+        window.location.reload();
+      },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
+      this.serviceP.getPersonal().
+      subscribe(data=>{
+        this.personal=data;
+        console.log(data)
+      });
+    }
+  }
 
 }

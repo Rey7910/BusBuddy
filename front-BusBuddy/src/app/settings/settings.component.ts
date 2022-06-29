@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ServiceUsuarioService } from '../Service/service-usuario.service';
 import { ToastrService } from 'ngx-toastr';
+import { Usuario } from '../Modelo/Usuario';
 
 
 @Component({
@@ -16,8 +17,16 @@ export class SettingsComponent implements OnInit {
 
   constructor(private _location: Location, private serviceU:ServiceUsuarioService, private toastr:ToastrService) { }
 
+  usuarios:Usuario[]
+
   ngOnInit(): void {
+    this.serviceU.getUsuarios().
+    subscribe(data=>{
+      this.usuarios=data;
+    });
   }
+
+  
 
   ver_info(){
     this.caja_info = true;
