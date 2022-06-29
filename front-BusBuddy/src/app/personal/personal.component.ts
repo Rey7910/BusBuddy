@@ -20,6 +20,8 @@ export class PersonalComponent implements OnInit {
 
   newPerso=new Personal();
   personal:Personal[];
+  mapP=new Map<number,Personal>;
+
   boton_crear = true;
   caja_crear = false;
   caja_editar = false;
@@ -38,30 +40,32 @@ export class PersonalComponent implements OnInit {
 
   crearpersonall(perso: Personal){
     this.crearUserVacio(this.newUser)
-      
+    if (perso.nombre == null || perso.apellido == null || perso.telefono == null || perso.eps == null || perso.ciudad == null || perso.id == null || perso.pin == null) {
+      this.toastr.error("Por favor diligenciar todos los datos correctamente", "Datos incompletos")
+    }
+    else {  
     
-    setTimeout(()=>{
-      var idemp = sessionStorage.getItem("idEmpresa")
-      if(idemp != null){
-        perso.idempresa =+ idemp  
-      }
+      setTimeout(()=>{
+        var idemp = sessionStorage.getItem("idEmpresa")
+        if(idemp != null){
+          perso.idempresa =+ idemp  
+        }
 
-      perso.idusuario = this.idusuario ;
-      perso.cargo = "Conductor";
-      console.log(perso.idusuario, this.idusuario);
-      this.serviceP.crearPersonal(perso)
-      .subscribe(data=>{
-        this.toastr.success("Persona Creado con exito");
-        window.location.reload();
-        console.log(perso)
+        perso.idusuario = this.idusuario ;
+        perso.cargo = "Conductor";
+        console.log(perso.idusuario, this.idusuario);
+        this.serviceP.crearPersonal(perso)
+        .subscribe(data=>{
+          this.toastr.success("Persona Creado con exito");
+          window.location.reload();
+          console.log(perso)
 
-      },err=>{
-        this.toastr.error(perso.idusuario+"");
-      }); 
-  },1000);
+        },err=>{
+          this.toastr.error(perso.idusuario+"");
+        }); 
+      },1000);
+    }
     
-    
-
   }
 
   crearUserVacio(userV:Usuario){
@@ -102,20 +106,29 @@ export class PersonalComponent implements OnInit {
   }
 
   Editar(persona:Personal):void{
-    persona.cargo = "Conductor";
-    var idemp = sessionStorage.getItem("idEmpresa");
-    if(idemp != undefined){
-      persona.idempresa=+ idemp;
-      this.serviceP.crearPersonal(persona).subscribe(data=>{
-        this.toastr.success("Persona Editada con exito");
-        window.location.reload();
-      },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
-      this.serviceP.getPersonal().
-      subscribe(data=>{
-        this.personal=data;
-        console.log(data)
-      });
-    } 
+    this.personal.forEach(element => {
+      this.mapP.set(element.idpersonal,element)
+    });
+    var currentPersonal = this.mapP.get(persona.idpersonal)
+    if(currentPersonal!=undefined){
+      persona.idusuario=currentPersonal.idusuario
+      persona.cargo = "Conductor";
+      var idemp = sessionStorage.getItem("idEmpresa");
+      if(idemp != undefined){
+        persona.idempresa=+ idemp;
+        this.serviceP.crearPersonal(persona).subscribe(data=>{
+          this.toastr.success("Persona Editada con exito");
+          window.location.reload();
+        },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
+        this.serviceP.getPersonal().
+        subscribe(data=>{
+          this.personal=data;
+          console.log(data)
+        });
+      } 
+    }
+    
+    
     
   }
 
@@ -126,15 +139,31 @@ export class PersonalComponent implements OnInit {
 
   Eliminar(id:number){
     if(confirm("¿Seguro quieres eliminar el personal?")) {
-      this.serviceP.deletePersonalId(id).subscribe(data=>{
-        this.toastr.success("Personal Eliminado con exito");
-        window.location.reload();
-      },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
-      this.serviceP.getPersonal().
-      subscribe(data=>{
-        this.personal=data;
-        console.log(data)
+      this.personal.forEach(element => {
+        this.mapP.set(element.idpersonal,element)
       });
+      setTimeout(()=>{
+        var currentPersonal = this.mapP.get(id)
+        if(currentPersonal!=undefined){
+          console.log(currentPersonal.idusuario)
+          
+          this.serviceP.deletePersonalId(id).subscribe(data=>{
+            this.toastr.success("Personal Eliminado con exito");
+            window.location.reload();
+          },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
+          
+          this.serviceU.deleteUsuarioId(currentPersonal.idusuario).subscribe(data=>{
+            this.toastr.warning("Usuario del personal Eliminado con exito");
+            window.location.reload();
+          },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
+          
+          this.serviceP.getPersonal().
+          subscribe(data=>{
+            this.personal=data;
+            console.log(data)
+          });
+        }
+      },1000);
     }
   }
 
