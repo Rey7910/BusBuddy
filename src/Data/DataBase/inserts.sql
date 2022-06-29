@@ -54,3 +54,9 @@ insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,prec
 insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (3,'Por comenzar',12,2,'2022-06-30','2022-06-30',40000);
 insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (4,'Por comenzar',3,7,'2022-12-27','2022-12-27',25000);
 insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (5,'Por comenzar',9,6,'2022-11-17','2022-11-17',30000);
+
+-- Personal
+insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (9,1, "Octavo Jose", "Salcedo Parra",3045248924,"Conductor","Aliansalud","Medellin",1193132571,'1235185481');
+insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (10,2,'Estefany','Cadena Ruiz',3041554755,'Conductor','Aliansalud','Bogotá',1002352355,'4442254552');
+insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (11,3,'Sara','Florez Jimenez',3045881155,'Conductor','Colsanitas','Bucaramanga',1022553666,'5515452156');
+insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (12,4,'Gregorio','Jaramillo Paredes',3041595175,'Conductor','Cafesalud','Pasto',1045623655,'1474545457');
