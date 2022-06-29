@@ -38,7 +38,7 @@ export class EstadisticasComponent {
 			this.datosGrafica1=this.estadosRutas[0];
 			this.chartOptions.data=[{
 				type: "pie", //change type to column, line, area, doughnut, etc
-				indexLabel: "{name}: {y}%",
+				indexLabel: "{name}: {y}",
 				dataPoints: [
 					{ name: "Por comenzar", y: this.datosGrafica1.rutasPorComenzar},
 					{ name: "En curso", y: this.datosGrafica1.rutasenCurso },
