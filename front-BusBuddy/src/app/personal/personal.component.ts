@@ -18,6 +18,8 @@ export class PersonalComponent implements OnInit {
   boton_crear = true;
   caja_crear = false;
   caja_editar = false;
+  ssidempresa = false;
+  ssusuario = false;
 
   ngOnInit(): void {
     this.serviceP.getPersonal().
