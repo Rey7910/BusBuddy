@@ -135,7 +135,7 @@ export class RegisterComponent implements OnInit {
     var currentUser = this.mapU.get(this.newUser.correo)
     if(currentUser == undefined){
       if (this.newUser.nombre == null || this.newUser.apellido == null || this.newUser.correo == null || this.newUser.fechaNacimiento == null) {
-        this.toastr.error("Por favor diliganciar todos los datos correctamente", "Datos incompletos")
+        this.toastr.error("Por favor diligenciar todos los datos correctamente", "Datos incompletos")
       }
       else {
         this.box_registo = false;
