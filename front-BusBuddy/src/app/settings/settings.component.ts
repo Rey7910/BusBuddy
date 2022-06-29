@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
+import { ServiceUsuarioService } from '../Service/service-usuario.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-settings',
@@ -11,7 +14,7 @@ export class SettingsComponent implements OnInit {
   caja_info = true;
   caja_pass = false;
 
-  constructor(private _location: Location) { }
+  constructor(private _location: Location, private serviceU:ServiceUsuarioService, private toastr:ToastrService) { }
 
   ngOnInit(): void {
   }

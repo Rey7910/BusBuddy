@@ -152,6 +152,7 @@ export class RegisterComponent implements OnInit {
         user.telefono = this.searchPersonal.telefono
         this.serviceU.updateUsuario(user)
         .subscribe(data =>{
+          this.newConductor.idUsuario=data.idusuario
           this.toastr.success("Usuario Creado con exito");
           this.router.navigate(['/login'])
         });
@@ -170,7 +171,7 @@ export class RegisterComponent implements OnInit {
     }
 
     crearConductor(conductor:Conductor){
-      conductor.idUsuario = 2
+      conductor.idUsuario = this.searchPersonal.idusuario
       conductor.idEmpresa = this.searchPersonal.idempresa
       conductor.ciudad = this.searchPersonal.ciudad
       conductor.eps = this.searchPersonal.eps
