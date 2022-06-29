@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Personal } from '../Modelo/Personal';
+import { Usuario } from '../Modelo/Usuario';
 import { ServicePersonalService } from '../Service/service-personal.service';
 
 @Component({
@@ -12,6 +13,7 @@ import { ServicePersonalService } from '../Service/service-personal.service';
 export class PersonalComponent implements OnInit {
 
   constructor(private serviceP:ServicePersonalService, private toastr: ToastrService, private router: Router) { }
+  newUser = new Usuario();
 
   newPerso=new Personal();
   personal:Personal[];
@@ -30,9 +32,12 @@ export class PersonalComponent implements OnInit {
   }
 
   crearpersonall(perso: Personal){
-    perso.idempresa = 1
-    //perso.idpersonal = 1
-    perso.idusuario = 1
+    var idemp = sessionStorage.getItem("idEmpresa")
+    if(idemp != null){
+      perso.idempresa =+ idemp  
+    }
+    
+    // perso.idusuario = 1
     this.serviceP.crearPersonal(perso)
     .subscribe(data=>{
       this.toastr.success("Persona Creado con exito");
