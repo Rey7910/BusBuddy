@@ -20,6 +20,8 @@ export class PersonalComponent implements OnInit {
 
   newPerso=new Personal();
   personal:Personal[];
+  mapP=new Map<number,Personal>;
+
   boton_crear = true;
   caja_crear = false;
   caja_editar = false;
@@ -102,20 +104,28 @@ export class PersonalComponent implements OnInit {
   }
 
   Editar(persona:Personal):void{
-    persona.cargo = "Conductor";
-    var idemp = sessionStorage.getItem("idEmpresa");
-    if(idemp != undefined){
-      persona.idempresa=+ idemp;
-      this.serviceP.crearPersonal(persona).subscribe(data=>{
-        this.toastr.success("Persona Editada con exito");
-        window.location.reload();
-      },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
-      this.serviceP.getPersonal().
-      subscribe(data=>{
-        this.personal=data;
-        console.log(data)
-      });
-    } 
+    this.personal.forEach(element => {
+      this.mapP.set(element.idpersonal,element)
+    });
+    var currentPersonal = this.mapP.get(persona.idpersonal)
+    if(currentPersonal!=undefined){
+      persona.idusuario=currentPersonal.idusuario
+      persona.cargo = "Conductor";
+      var idemp = sessionStorage.getItem("idEmpresa");
+      if(idemp != undefined){
+        persona.idempresa=+ idemp;
+        this.serviceP.crearPersonal(persona).subscribe(data=>{
+          this.toastr.success("Persona Editada con exito");
+          window.location.reload();
+        },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
+        this.serviceP.getPersonal().
+        subscribe(data=>{
+          this.personal=data;
+          console.log(data)
+        });
+      } 
+    }
+    
     
   }
 
