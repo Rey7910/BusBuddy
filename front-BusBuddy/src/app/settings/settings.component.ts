@@ -77,24 +77,34 @@ export class SettingsComponent implements OnInit {
     });
   }
 
-  EditarC(user:Usuario):void{
+  EditarC(user:Usuario,passA:String,passN:String):void{
     this.usuarios.forEach(element => {
       this.mapU.set(element.idusuario,element)
     });
     var currentUser = this.mapU.get(this.idUsuario)
     if (currentUser != undefined){
-      this.editUser=currentUser
+      this.actualUser=currentUser
     }
-    console.log(user)
-    //user.idusuario=this.idUsuario
-    this.serviceU.updateUsuario(user).subscribe(data=>{
-      this.toastr.success("Usuario Editado con exito");
-      window.location.reload();
-    },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
-    this.serviceU.getUsuarios().
-    subscribe(data=>{
-      this.usuarios=data;
-    });
+    if(passA==this.actualUser.contrasena){
+      if(passN == user.contrasena){
+        this.actualUser.contrasena = user.contrasena
+        console.log(this.actualUser)
+        this.serviceU.updateUsuario(this.actualUser).subscribe(data=>{
+          this.toastr.success("Usuario Editado con exito");
+          window.location.reload();
+        },err =>this.toastr.error("Verifica datos, ha ocurrido un error"));
+        this.serviceU.getUsuarios().
+        subscribe(data=>{
+          this.usuarios=data;
+        });
+      }else{
+        this.toastr.error("La contraseña nueva no se corresponde con la repetición");
+      }
+      
+    }else{
+      this.toastr.error("La contraseña ingresada no corresponde con la contraseña actual");
+    }
+    
   }
 
   ver_info(){
