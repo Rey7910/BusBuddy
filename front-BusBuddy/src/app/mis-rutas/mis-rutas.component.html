@@ -29,7 +29,7 @@
                                     <ul class="menu-area-main">
                                         <li class="activa"> <a href="/mis-rutas">Ver mis rutas </a> </li>
                                         <li><a href="/settings">Configuracion</a></li>
-                                        <li><a href="/home-page">Cerrar sesión</a></li>
+                                        <li (click)="cerrarSesion()"><a href="/home-page">Cerrar sesión</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -46,7 +46,7 @@
 
         <div class="container">
             <h1 style="font-size: 46px;">MIRA TUS <strong style="color: aqua;">RUTAS</strong></h1>
-            <p>Rutas programadas para el conductor "Nombre Usuario"</p> 
+            <p>Rutas programadas para el conductor </p> 
             <br>    
             <div>
                 Estado de la ruta:

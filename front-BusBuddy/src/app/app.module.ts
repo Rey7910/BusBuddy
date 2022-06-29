@@ -20,6 +20,7 @@ import { ServiceTerminalService } from './Service/service-terminal.service';
 import { SettingsComponent } from './settings/settings.component';
 import { PersonalComponent } from './personal/personal.component';
 import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes-usuario.component';
+import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 
 
 
@@ -36,6 +37,7 @@ import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes
     SettingsComponent,
     PersonalComponent,
     MisTiquetesUsuarioComponent,
+    EstadisticasComponent,
     
   ],
   imports: [
