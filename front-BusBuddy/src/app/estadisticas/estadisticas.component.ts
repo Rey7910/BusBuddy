@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceEstadisticasService } from '../Service/service-estadisticas.service';
 
 @Component({
   selector: 'app-estadisticas',
@@ -33,7 +34,9 @@ export class EstadisticasComponent {
   }
 
 
-  constructor() { }
+  constructor(private estadisticasService:ServiceEstadisticasService) { 
+    
+  }
 
   ngOnInit(): void {
 
