@@ -65,25 +65,7 @@ export class EstadisticasComponent {
 			console.log(data)
 		  });
 
-	this.usu.forEach(element => {
-
-		if(element.rol == 0){
-
-			this.cant_clientes = this.cant_clientes+1
-
-
-		}else if(element.rol == 1){
-
-			this.cant_admin = this.cant_admin+1
-
-
-		}else if (element.rol ==2){
-			this.cant_cond = this.cant_cond +1
-		}
-
-
-		
-	});
+	
 
 	console.log()
 
@@ -105,16 +87,7 @@ export class EstadisticasComponent {
 				]
 			  }];
 
-			  this.chartOptions2.data=[{
-				type: "pie", //change type to column, line, area, doughnut, etc
-				indexLabel: "{name}: {y}",
-				dataPoints: [
-					{ name: "Por comenzar", y: this.datosGrafica1.rutasPorComenzar},
-					{ name: "En curso", y: this.datosGrafica1.rutasenCurso },
-					{ name: "Finalizada", y: this.datosGrafica1.rutasFinalizadas },
-					{ name: "Demorada", y: this.datosGrafica1.rutasDemoradas }
-				]
-			  }];
+			  
 			  
 		});
 		this.reservasService.getReservas().subscribe(data=>{
@@ -122,7 +95,15 @@ export class EstadisticasComponent {
 					this.contadores2[data[i].estado]++;
 			}
 			console.log(this.contadores2);
-
+			this.chartOptions2.data=[{
+				type: "pie", //change type to column, line, area, doughnut, etc
+				indexLabel: "{name}: {y}",
+				dataPoints: [
+					{ name: "Por abordar", y: this.contadores2[0]},
+					{ name: "Abordados", y: this.contadores2[1] },
+					{ name: "No abordados/Perdidos", y: this.contadores2[2] }
+				]
+			  }];
 
 		});
 		
