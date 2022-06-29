@@ -12,6 +12,7 @@ import { ServiceEstadisticasService } from '../Service/service-estadisticas.serv
 export class EstadisticasComponent {
 
   chartOptions = {
+		display: true,
 	  animationEnabled: true,
 	  theme: "dark2",
 	  exportEnabled: true,
@@ -20,14 +21,8 @@ export class EstadisticasComponent {
 	  },
 	  subtitles: [{
 		text: "Se muestran los estados actuales en los que se encuentran cada ruta"
-	  }],
-	  data: [{
-		type: "pie", //change type to column, line, area, doughnut, etc
-		indexLabel: "{name}: {y}%",
-		dataPoints: [
-
-		]
-	  }]
+	  }],data: [{}]
+	  
   }
 
 
@@ -36,16 +31,22 @@ export class EstadisticasComponent {
   }
   estadosRutas:ContadoresView[];
   datosGrafica1:ContadoresView;
-
-
-
   ngOnInit(): void {
 	this.estadisticasService.getContadores().subscribe(data=>
 		{
 			this.estadosRutas=data;
 			this.datosGrafica1=this.estadosRutas[0];
-			console.log(this.datosGrafica1);
-			this.chartOptions.data
+			this.chartOptions.data=[{
+				type: "pie", //change type to column, line, area, doughnut, etc
+				indexLabel: "{name}: {y}",
+				dataPoints: [
+					{ name: "Por comenzar", y: this.datosGrafica1.rutasPorComenzar},
+					{ name: "En curso", y: this.datosGrafica1.rutasenCurso },
+					{ name: "Finalizada", y: this.datosGrafica1.rutasFinalizadas },
+					{ name: "Demorada", y: this.datosGrafica1.rutasDemoradas }
+				]
+			  }];
+			  
 		});
 		
   }
