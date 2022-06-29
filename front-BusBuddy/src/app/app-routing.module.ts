@@ -10,6 +10,7 @@ import { CompraTiqueteComponent } from './compra-tiquete/compra-tiquete.componen
 import { SettingsComponent } from './settings/settings.component';
 import { PersonalComponent } from './personal/personal.component';
 import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes-usuario.component'
+import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,11 @@ const routes: Routes = [
     path: 'mis-tiquetes-usuario',
     component: MisTiquetesUsuarioComponent,
   },
+  {
+    path: 'pagina-error',
+    component: PaginaErrorComponent,
+  },
+
 
 ];
 
