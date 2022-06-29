@@ -24,4 +24,7 @@ export class ServiceUsuarioService {
   updateUsuario(usuario:Usuario){
     return this.http.put<Usuario>(this.Url+"/"+usuario.idusuario,usuario)
   }
+  deleteUsuarioId(idUser:number){
+    return this.http.delete<Usuario>(this.Url+"/"+idUser);
+  }
 }

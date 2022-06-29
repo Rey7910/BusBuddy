@@ -129,6 +129,7 @@ export class PersonalComponent implements OnInit {
     }
     
     
+    
   }
 
   Editar2(id:number){
@@ -138,15 +139,31 @@ export class PersonalComponent implements OnInit {
 
   Eliminar(id:number){
     if(confirm("¿Seguro quieres eliminar el personal?")) {
-      this.serviceP.deletePersonalId(id).subscribe(data=>{
-        this.toastr.success("Personal Eliminado con exito");
-        window.location.reload();
-      },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
-      this.serviceP.getPersonal().
-      subscribe(data=>{
-        this.personal=data;
-        console.log(data)
+      this.personal.forEach(element => {
+        this.mapP.set(element.idpersonal,element)
       });
+      setTimeout(()=>{
+        var currentPersonal = this.mapP.get(id)
+        if(currentPersonal!=undefined){
+          console.log(currentPersonal.idusuario)
+          
+          this.serviceP.deletePersonalId(id).subscribe(data=>{
+            this.toastr.success("Personal Eliminado con exito");
+            window.location.reload();
+          },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
+          
+          this.serviceU.deleteUsuarioId(currentPersonal.idusuario).subscribe(data=>{
+            this.toastr.warning("Usuario del personal Eliminado con exito");
+            window.location.reload();
+          },err =>this.toastr.error("Ha ocurrido un error al intentar eliminar"));
+          
+          this.serviceP.getPersonal().
+          subscribe(data=>{
+            this.personal=data;
+            console.log(data)
+          });
+        }
+      },1000);
     }
   }
 
