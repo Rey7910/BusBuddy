@@ -139,7 +139,7 @@ create table reserva(
 create or replace view info_conductores as select conductor.*,usuario.nombre as nombre, usuario.apellido as apellido from conductor, usuario where conductor.idusuario = usuario.idusuario;
 create or replace view info_rutas as select ruta.idruta ,empresa.nombre as empresa, concat (usuario.nombre," ", usuario.apellido) as conductor , terminalo.nombre as terminal_origen,
 terminalo.ciudad as ciudad_origen,  terminald.nombre as terminal_destino, terminald.ciudad as ciudad_destino, ruta.idbus as bus, ruta.fecha_salida as fecha_salida, 
-ruta.fecha_llegada as fecha_llegada, ruta.precio as precio, ruta.estado as estado,conductor.idconductor as idconductor from empresa, usuario, conductor, terminal as terminalo,terminal as terminald, ruta 
+ruta.fecha_llegada as fecha_llegada, ruta.precio as precio, ruta.estado as estado,conductor.idconductor as idconductor, empresa.idempresa as idempresa from empresa, usuario, conductor, terminal as terminalo,terminal as terminald, ruta 
 where empresa.idempresa = ruta.idempresa and terminalo.idterminal = ruta.origen and terminald.idterminal = ruta.destino
 and ruta.idconductor = conductor.idconductor and usuario.idusuario = conductor.idusuario;
 create or replace view info_reservas as select 
