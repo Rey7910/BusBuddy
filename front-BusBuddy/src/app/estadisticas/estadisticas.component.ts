@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContadoresView } from '../Modelo/ContadoresView';
 import { ServiceEstadisticasService } from '../Service/service-estadisticas.service';
 
 @Component({
@@ -37,10 +38,16 @@ export class EstadisticasComponent {
   constructor(private estadisticasService:ServiceEstadisticasService) { 
     
   }
-
+  estadosRutas:ContadoresView[];
+  datosGrafica1:ContadoresView;
   ngOnInit(): void {
-
-
+	this.estadisticasService.getContadores().subscribe(data=>
+		{
+			this.estadosRutas=data;
+			this.datosGrafica1=this.estadosRutas[0];
+			console.log(this.datosGrafica1);
+		});
+		
   }
 
 }
