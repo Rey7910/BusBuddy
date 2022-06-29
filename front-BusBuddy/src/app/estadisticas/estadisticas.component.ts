@@ -23,11 +23,8 @@ export class EstadisticasComponent {
 	  }],
 	  data: [{
 		type: "pie", //change type to column, line, area, doughnut, etc
-		indexLabel: "{name}: {y}%",
+		indexLabel: "{name}: {y}",
 		dataPoints: [
-			{ name: "Por comenzar", y: 9.1 },
-			{ name: "En curso", y: 3.7 },
-			{ name: "Finalizada", y: 36.4 },
 
 		]
 	  }]
@@ -39,6 +36,9 @@ export class EstadisticasComponent {
   }
   estadosRutas:ContadoresView[];
   datosGrafica1:ContadoresView;
+
+
+
   ngOnInit(): void {
 	this.estadisticasService.getContadores().subscribe(data=>
 		{
