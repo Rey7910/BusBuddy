@@ -40,30 +40,32 @@ export class PersonalComponent implements OnInit {
 
   crearpersonall(perso: Personal){
     this.crearUserVacio(this.newUser)
-      
+    if (perso.nombre == null || perso.apellido == null || perso.telefono == null || perso.eps == null || perso.ciudad == null || perso.id == null || perso.pin == null) {
+      this.toastr.error("Por favor diligenciar todos los datos correctamente", "Datos incompletos")
+    }
+    else {  
     
-    setTimeout(()=>{
-      var idemp = sessionStorage.getItem("idEmpresa")
-      if(idemp != null){
-        perso.idempresa =+ idemp  
-      }
+      setTimeout(()=>{
+        var idemp = sessionStorage.getItem("idEmpresa")
+        if(idemp != null){
+          perso.idempresa =+ idemp  
+        }
 
-      perso.idusuario = this.idusuario ;
-      perso.cargo = "Conductor";
-      console.log(perso.idusuario, this.idusuario);
-      this.serviceP.crearPersonal(perso)
-      .subscribe(data=>{
-        this.toastr.success("Persona Creado con exito");
-        window.location.reload();
-        console.log(perso)
+        perso.idusuario = this.idusuario ;
+        perso.cargo = "Conductor";
+        console.log(perso.idusuario, this.idusuario);
+        this.serviceP.crearPersonal(perso)
+        .subscribe(data=>{
+          this.toastr.success("Persona Creado con exito");
+          window.location.reload();
+          console.log(perso)
 
-      },err=>{
-        this.toastr.error(perso.idusuario+"");
-      }); 
-  },1000);
+        },err=>{
+          this.toastr.error(perso.idusuario+"");
+        }); 
+      },1000);
+    }
     
-    
-
   }
 
   crearUserVacio(userV:Usuario){
