@@ -23,7 +23,7 @@ export class EstadisticasComponent {
 	  }],
 	  data: [{
 		type: "pie", //change type to column, line, area, doughnut, etc
-		indexLabel: "{name}: {y}",
+		indexLabel: "{name}: {y}%",
 		dataPoints: [
 
 		]
@@ -45,6 +45,7 @@ export class EstadisticasComponent {
 			this.estadosRutas=data;
 			this.datosGrafica1=this.estadosRutas[0];
 			console.log(this.datosGrafica1);
+			this.chartOptions.data
 		});
 		
   }
