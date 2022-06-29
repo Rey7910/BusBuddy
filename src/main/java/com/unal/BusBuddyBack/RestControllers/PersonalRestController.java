@@ -25,10 +25,12 @@ public class PersonalRestController {
         return servPersonal.save(pers);
     }
 
-    @PutMapping
-    public Personal editar(@RequestBody Personal personal){
+    @PutMapping(path ={"/{id}"})
+    public Personal editar(@RequestBody Personal personal, @PathVariable("id") int id){
+        personal.setIdpersonal(id);
         return servPersonal.save(personal);
     }
+
     @DeleteMapping
     public void eliminar(@RequestBody Personal personal){
         servPersonal.delete(personal);

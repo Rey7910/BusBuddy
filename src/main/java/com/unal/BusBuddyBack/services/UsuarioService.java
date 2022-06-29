@@ -37,7 +37,7 @@ public class UsuarioService implements IUsuarioService {
 
     @Override
     public void deleteId(int id) {
-
+        dataURepository.deleteById(id);
     }
 
 }

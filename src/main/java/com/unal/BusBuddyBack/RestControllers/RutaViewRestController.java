@@ -30,4 +30,5 @@ public class RutaViewRestController {
     ){
         return service.consultaFiltrada( origen,  destino,  fechaSalida,  precioMin,  precioMax);
     }
+
 }
