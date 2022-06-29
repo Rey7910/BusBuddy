@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContadoresView } from '../Modelo/ContadoresView';
 import { ServiceEstadisticasService } from '../Service/service-estadisticas.service';
+import { ServiceReservasService } from '../Service/service-reservas.service';
 
 @Component({
   selector: 'app-estadisticas',
@@ -24,13 +25,15 @@ export class EstadisticasComponent {
 	  }],data: [{}]
 	  
   }
+  
 
 
-  constructor(private estadisticasService:ServiceEstadisticasService) { 
+  constructor(private estadisticasService:ServiceEstadisticasService, private reservasService:ServiceReservasService) { 
     
   }
   estadosRutas:ContadoresView[];
   datosGrafica1:ContadoresView;
+  contadores2=[0,0,0];
   ngOnInit(): void {
 	this.estadisticasService.getContadores().subscribe(data=>
 		{
@@ -47,6 +50,14 @@ export class EstadisticasComponent {
 				]
 			  }];
 			  
+		});
+		this.reservasService.getReservas().subscribe(data=>{
+			for(let i in data){
+					this.contadores2[data[i].estado]++;
+			}
+			console.log(this.contadores2);
+
+
 		});
 		
   }
