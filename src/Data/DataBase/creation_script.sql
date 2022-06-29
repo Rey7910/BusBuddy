@@ -147,3 +147,20 @@ reserva.idreserva as idreserva,reserva.silla as silla ,reserva.idusuario as  idu
 terminal1.ciudad as origen, terminal2.ciudad as destino, reserva.nombre as nombre, reserva.apellido as apellido, reserva.id as id, reserva.estado as estado
 from reserva,ruta,terminal as terminal1,terminal as terminal2
  where ruta.origen=terminal1.idterminal and ruta.destino=terminal2.idterminal and reserva.idruta=ruta.idruta;
+----Estadisticas:Contadores estado rutas
+create view contador_porcomenzar as select count(idruta) as porcomenzar from ruta where estado = 'Por comenzar';
+create view contador_encurso as select count(idruta) as encurso from ruta where estado = 'En curso';
+create view contador_llegadoalterminal as select count(idruta) as llegadoalterminal from ruta where estado = 'Llegado al terminal';
+create view contador_demorado as select count(idruta) as demorado from ruta where estado = 'Demorado';
+create view contador_finalizado as select count(idruta) as finalizado from ruta where estado = 'Finalizado';
+
+create view contadores as select * from contador_porcomenzar, contador_encurso,
+contador_llegadoalterminal, contador_demorado, contador_finalizado;
+----Estado reservas
+create or replace view abordadosview as select count(reserva.estado) as abordados  from reserva where reserva.estado=1;
+create or replace view noabordadosview as select count(reserva.estado) as noabordados  from reserva where reserva.estado=2;
+create or replace view porcomenzarview as select count(reserva.estado) as porcomenzar  from reserva where reserva.estado=0;
+
+
+create or replace view estadosReserva as select * from abordadosview,noabordadosview,porcomenzarview;
+--
