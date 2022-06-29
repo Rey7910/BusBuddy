@@ -53,11 +53,11 @@
             </div>
             
             <div>
-                <button (click)="changeState('Por comenzar',selectedRuta) " style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Por comenzar</button>
-                <button (click)="changeState('En curso',selectedRuta) "  style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">En curso</button>
-                <button (click)="changeState('Llegado al terminal',selectedRuta) "  style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Llegado al terminal</button>
-                <button (click)="changeState('Demorado',selectedRuta) "  style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Demorada</button>
-                <button  (click)="changeState('Finalizado',selectedRuta) " style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Finalizada</button>
+                <button (click)="recuperacionBoletos(selectedRuta);changeState('Por comenzar',selectedRuta) " style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Por comenzar</button>
+                <button (click)="perdidaDeBoletos(selectedRuta);changeState('En curso',selectedRuta) "  style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">En curso</button>
+                <button (click)="perdidaDeBoletos(selectedRuta);changeState('Llegado al terminal',selectedRuta) "  style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Llegado al terminal</button>
+                <button (click)="perdidaDeBoletos(selectedRuta);changeState('Demorado',selectedRuta) "  style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Demorada</button>
+                <button  (click)="perdidaDeBoletos(selectedRuta);changeState('Finalizado',selectedRuta) " style= "margin-right: 10px; padding: 5px;" class="btn btn-secondary btn-lg">Finalizada</button>
 
             </div>
             
