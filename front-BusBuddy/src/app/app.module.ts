@@ -22,11 +22,14 @@ import { PersonalComponent } from './personal/personal.component';
 import { MisTiquetesUsuarioComponent } from './mis-tiquetes-usuario/mis-tiquetes-usuario.component';
 import { EstadisticasComponent } from './estadisticas/estadisticas.component';
 import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
-
+import * as CanvasJSAngularChart from '../assets/canvasjs.angular.component';
+var CanvasJSChart = CanvasJSAngularChart.CanvasJSChart;
+ 
 
 @NgModule({
   declarations: [
     AppComponent,
+    CanvasJSChart,
     HomeUsuarioComponent,
     LoginComponent,
     RegisterComponent,
@@ -38,7 +41,8 @@ import { PaginaErrorComponent } from './pagina-error/pagina-error.component';
     PersonalComponent,
     MisTiquetesUsuarioComponent,
    EstadisticasComponent,
-    PaginaErrorComponent
+    PaginaErrorComponent,
+    
     
   ],
   imports: [
