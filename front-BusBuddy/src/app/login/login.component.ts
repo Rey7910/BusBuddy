@@ -78,7 +78,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/asignar-rutas-empresa'])
         }
         else if (currentUser.rol == 3){ //administrador de terminal
-          sessionStorage.setItem("rol","2")
+          sessionStorage.setItem("rol","3")
           this.toastr.success('Usuario loggeado con éxito');
           //this.router.navigate(['/terminal'])
         }
@@ -86,6 +86,7 @@ export class LoginComponent implements OnInit {
           sessionStorage.setItem("rol","2")
           sessionStorage.setItem("idEmpresa",currentConductor.idEmpresa.toString())
           sessionStorage.setItem("idConductor",currentConductor.idConductor.toString());
+          
           this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/mis-rutas'])
         }
