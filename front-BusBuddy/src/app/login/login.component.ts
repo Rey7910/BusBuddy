@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
         
         sessionStorage.setItem("idUsuario",currentUser.idusuario.toString());
         if(currentUser.rol == 0){ //cliente
-          sessionStorage.setItem("rol","0")
+          sessionStorage.setItem("rol","0");
           this.toastr.success('Usuario loggeado con éxito');
           this.router.navigate(['/home-usuario'])
         }
