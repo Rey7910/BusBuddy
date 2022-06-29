@@ -6,6 +6,7 @@ import { Ruta } from '../Modelo/Ruta';
 import { RutaView } from '../Modelo/RutaView';
 import { ServiceReservasService } from '../Service/service-reservas.service';
 import { ServiceRutasViewService } from '../Service/service-rutas-view.service';
+import { ServiceRutasService } from '../Service/service-rutas.service';
 
 @Component({
   selector: 'app-mis-rutas',
@@ -14,12 +15,13 @@ import { ServiceRutasViewService } from '../Service/service-rutas-view.service';
 })
 export class MisRutasComponent implements OnInit {
   visibleValidateTable:boolean;
-  constructor(private serviceRutasView:ServiceRutasViewService, private serviceReservas:ServiceReservasService, private router:Router,private toastr: ToastrService) { }
+  constructor(private serviceRutas:ServiceRutasService,private serviceRutasView:ServiceRutasViewService, private serviceReservas:ServiceReservasService, private router:Router,private toastr: ToastrService) { }
   rutas:RutaView[];
   tiquetes:Reserva[];
   tiquetesValidados:Reserva[];
   reservaUpdate:Reserva;
   idRutaValidar:number; 
+  selectedRuta:RutaView;
   ngOnInit(): void {
     this.visibleValidateTable=false;
     this.serviceRutasView.getRutasConductor(1).subscribe(data=>
@@ -37,6 +39,10 @@ export class MisRutasComponent implements OnInit {
       );
       
   }
+  selectRuta(ruta:RutaView){
+    this.selectedRuta=ruta;
+  }
+
   validarReserva(reserva:Reserva){
     reserva.estado=+1;
     this.serviceReservas.updateReserva(reserva).subscribe(data=>{
@@ -47,10 +53,23 @@ export class MisRutasComponent implements OnInit {
       this.serviceReservas.getReservasRutaYEstado(reserva.idRuta,1).subscribe(data=> 
         this.tiquetesValidados=data
       );
-    },err =>this.toastr.error("Tiquete no validado, ha ocurrido un error"));
+    },err =>this.toastr.error("Persona no creada, ha ocurrido un error"));
     
   }
   rechazarReservas(){ //Rechazar las que están en estado 0 de la ruta cuando esta esté en curso 
   }
-  
+  changeState(state:String,ruta:RutaView){
+    if(ruta!=null ){
+      this.serviceRutas.updateEstado(state,ruta.idRuta).subscribe(data=>
+        {
+          this.toastr.success("Cambio de estado realizado con exito");
+          window.location.reload();
+        },err=>
+          this.toastr.error("Cambio de estado no realizado ")
+        );
+    }else{
+      this.toastr.info("Debes seleccionar una ruta.")
+    }
+    
+  }
 }

@@ -34,6 +34,7 @@ export class PersonalComponent implements OnInit {
     this.serviceP.crearPersonal(perso)
     .subscribe(data=>{
       this.toastr.success("Persona Creado con exito");
+      window.location.reload();
       console.log(perso)
 
     }); 
