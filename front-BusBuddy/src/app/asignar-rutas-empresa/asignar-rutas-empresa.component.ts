@@ -27,32 +27,35 @@ export class AsignarRutasEmpresaComponent implements OnInit {
   conductores:ConductorView[];
   buses:Bus[];
   newRuta=new Ruta();
+  idEmpresa:number;
   ngOnInit(): void {
 
-
-
-    this.serviceView.getRutas().
-    subscribe(data=>{
-      this.rutas=data;
-    }) ;
-    this.serviceTerminal.getTerminales().subscribe(data=>{
-      this.terminales=data;
-    });
-    this.serviceConductorView.getConductores().subscribe(data=>{
-      this.conductores=data;
-    });
-    this.serviceBus.getBuses().subscribe(data=>{
-      this.buses=data;
-    });
-    sessionStorage.setItem("idEmpresa",'1');
+    
+    var idEmpresaS=sessionStorage.getItem("idEmpresa");
+    if(idEmpresaS!=null){
+      this.idEmpresa=+idEmpresaS;
+      this.serviceView.getRutas().subscribe(data=>{
+        this.rutas=data;
+      }) ;
+      this.serviceTerminal.getTerminales().subscribe(data=>{
+        this.terminales=data;
+      });
+      this.serviceConductorView.getConductores().subscribe(data=>{
+        this.conductores=data;
+      });
+      this.serviceBus.getBuses().subscribe(data=>{
+        this.buses=data;
+      });
+    }else{
+      //Enviar a pagina error
+      console.log("F");
+    }
+    
+    //sessionStorage.setItem("idEmpresa",'1');
   }
   Crear(ruta:Ruta):void{
-    
-    
-    var idE=sessionStorage.getItem("idEmpresa");
     if(ruta.destino!=ruta.origen){
-      if(idE!=null){
-        ruta.idEmpresa=+idE;
+        ruta.idEmpresa=this.idEmpresa;
         this.service.crearRuta(ruta).subscribe(data=>{
           this.toastr.success("Ruta Creada con exito");
           window.location.reload();
@@ -61,18 +64,14 @@ export class AsignarRutasEmpresaComponent implements OnInit {
       subscribe(data=>{
         this.rutas=data;
       }) ;
-      }else{
-        this.toastr.error("Ruta No creada, error con la identificación de la empresa");
-      }
     }else{
       this.toastr.error("Selecciona un destino distinto al origen por favor");
     }
     
   }
   Editar(ruta:Ruta):void{
-    var idE=sessionStorage.getItem("idEmpresa");
-    if(idE!=null){
-      ruta.idEmpresa=+idE;
+    
+      ruta.idEmpresa=this.idEmpresa;
       this.service.crearRuta(ruta).subscribe(data=>{
         this.toastr.success("Ruta Editada con exito");
         window.location.reload();
@@ -81,9 +80,6 @@ export class AsignarRutasEmpresaComponent implements OnInit {
     subscribe(data=>{
       this.rutas=data;
     }) ;
-    }else{
-      this.toastr.error("Ruta No Editada, error con la identificación de la empresa");
-    }
   }
 
   Editar2(id:number){
@@ -96,8 +92,6 @@ export class AsignarRutasEmpresaComponent implements OnInit {
   }
   Eliminar(idRuta:number){
     if(confirm("¿Seguro quieres eliminar la ruta?")) {
-        var idE=sessionStorage.getItem("idEmpresa");
-      if(idE!=null){
         this.service.deleteRutaId(idRuta).subscribe(data=>{
           this.toastr.success("Ruta Eliminada con exito");
           window.location.reload();
@@ -106,11 +100,11 @@ export class AsignarRutasEmpresaComponent implements OnInit {
       subscribe(data=>{
         this.rutas=data;
       }) ;
-      }else{
-        this.toastr.error("Ruta No Eliminada, error con la identificación de la empresa");
-      }
     }
     
+  }
+  cerrarSesion(){
+    sessionStorage.clear();
   }
   
 }

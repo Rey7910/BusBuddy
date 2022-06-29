@@ -22,12 +22,23 @@ export class MisRutasComponent implements OnInit {
   reservaUpdate:Reserva;
   idRutaValidar:number; 
   selectedRuta:RutaView;
+  idConductor:number;
   ngOnInit(): void {
-    this.visibleValidateTable=false;
-    this.serviceRutasView.getRutasConductor(1).subscribe(data=>
-      this.rutas=data
-    );
-    console.log(this.rutas);
+    var rolString=sessionStorage.getItem("rol");
+    var idConductorS=sessionStorage.getItem("idConductor");
+    if(idConductorS!=null && rolString=="2"){
+      this.idConductor=+idConductorS;
+      this.visibleValidateTable=false;
+      this.serviceRutasView.getRutasConductor(this.idConductor).subscribe(data=>
+        this.rutas=data
+      );
+    }else{
+        //Redirigir a error
+        console.log("F");
+    }
+    
+
+    
   }
   getValidarTable(idRuta:number){
     this.visibleValidateTable=true;
@@ -71,5 +82,8 @@ export class MisRutasComponent implements OnInit {
       this.toastr.info("Debes seleccionar una ruta.")
     }
     
+  }
+  cerrarSesion(){
+    sessionStorage.clear();
   }
 }
