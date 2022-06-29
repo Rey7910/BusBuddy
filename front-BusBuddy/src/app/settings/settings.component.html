@@ -29,7 +29,7 @@
                                     <ul class="menu-area-main">
                                         <li > <a (click)="goBack()">Volver </a> </li>
                                         <li class="activa"><a>Configuracion</a></li>
-                                        <li><a href="/home-page">Cerrar sesión</a></li>
+                                        <li (click)="cerrarSesion()"><a href="/home-page">Cerrar sesión</a></li>
                                     </ul>
                                 </nav>
                             </div>
@@ -95,25 +95,25 @@
                   <form>
                     <div class="form-group">
                       <label for="fullName">Nombres</label>
-                      <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
+                      <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="editUser.nombre" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
                     </div>
                     <div class="form-group">
                       <label for="fullName">Apellidos</label>
-                      <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
+                      <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="editUser.apellido"class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
                     </div>
                     <div class="form-group">
                       <label for="fullName">Correo electronico</label>
-                      <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
+                      <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="editUser.correo" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
                     </div>
                     <div class="form-group">
                       <label for="fullName">Fecha de nacimiento</label>
-                      <input type="date" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
+                      <input type="date" [ngModelOptions]="{standalone: true}" [(ngModel)]="editUser.fechaNacimiento" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
                     </div>
                     <div class="form-group">
                       <label for="fullName">Telefono</label>
-                      <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
+                      <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="editUser.telefono" class="form-control" id="fullName" aria-describedby="fullNameHelp"  value="">
                     </div>
-                    <button type="button" style="margin-left: 260px; width: 300px; height: 50px;" class="btn btn-primary">Modificar datos</button>
+                    <button (click)="Editar(editUser)" type="button" style="margin-left: 260px; width: 300px; height: 50px;" class="btn btn-primary">Modificar datos</button>
                   </form>
                 </div>
                 
@@ -126,18 +126,18 @@
                   <form>
                     <div class="form-group">
                       <label for="fullName">Contraseña antigua</label>
-                      <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" value="">
+                      <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="passAntigua" class="form-control" id="fullName" aria-describedby="fullNameHelp" value="">
                     </div>
                     <div class="form-group">
                       <label for="fullName">Nueva contraseña</label>
-                      <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" value="">
+                      <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="editUser.contrasena" class="form-control" id="fullName" aria-describedby="fullNameHelp" value="">
                     </div>
                     <div class="form-group">
                       <label for="fullName">Actualizar contraseña</label>
-                      <input type="text" class="form-control" id="fullName" aria-describedby="fullNameHelp" value="">
+                      <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="passNueva" class="form-control" id="fullName" aria-describedby="fullNameHelp" value="">
                     </div>
           
-                    <button type="button" style="margin-left: 260px; width: 300px; height: 50px;" class="btn btn-primary">Modificar datos</button>
+                    <button (click)="EditarC(editUser)" type="button" style="margin-left: 260px; width: 300px; height: 50px;" class="btn btn-primary">Modificar datos</button>
                   </form>
                 </div>
                 
