@@ -5,6 +5,7 @@ import com.unal.BusBuddyBack.services.IUsuarioService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,5 +37,10 @@ public class UsuarioRestController {
     public Usuario editar(@RequestBody Usuario usuario, @PathVariable("id") int id){
         usuario.setIdusuario(id);
         return servUsuario.save(usuario);
+    }
+
+    @DeleteMapping(path="/{id}")
+    public void eliminar(@PathVariable("id") int id){
+        servUsuario.deleteId(id);
     }
 }
