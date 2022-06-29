@@ -56,7 +56,21 @@ insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,prec
 insert into ruta(idempresa,estado,origen,destino,fecha_salida,fecha_llegada,precio) values (5,'Por comenzar',9,6,'2022-11-17','2022-11-17',30000);
 
 -- Personal
-insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (9,1, "Octavo Jose", "Salcedo Parra",3045248924,"Conductor","Aliansalud","Medellin",1193132571,'1235185481');
-insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (10,2,'Estefany','Cadena Ruiz',3041554755,'Conductor','Aliansalud','Bogotá',1002352355,'4442254552');
-insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (11,3,'Sara','Florez Jimenez',3045881155,'Conductor','Colsanitas','Bucaramanga',1022553666,'5515452156');
-insert into personal(idusuario, idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (12,4,'Gregorio','Jaramillo Paredes',3041595175,'Conductor','Cafesalud','Pasto',1045623655,'1474545457');
+insert into personal(idusuario,idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (9,1, "Octavo Jose", "Salcedo Parra",3045248924,"Conductor","Aliansalud","Tibasosa",1193132571,'1235185481');
+insert into personal(idusuario,idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (10,2,'Estefany','Cadena Ruiz',3041554755,'Conductor','Aliansalud','Duitama',1002352355,'4442254552');
+insert into personal(idusuario,idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (11,3,'Sara','Florez Jimenez',3045881155,'Conductor','Colsanitas','Bogota',1022553666,'5515452156');
+insert into personal(idusuario,idempresa,nombre,apellido,telefono,cargo,eps,ciudad,id,pin) values (12,4,'Gregorio','Jaramillo Paredes',3041595175,'Conductor','Cafesalud','Bucaramanga',1045623655,'1474545457');
+
+-- Administrador de empresa
+
+insert into administrador_empresa(idusuario,idempresa,id,eps,ciudad) values (5,1,1065154125,'Cafesalud','Bogota');
+insert into administrador_empresa(idusuario,idempresa,id,eps,ciudad) values (6,2,1003551185,'Aliansalud','Duitama');
+insert into administrador_empresa(idusuario,idempresa,id,eps,ciudad) values (7,3,1085141778,'Colsanitas','Tibasosa');
+insert into administrador_empresa(idusuario,idempresa,id,eps,ciudad) values (8,4,1014158698,'Colsanitas','Bucaramanga');
+
+-- Administrador de terminal
+
+insert into administrador_terminal(idusuario,idterminal,id,eps,ciudad) values (13,1,1125148941,'Colsanitas','Bogota');
+insert into administrador_terminal(idusuario,idterminal,id,eps,ciudad) values (14,2,1005414887,'Aliansalud','Bogota');
+insert into administrador_terminal(idusuario,idterminal,id,eps,ciudad) values (15,3,1054488144,'Colsanitas','Tibasosa');
+insert into administrador_terminal(idusuario,idterminal,id,eps,ciudad) values (16,4,1015524548,'Cafesalud','Duitama');
