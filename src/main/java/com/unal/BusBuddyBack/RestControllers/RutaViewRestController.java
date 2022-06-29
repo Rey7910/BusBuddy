@@ -31,8 +31,4 @@ public class RutaViewRestController {
         return service.consultaFiltrada( origen,  destino,  fechaSalida,  precioMin,  precioMax);
     }
 
-    @GetMapping(path="/empresa={id}")
-    public List<RutaView> consultarPorEmpresa(@PathVariable("id") int id){
-        return service.listarEmpresaId(id);
-    }
 }

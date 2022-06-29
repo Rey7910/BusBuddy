@@ -44,8 +44,6 @@ public class RutaView implements Serializable {
     private String estado;
     @Column(name="idconductor")
     private int idConductor; //c
-    @Column(name="idempresa")
-    private int idEmpresa; //c
     @Column(name="origen")
     private int origenId;
     @Column(name="destino")
@@ -175,11 +173,5 @@ public class RutaView implements Serializable {
         this.estado = estado;
     }
 
-    public int getIdEmpresa() {
-        return idEmpresa;
-    }
 
-    public void setIdEmpresa(int idEmpresa) {
-        this.idEmpresa = idEmpresa;
-    }
 }
