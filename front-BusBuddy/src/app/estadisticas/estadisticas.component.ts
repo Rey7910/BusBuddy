@@ -14,11 +14,23 @@ import { Usuario } from '../Modelo/Usuario';
 
 export class EstadisticasComponent {
 	usu: Usuario[]
-	cant_clientes: number;
-	cant_cond: number;
-	cant_admin: number;
+	cant_clientes =0;
+	cant_cond=0;
+	cant_admin=0;
 
+	chartOptions3 = {
+		display: true,
+	animationEnabled: true,
+	theme: "dark2",
+	exportEnabled: true,
+	title: {
+		text: "Roles de usuarios"
+	},
+	subtitles: [{
+		text: "Se muestran los roles de usuario"
+	}],data: [{}]
 	
+	}
 
   chartOptions = {
 		display: true,
@@ -59,20 +71,33 @@ export class EstadisticasComponent {
   contadores2=[0,0,0];
   ngOnInit(): void {
 
-	this.usuarioservicio.getUsuarios().
-		subscribe(data=>{
-			this.usu=data;
-			console.log(data)
-		  });
+	
 
 	
 
-	console.log()
+	this.usuarioservicio.getUsuarios().
+		subscribe(data=>{
+			this.usu=data;
+			console.log(this.usu)
+			for(let i in data){
+				if(data[i].rol == 0){
+					this.cant_clientes++
+				}else if(data[i].rol == 1){
+					this.cant_admin++
+				}else if(data[i].rol == 2){
+					this.cant_cond++
+				}
+
+			} 
+			
+		  });
 
 
-
+		  
 
 	this.estadisticasService.getContadores().subscribe(data=>
+
+		
 		{
 			this.estadosRutas=data;
 			this.datosGrafica1=this.estadosRutas[0];
@@ -84,6 +109,16 @@ export class EstadisticasComponent {
 					{ name: "En curso", y: this.datosGrafica1.rutasenCurso },
 					{ name: "Finalizada", y: this.datosGrafica1.rutasFinalizadas },
 					{ name: "Demorada", y: this.datosGrafica1.rutasDemoradas }
+				]
+			  }];
+
+			  this.chartOptions3.data=[{
+				type: "pie", //change type to column, line, area, doughnut, etc
+				indexLabel: "{name}: {y}",
+				dataPoints: [
+					{ name: "Clientes", y: this.cant_clientes},
+					{ name: "Administradores de empresas", y: this.cant_admin },
+					{ name: "Conductores", y: this.cant_cond },
 				]
 			  }];
 
@@ -106,6 +141,9 @@ export class EstadisticasComponent {
 			  }];
 
 		});
+
+
+
 		
   }
 
