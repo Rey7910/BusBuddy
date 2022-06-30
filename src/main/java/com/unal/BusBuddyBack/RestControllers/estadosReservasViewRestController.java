@@ -16,9 +16,8 @@ import java.util.List;
 public class estadosReservasViewRestController {
     @Autowired
     private IEstadoReservaViewService serviceEstadoReservaView;
-    @GetMapping("/contadores_estadoReservas")
+    @GetMapping()
     public List<EstadoReservaView> estadoReservas(){
-
         return serviceEstadoReservaView.listar();
     }
 }

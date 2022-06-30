@@ -21,6 +21,22 @@ public class EstadoReservaView implements Serializable {
     @Column(name="porcomenzar")
     private int porComenzar;
 
+    public int getNoAbordados() {
+        return noAbordados;
+    }
+
+    public void setNoAbordados(int noAbordados) {
+        this.noAbordados = noAbordados;
+    }
+
+    public int getPorComenzar() {
+        return porComenzar;
+    }
+
+    public void setPorComenzar(int porComenzar) {
+        this.porComenzar = porComenzar;
+    }
+
     public EstadoReservaView() {
     }
 
