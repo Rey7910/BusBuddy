@@ -1,3 +1,3 @@
 # BusBuddy
 
-##Manual de Instalación 
+## Manual de Instalación 
