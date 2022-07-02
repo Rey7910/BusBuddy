@@ -9,4 +9,4 @@
 5. Descargar el script de registros de la base de datos y ejecutar el script en el servidor local
 6. Instalar Node JS y Angular
 7. Tener descargado Java y el entorno de desarrollo IntellIJ
-8. Clonar el respositorio en cuestión y ejecutar el archivo de backend
+8. Clonar el respositorio en cuestión y ejecutar el archivo main del backend
